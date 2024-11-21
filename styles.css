@@ -1,0 +1,71 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+    color: #333;
+}
+
+/* Section Inscription */
+.event-registration {
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+.event-registration h1 {
+    color: #00796b;
+    margin-bottom: 10px;
+}
+
+.event-registration p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.registration-form .form-group {
+    margin-bottom: 20px;
+}
+
+.registration-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.registration-form input, .registration-form select, .registration-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.registration-form .btn-submit {
+    background: #00796b;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.registration-form .btn-submit:hover {
+    background: #005f56;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    .event-registration {
+        padding: 15px;
+    }
+}
+

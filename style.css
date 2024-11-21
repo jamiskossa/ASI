@@ -1,0 +1,572 @@
+/* ===================
+   RESET CSS
+==================== */
+
+:root {
+    --blue: #0066cc;
+    --white: #ffffff;
+    --orange: #ff6600;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--white);
+    color: var(--blue);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--blue);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+/* ===================
+   GENERAL STYLES
+==================== */
+footer {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Style Général */
+header {
+    background: var(--blue);
+    padding: 10px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header .logo img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #c5e1a5;
+}
+
+/* Toggle Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+/* Styles pour Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #00796b;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+}
+
+
+footer p {
+    font-size: 14px;
+}
+
+/* ===================
+   BUTTON STYLES
+==================== */
+button, .btn {
+    background-color: var(--orange);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--blue);
+}
+
+/* ===================
+   FORM STYLES
+==================== */
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid var(--blue);
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: var(--orange);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--blue);
+}
+
+/* ===================
+   LINK STYLES
+==================== */
+a {
+    text-decoration: none;
+    color: var(--blue);
+}
+
+a:hover {
+    color: var(--orange);
+}
+
+
+/* Section Hero */
+.hero {
+    background-image: url('assets/images/logo.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--blue);
+    position: relative;
+}
+
+/* Effet futuriste sur le texte */
+.hero h1 {
+    font-size: 3rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    font-family: 'Verdana', sans-serif;
+    margin: 20px 0;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Style du bouton Rejoignez-nous */
+.btn-join {
+    display: inline-block;
+    padding: 12px 30px;
+    margin-top: 20px;
+    background-color: var(--orange);
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-join:hover {
+    background-color: var(--blue);
+    transform: translateY(-5px);
+}
+
+/* Animation d'apparition pour les éléments */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mise en page responsive (pour tablettes et mobiles) */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;  /* Désactive le fond fixe sur mobile/tablette */
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Réduction de la taille du titre */
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* Réduction de la taille du texte */
+    }
+
+    .btn-join {
+        padding: 10px 25px; /* Réduction des dimensions du bouton */
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem; /* Réduction plus importante du titre */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Réduction plus importante du texte */
+    }
+
+    .btn-join {
+        padding: 8px 20px; /* Réduction des dimensions du bouton */
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+/* Section Mission et Vision */
+.mission-vision-section {
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f9fc;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Contenu Textuel */
+.text-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.text-content h2 {
+    font-size: 2.5rem;
+    color: #004d40;
+    margin-bottom: 20px;
+}
+
+.text-content p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.key-point {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.percentage {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00796b;
+}
+
+.conclusion {
+    font-size: 1.2rem;
+    color: #004d40;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Image */
+.image-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-content {
+        margin-top: 20px;
+    }
+}
+
+
+/* Section Objectifs Stratégiques */
+.strategic-objectives-section {
+    padding: 50px 20px;
+    background-color: #f7f9fc;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Colonnes */
+.column {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Styles pour le texte introductif */
+.column h2 {
+    font-size: 2rem;
+    color: #004d40;
+    margin-bottom: 20px;
+}
+
+.column p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+}
+
+/* Objectifs spécifiques */
+.objective {
+    margin-bottom: 30px;
+}
+
+.objective h3 {
+    font-size: 1.5rem;
+    color: #00796b;
+    margin-bottom: 10px;
+}
+
+.objective p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .column {
+        margin-bottom: 30px;
+    }
+}
+
+/* Section Équipe */
+.team-section {
+    padding: 30px 20px;
+    background-color: #f7f9fc;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 2.5rem;
+    color: #004d40;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Container pour les cartes */
+.team-cards {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Carte individuelle */
+.team-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Photo du membre */
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+/* Titre et Biographie */
+.team-card h3 {
+    font-size: 1.5rem;
+    color: #00796b;
+    margin-bottom: 10px;
+}
+
+.position {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.bio {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Liens de Contact */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    color: #00796b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-icon:hover {
+    color: #004d40;
+}
+
+/* Bouton de Contact */
+.contact-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00796b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #004d40;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .team-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-card {
+        width: 90%;
+    }
+}
+

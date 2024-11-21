@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous - ASI</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/colors.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/test.css">
+    <style>
+        /* Styles globaux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #f9f9f9;
+}
+
+
+
+h3 {
+    color: black;
+}
+/* Section Contact */
+.contact-section {
+    padding: 50px 20px;
+    
+}
+
+.contact-section h1 {
+    text-align: center;
+    color: #0a0e0d;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0f0b0b;
+}
+
+.contact-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info{
+    flex: 1;
+    min-width: 300px;
+    box-sizing: border-box;
+    background: rgb(67, 55, 243);
+    
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    box-sizing: border-box;
+    margin-left: 20px;
+    background: rgb(67, 55, 243);
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: white;
+}
+
+.contact-info ul a {
+    color: #fffefd;
+    text-decoration: none;
+}
+
+.contact-info ul a:hover {
+    text-decoration: underline;
+}
+
+/* Formulaire */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form .terms {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-form .btn-submit {
+    background: #00796b;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.contact-form .btn-submit:hover {
+    background: #00574b;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="flyers.jpg" alt="Logo ASI">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="activities.html">Activités</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="support.html">Soutien</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <h1>Contactez-nous</h1>
+            <p>
+                Contactez-nous pour toute demande de renseignements ou d'assistance. 
+                Notre équipe se consacre à vous aider à répondre à vos besoins et à assurer une communication efficace.
+            </p>
+
+            <div class="contact-content">
+                <!-- Colonne Informations -->
+                <div class="contact-info">
+
+                    <img src="flyers.jpg" alt="Photo de Membre 2" class="team-photo">
+                    <h3>Diretion</h3>
+
+                    <ul>
+                        <li><strong>Email :</strong> <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a></li>
+                        <li><strong>Téléphone :</strong> <a href="tel:+224123456789">+224 123 456 789</a></li>
+                        <li><strong>Adresse :</strong> 123, rue des Migrations, Conakry, Guinée</li>
+                    </ul>
+                </div>
+
+                <!-- Colonne Formulaire -->
+                <div class="contact-form">
+                    <form action="submit_contact.php" method="POST">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
+                        
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+                        
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tapez votre message" required></textarea>
+                        
+                        <button type="submit" class="btn-submit">Soumettre</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Alternative Solidarité Immigration (ASI). Tous droits réservés.</p>
+            <p>Contactez-nous : <a href="mailto:contact@asi.org">contact@asi.org</a> | Tél : +123 456 789</p>
+            <div class="social-links">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Sélection du bouton toggle et de la navigation
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.querySelector('.navbar');
+    
+        // Gestion du clic sur le bouton toggle
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

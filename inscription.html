@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription à l'Événement</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Logo ASI" />
+            </div>
+    
+            <!-- Bouton Toggle pour Mobile -->
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="activities.html">Activités</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="support.html">Soutien</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="event-registration">
+            <div class="container">
+                <h1>Inscrivez-vous à notre événement</h1>
+                <p>Participez à cet événement unique en rejoignant la communauté ASI. Veuillez remplir le formulaire ci-dessous pour confirmer votre présence.</p>
+                
+                <form action="process_inscription.php" method="post" class="registration-form">
+                    <div class="form-group">
+                        <label for="nom">Nom complet :</label>
+                        <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom complet">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adresse email :</label>
+                        <input type="email" id="email" name="email" required placeholder="Entrez votre email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telephone">Téléphone :</label>
+                        <input type="tel" id="telephone" name="telephone" required placeholder="Entrez votre numéro de téléphone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="evenement">Sélectionnez un événement :</label>
+                        <select id="evenement" name="evenement" required>
+                            <option value="">-- Sélectionnez un événement --</option>
+                            <option value="evenement1">Événement 1 : Atelier d'intégration</option>
+                            <option value="evenement2">Événement 2 : Séminaire sur la migration</option>
+                            <option value="evenement3">Événement 3 : Conférence ASI</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message (optionnel) :</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Ajoutez un commentaire ou une question"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn-submit">S'inscrire</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Alternative Solidarité Immigration (ASI). Tous droits réservés.</p>
+            <p>Contactez-nous : <a href="mailto:contact@asi.org">contact@asi.org</a> | Tél : +123 456 789</p>
+            <div class="social-links">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Sélection du bouton toggle et de la navigation
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.querySelector('.navbar');
+    
+        // Gestion du clic sur le bouton toggle
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

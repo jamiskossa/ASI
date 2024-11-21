@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASI - Soutenir</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/colors.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        /* Style Global */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Section de support */
+        #support {
+            text-align: center;
+            padding: 20px;
+            background: #f7f7f7;
+        }
+        #support h1 {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        #support p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .donation-form,
+        .direct-donation {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+            max-width: 600px;
+            text-align: left;
+        }
+        .donation-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .donation-form input,
+        .donation-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #ec931e;
+            color: #080606;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #0055a5;
+        }
+
+        /* Footer */
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="flyers.jpg" alt="Logo ASI" />
+            </div>
+
+            <!-- Bouton Toggle pour Mobile -->
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="activities.html">Activités</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="support.html" class="active">Soutien</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="support">
+            <h1>Soutenir ASI</h1>
+            <p>Faites un don pour soutenir nos projets. Chaque contribution compte !</p>
+            <div class="donation-form">
+                <h2>Faire un don</h2>
+                <form action="process_donation.php" method="POST">
+                    <label for="donation-amount">Montant du don (€) :</label>
+                    <input type="number" id="donation-amount" name="amount" min="5" step="1" required>
+                    
+                    <label for="donation-method">Méthode de paiement :</label>
+                    <select id="donation-method" name="method" required>
+                        <option value="stripe">Carte bancaire (Stripe)</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+
+                    <button type="submit" class="btn">Faire un don</button>
+                </form>
+            </div>
+
+            <!-- Boutons directs pour PayPal et Stripe -->
+            <div class="direct-donation">
+                <h3>Faire un don directement :</h3>
+                <button id="stripe-donation" class="btn">Donner avec Stripe</button>
+                <button id="paypal-donation" class="btn">Donner avec PayPal</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Alternative Solidarité Immigration (ASI). Tous droits réservés.</p>
+            <p>Contactez-nous : <a href="mailto:contact@asi.org">contact@asi.org</a> | Tél : +123 456 789</p>
+            <div class="social-links">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Sélection du bouton toggle et de la navigation
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.querySelector('.navbar');
+    
+        // Gestion du clic sur le bouton toggle
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+
+    <!-- Stripe Script -->
+    <script src="https://js.stripe.com/v3/"></script>
+
+
+    <script>
+        const stripeButton = document.getElementById('stripe-donation');
+        stripeButton.addEventListener('click', () => {
+            // Remplacez par vos clés Stripe
+            const stripe = Stripe('pk_test_XXXXXXXXXXXXXX');
+            stripe.redirectToCheckout({
+                lineItems: [{ price: 'price_XXXXXXXXXXXXXX', quantity: 1 }],
+                mode: 'payment',
+                successUrl: 'https://votre-site/success',
+                cancelUrl: 'https://votre-site/cancel',
+            }).then((result) => {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            });
+        });
+    </script>
+
+    <!-- PayPal Script -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: document.getElementById('donation-amount').value || '10.00'
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Merci, ' + details.payer.name.given_name + ' pour votre don !');
+                });
+            }
+        }).render('#paypal-donation');
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASI - Blog</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/colors.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="flyers.jpg" alt="Logo ASI" />
+            </div>
+    
+            <!-- Bouton Toggle pour Mobile -->
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="activities.html">Activités</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="support.html">Soutien</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="blog-header" class="section-padding">
+            <h1>Bienvenue sur le Blog d'ASI</h1>
+            <p>Découvrez nos articles, histoires et actualités pour soutenir les migrants et renforcer les communautés.</p>
+        </section>>
+
+        <section id="blog-posts" class="section-padding">
+            <div class="container">
+                <div class="blog-grid">
+                    <!-- Article 1 -->
+                    <article class="blog-card">
+                        <img src="mig.jpg" alt="Blog 1">
+                        <div class="blog-content">
+                            <h2><a href="blog-details.html">5 initiatives pour la réintégration des migrants</a></h2>
+                            <p>Découvrez comment ASI et ses partenaires soutiennent les migrants grâce à des projets innovants et durables.</p>
+                            <a href="blog-details.html" class="btn">Lire plus</a>
+                        </div>
+                    </article>
+                    
+
+                    <!-- Article 2 -->
+                    <article class="blog-card">
+                        <img src="mig.jpg" alt="Blog 2">
+                        <div class="blog-content">
+                            <h2><a href="blog-details.html">Histoires de réussite : Des migrants inspirants</a></h2>
+                            <p>Rencontrez des personnes qui ont surmonté les défis de la migration pour construire une vie meilleure.</p>
+                            <a href="blog-details.html" class="btn">Lire plus</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-card">
+                        <img src="mig.jpg" alt="Blog 3">
+                        <div class="blog-content">
+                            <h2><a href="blog-details.html">Comment participer à nos événements</a></h2>
+                            <p>Rejoignez nos ateliers, conférences et activités pour contribuer à la solidarité et à l’intégration.</p>
+                            <a href="blog-details.html" class="btn">Lire plus</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-card">
+                        <img src="mig.jpg" alt="Blog 3">
+                        <div class="blog-content">
+                            <h2><a href="blog-details.html">Comment participer à nos événements</a></h2>
+                            <p>Rejoignez nos ateliers, conférences et activités pour contribuer à la solidarité et à l’intégration.</p>
+                            <a href="blog-details.html" class="btn">Lire plus</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidebar: Categories -->
+        <aside class="blog-sidebar">
+            <h3>Catégories</h3>
+            <ul>
+                <li><a href="#">Initiatives</a></li>
+                <li><a href="#">Histoires de migrants</a></li>
+                <li><a href="#">Événements</a></li>
+                <li><a href="#">Politique et plaidoyer</a></li>
+                <li><a href="#">Communauté</a></li>
+            </ul>
+        </aside>
+    </main>
+    <!-- Footer -->
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Alternative Solidarité Immigration (ASI). Tous droits réservés.</p>
+            <p>Contactez-nous : <a href="mailto:contact@asi.org">contact@asi.org</a> | Tél : +123 456 789</p>
+            <div class="social-links">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Sélection du bouton toggle et de la navigation
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.querySelector('.navbar');
+    
+        // Gestion du clic sur le bouton toggle
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

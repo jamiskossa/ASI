@@ -4,148 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactez-nous - ASI</title>
-
-    <link rel="stylesheet" href="styless.css">
-    <link rel="stylesheet" href="colors.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* Styles globaux */
+       /* Styles globaux */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background: linear-gradient(to bottom, #ffffff, #f0f8ff);
     color: #333;
-    background: #f9f9f9;
 }
 
-
-
-h3 {
-    color: black;
+h1, h3 {
+    color: #003366;
 }
+
+a {
+    text-decoration: none;
+    color: #003366;
+}
+
+a:hover {
+    color: #ff6600;
+    text-decoration: underline;
+}
+
 /* Section Contact */
 .contact-section {
-    padding: 50px 20px;
-    
+    padding: 40px 20px;
+    text-align: center;
 }
 
 .contact-section h1 {
-    text-align: center;
-    color: #0a0e0d;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .contact-section p {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #0f0b0b;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.team {
+    width: 150px;
+    border-radius: 50%;
 }
 
 .contact-content {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-.contact-info{
+.contact-info, .contact-form {
+    background: #f0f8ff;
+    border: 1px solid #003366;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     flex: 1;
+    max-width: 500px;
     min-width: 300px;
-    box-sizing: border-box;
-    background: rgb(67, 55, 243);
-    
-}
-
-.contact-form {
-    flex: 1;
-    min-width: 300px;
-    box-sizing: border-box;
-    margin-left: 20px;
-    background: rgb(67, 55, 243);
+    color: #333;
 }
 
 .contact-info ul {
     list-style: none;
     padding: 0;
+    text-align: left;
 }
 
 .contact-info ul li {
     margin-bottom: 10px;
-    font-size: 1rem;
-    color: white;
 }
 
-.contact-info ul a {
-    color: #fffefd;
-    text-decoration: none;
+.contact-info ul li a {
+    color: #003366;
+    font-weight: bold;
 }
 
-.contact-info ul a:hover {
-    text-decoration: underline;
+.contact-info ul li a:hover {
+    color: #ff6600;
 }
 
-/* Formulaire */
 .contact-form form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.contact-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
 .contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
+    padding: 10px;
     font-size: 1rem;
 }
 
-.contact-form textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.contact-form .terms {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.contact-form .btn-submit {
-    background: #00796b;
+.contact-form button {
+    background: #003366;
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 5px;
     font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.contact-form .btn-submit:hover {
-    background: #00574b;
+.contact-form button:hover {
+    background: #ff6600;
 }
+
+/* Footer */
+footer {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+footer a {
+    color: #ff6600;
+}
+
+footer .social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    header .logo img {
+        max-width: 100px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
 
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="flyers.jpg" alt="Logo ASI">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="flyers.jpg" alt="Logo ASI" />
+            </div>
+    
+            <!-- Bouton Toggle pour Mobile -->
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="activities.html">Activités</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="support.html">Soutien</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="activities.html">Activités</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="support.html">Soutien</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section class="contact-section">
@@ -160,7 +208,7 @@ h3 {
                 <!-- Colonne Informations -->
                 <div class="contact-info">
 
-                    <img src="flyers.jpg" alt="Photo de Membre 2" class="team-photo">
+                    <img src="da.jpg" alt="Photo de Membre 2" class="team">
                     <h3>Diretion</h3>
 
                     <ul>

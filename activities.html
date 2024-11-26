@@ -8,6 +8,220 @@
 
     <title>ASI - Nos Activités</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Style pour la section Nos Événements */
+#nos-evenements {
+    padding: 2rem;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+#nos-evenements h2 {
+    font-size: 2rem;
+    color: #003d6b;
+    margin-bottom: 2rem;
+}
+
+#nos-evenements .event-presentation {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 2rem auto;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Texte et description de l'événement */
+#nos-evenements h3 {
+    font-size: 1.8rem;
+    color: #003d6b;
+    margin-bottom: 1.5rem;
+}
+
+#nos-evenements p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Bouton d'inscription */
+.btn {
+    background-color: #003d6b;
+    color: white;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #f39c12;
+}
+
+/* Réactivité */
+@media (max-width: 1024px) {
+    #nos-evenements .event-presentation {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #nos-evenements h2 {
+        font-size: 2rem;
+    }
+
+    #nos-evenements h3 {
+        font-size: 1.5rem;
+    }
+
+    #nos-evenements p {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #nos-evenements h2 {
+        font-size: 1.8rem;
+    }
+
+    #nos-evenements h3 {
+        font-size: 1.3rem;
+    }
+
+    #nos-evenements p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Style pour la section Events Grid */
+#events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background-color: #f8f8f8;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Image de l'événement */
+.event-card figure {
+    margin: 0;
+}
+
+.event-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #003d6b;
+}
+
+/* Légende sous l'image */
+.event-card figcaption {
+    background-color: #003d6b;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Détails de l'événement */
+.event-details {
+    padding: 1.5rem;
+    color: #333;
+}
+
+.event-details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.event-details p strong {
+    color: #003d6b;
+}
+
+.event-details .btn {
+    background-color: #003d6b;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.event-details .btn:hover {
+    background-color: #f39c12;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+    #events-grid {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event-details .btn {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+
+    </style>
 </head>
 
 <body>
@@ -89,7 +303,7 @@
                     <p><strong>Date :</strong> Coming Soon</p>
                     <p><strong>Lieu :</strong> Salle de conférence [Lieu]</p>
                     <p><strong>Description :</strong> Conférence sur les politiques d'intégration pour les migrants et les bonnes pratiques à suivre.</p>
-                    <a href="inscription.html" class="btn">S'inscrire à l'événement</a>
+                    <a href="inscription.html" class="btn">S'inscrire</a>
                 </div>
             </div>
         
@@ -100,10 +314,10 @@
                     <figcaption>Atelier - Petit déjeuner des partenaires</figcaption>
                 </figure>
                 <div class="event-details">
-                    <p><strong>Date :</strong> Coming Soon</p>
-                    <p><strong>Lieu :</strong> Salle de conférence [Lieu]</p>
+                    <p><strong>Date :</strong> 28/11/2024</p>
+                    <p><strong>Lieu :</strong> Salle de conférence [FIAP Paris 75014]</p>
                     <p><strong>Description :</strong> Atelier pour créer des opportunités à travers des discussions entre partenaires.</p>
-                    <a href="inscription.html" class="btn">S'inscrire à l'événement</a>
+                    <a href="inscription.html" class="btn">S'inscrire</a>
                 </div>
             </div>
         
@@ -117,7 +331,7 @@
                     <p><strong>Date :</strong> Coming Soon</p>
                     <p><strong>Lieu :</strong> Centre des affaires [Lieu]</p>
                     <p><strong>Description :</strong> Forum sur les nouvelles opportunités économiques pour les migrants.</p>
-                    <a href="inscription.html" class="btn">S'inscrire à l'événement</a>
+                    <a href="inscription.html" class="btn">S'inscrire</a>
                 </div>
             </div>
         
@@ -131,7 +345,7 @@
                     <p><strong>Date :</strong> Coming Soon</p>
                     <p><strong>Lieu :</strong> Centre de formation [Lieu]</p>
                     <p><strong>Description :</strong> Formation sur les emplois durables et les perspectives à long terme.</p>
-                    <a href="inscription.html" class="btn">S'inscrire à l'événement</a>
+                    <a href="inscription.html" class="btn">S'inscrire</a>
                 </div>
             </div>
         </section>

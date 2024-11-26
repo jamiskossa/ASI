@@ -8,7 +8,128 @@
     <title>Inscription à l'Événement</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="style.css">
-    
+    <style>
+        /* Style de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #121212;
+    color: #ddd;
+}
+
+h1, p {
+    text-align: center;
+    color: #f4f4f4;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #01b4e4;
+}
+
+/* Section d'inscription */
+.event-registration {
+    padding: 4rem 2rem;
+    background: linear-gradient(145deg, #1a1a1a, #333);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+/* Formulaire */
+.registration-form {
+    background-color: #1d1f21;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.registration-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.registration-form label {
+    font-size: 1.1rem;
+    color: #f4f4f4;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.registration-form input, 
+.registration-form select, 
+.registration-form textarea {
+    padding: 1rem;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.registration-form input:focus, 
+.registration-form select:focus, 
+.registration-form textarea:focus {
+    background-color: #444;
+    outline: none;
+    border: 2px solid #01b4e4;
+}
+
+.registration-form button {
+    padding: 1rem 2rem;
+    background-color: #01b4e4;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registration-form button:hover {
+    background-color: #f39c12;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .event-registration {
+        padding: 2rem;
+    }
+
+    .registration-form {
+        padding: 1.5rem;
+    }
+
+    .registration-form button {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+}
+
+    </style>
 </head>
 <body>
     <header>
@@ -40,27 +161,29 @@
     </header>
 
     <main>
+        <div>
+            <h1>Inscrivez-vous à notre événement</h1>
+                <p>Participez à cet événement unique en rejoignant la communauté ASI. Veuillez remplir le formulaire ci-dessous pour confirmer votre présence.</p>
+        </div>
         <section class="event-registration">
             <div class="container">
-                <h1>Inscrivez-vous à notre événement</h1>
-                <p>Participez à cet événement unique en rejoignant la communauté ASI. Veuillez remplir le formulaire ci-dessous pour confirmer votre présence.</p>
                 
                 <form action="process_inscription.php" method="post" class="registration-form">
                     <div class="form-group">
                         <label for="nom">Nom complet :</label>
                         <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom complet">
                     </div>
-
+        
                     <div class="form-group">
                         <label for="email">Adresse email :</label>
                         <input type="email" id="email" name="email" required placeholder="Entrez votre email">
                     </div>
-
+        
                     <div class="form-group">
                         <label for="telephone">Téléphone :</label>
                         <input type="tel" id="telephone" name="telephone" required placeholder="Entrez votre numéro de téléphone">
                     </div>
-
+        
                     <div class="form-group">
                         <label for="evenement">Sélectionnez un événement :</label>
                         <select id="evenement" name="evenement" required>
@@ -70,18 +193,19 @@
                             <option value="evenement3">Événement 3 : Conférence ASI</option>
                         </select>
                     </div>
-
+        
                     <div class="form-group">
                         <label for="message">Message (optionnel) :</label>
                         <textarea id="message" name="message" rows="4" placeholder="Ajoutez un commentaire ou une question"></textarea>
                     </div>
-
+        
                     <div class="form-group">
                         <button type="submit" class="btn-submit">S'inscrire</button>
                     </div>
                 </form>
             </div>
         </section>
+        
     </main>
 
     <!-- Pied de page -->

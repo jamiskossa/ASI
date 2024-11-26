@@ -8,6 +8,166 @@
     <title>Contactez-nous - ASI</title>
     <link rel="stylesheet" href="style.css">
 
+    <style>
+/* Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #121212;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+h1, p {
+    text-align: center;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(145deg, #1a1a1a, #333);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #f4f4f4;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #01b4e4;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+/* Contact Content Layout */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Contact Info */
+.contact-info {
+    background-color: #1d1f21;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 3px solid #01b4e4;
+}
+
+.contact-info ul {
+    list-style: none;
+}
+
+.contact-info ul li {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.contact-info ul li a {
+    color: #01b4e4;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-info ul li a:hover {
+    color: #f39c12;
+}
+
+/* Contact Form */
+.contact-form {
+    background-color: #1d1f21;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form label {
+    font-size: 1.1rem;
+    color: #f4f4f4;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 1.2rem;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    background-color: #444;
+    outline: none;
+    border: 2px solid #01b4e4;
+}
+
+.contact-form button {
+    padding: 1rem 2rem;
+    background-color: #01b4e4;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #f39c12;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-info, .contact-form {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .contact-form button {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+    </style>
 </head>
 <body>
     <header>
@@ -38,13 +198,16 @@
         </div>
     </header>
 
+    <div>
+        <h1>Contactez-nous</h1>
+        <p>
+            Contactez-nous pour toute demande de renseignements ou d'assistance. 
+            Notre équipe se consacre à vous aider à répondre à vos besoins et à assurer une communication efficace.
+        </p>
+    </div>
     <section class="contact-section">
         <div class="container">
-            <h1>Contactez-nous</h1>
-            <p>
-                Contactez-nous pour toute demande de renseignements ou d'assistance. 
-                Notre équipe se consacre à vous aider à répondre à vos besoins et à assurer une communication efficace.
-            </p>
+           
 
             <div class="contact-content">
                 <!-- Colonne Informations -->

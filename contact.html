@@ -3,169 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <title>Contactez-nous - ASI</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-       /* Styles globaux */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #ffffff, #f0f8ff);
-    color: #333;
-}
 
-h1, h3 {
-    color: #003366;
-}
-
-a {
-    text-decoration: none;
-    color: #003366;
-}
-
-a:hover {
-    color: #ff6600;
-    text-decoration: underline;
-}
-
-/* Section Contact */
-.contact-section {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.contact-section h1 {
-    margin-bottom: 10px;
-}
-
-.contact-section p {
-    color: #666;
-    margin-bottom: 30px;
-}
-
-.team {
-    width: 150px;
-    border-radius: 50%;
-}
-
-.contact-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.contact-info, .contact-form {
-    background: #f0f8ff;
-    border: 1px solid #003366;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    flex: 1;
-    max-width: 500px;
-    min-width: 300px;
-    color: #333;
-}
-
-.contact-info ul {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-}
-
-.contact-info ul li {
-    margin-bottom: 10px;
-}
-
-.contact-info ul li a {
-    color: #003366;
-    font-weight: bold;
-}
-
-.contact-info ul li a:hover {
-    color: #ff6600;
-}
-
-.contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-form input, .contact-form textarea {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-}
-
-.contact-form button {
-    background: #003366;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.contact-form button:hover {
-    background: #ff6600;
-}
-
-/* Footer */
-footer {
-    background: #003366;
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
-}
-
-footer a {
-    color: #ff6600;
-}
-
-footer .social-links a {
-    color: white;
-    margin: 0 10px;
-    font-size: 1.2rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .contact-content {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 0.9rem;
-    }
-
-    header .logo img {
-        max-width: 100px;
-    }
-
-    footer {
-        font-size: 0.8rem;
-    }
-}
-
-
-    </style>
 </head>
 <body>
     <header>
@@ -237,25 +79,30 @@ footer .social-links a {
     </section>
 
     <!-- Pied de page -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Alternative Solidarité Immigration (ASI). Tous droits réservés.</p>
-            <p>Contactez-nous : <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | Tél : +33650586044 <br> +224623993030</p>
-            <div class="social-links">
-                <a href="" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-            </div>
+<footer class="footer-section">
+    <div class="footer-content">
+        <p>&copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane Tous droits réservés.</p>
+        <p>
+            Contactez-nous : 
+            <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | 
+            Tél : +33650586044 <br> +224623993030
+        </p>
+        <div class="social-links">
+            <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
+            <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
         </div>
-    </footer>
+    </div>
+</footer>
     <script>
-        // Sélection du bouton toggle et de la navigation
-        const menuToggle = document.getElementById('menu-toggle');
-        const navbar = document.querySelector('.navbar');
-    
-        // Gestion du clic sur le bouton toggle
-        menuToggle.addEventListener('click', () => {
-            navbar.classList.toggle('active');
-        });
-    </script>
+        // Toggle Menu Animation
+ const menuToggle = document.getElementById('menu-toggle');
+ const navbar = document.querySelector('.navbar');
+ 
+ menuToggle.addEventListener('click', () => {
+     navbar.classList.toggle('active');
+     menuToggle.classList.toggle('active');
+ });
+ 
+     </script>
 </body>
 </html>

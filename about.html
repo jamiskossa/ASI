@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <title>ASI - À propos de nous</title>
-    <link rel="stylesheet" href="styless.css">
-    <link rel="stylesheet" href="colors.css">
-    <link rel="stylesheet" href="responsive.css">
-</head>
+    <link rel="stylesheet" href="style.css">
 <body>
     <header>
         <div class="container">
@@ -209,26 +208,31 @@
     <main>
        
     </main>
-    <!-- Pied de page -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Alternative Solidarité Immigration (ASI). Tous droits réservés.</p>
-            <p>Contactez-nous : <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | Tél : +33650586044 <br> +224623993030</p>
-            <div class="social-links">
-                <a href="" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-            </div>
+   <!-- Pied de page -->
+<footer class="footer-section">
+    <div class="footer-content">
+        <p>&copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane Tous droits réservés.</p>
+        <p>
+            Contactez-nous : 
+            <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | 
+            Tél : +33650586044 <br> +224623993030
+        </p>
+        <div class="social-links">
+            <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
+            <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
         </div>
-    </footer>
+    </div>
+</footer>
     <script>
-        // Sélection du bouton toggle et de la navigation
-        const menuToggle = document.getElementById('menu-toggle');
-        const navbar = document.querySelector('.navbar');
-    
-        // Gestion du clic sur le bouton toggle
-        menuToggle.addEventListener('click', () => {
-            navbar.classList.toggle('active');
-        });
-    </script>
+        // Toggle Menu Animation
+ const menuToggle = document.getElementById('menu-toggle');
+ const navbar = document.querySelector('.navbar');
+ 
+ menuToggle.addEventListener('click', () => {
+     navbar.classList.toggle('active');
+     menuToggle.classList.toggle('active');
+ });
+ 
+     </script>
 </body>
 </html>

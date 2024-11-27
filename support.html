@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <title>ASI - Soutenir</title>
-    <link rel="stylesheet" href="style.css">
     <style>
   /* Base Styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
+}
+
+/* Variables */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #ff6600;
+    --neutral-color: #ffffff;
+    --background-color: #f5f5f5;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --footer-bg: #001f3f; /* Bleu profond */
+    --footer-text: #ffffff; /* Texte blanc */
+    --footer-link: #ff9933; /* Orange vif */
+    --footer-hover: #00c0ff; /* Bleu clair au survol */
+    --footer-shadow: rgba(0, 0, 0, 0.2); /* Ombre douce */
+    --text-color: #333; /* Texte sombre */
 }
 
 body {
@@ -22,142 +36,323 @@ body {
     line-height: 1.6;
 }
 
-h1, p {
-    text-align: center;
+/* Header */
+header {
+    background: var(--footer-bg);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 1s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Section de Soutien */
-#support {
-    padding: 4rem 2rem;
-    background: linear-gradient(145deg, #1a1a1a, #333);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    margin-top: 50px;
-}
-
+/* Container */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    color: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #01b4e4;
+/* Logo */
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: spin 4s linear infinite;
 }
 
-p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #ccc;
+/* Navbar */
+.navbar {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
 }
 
-/* Formulaire de Don */
-.donation-form {
-    background-color: #1d1f21;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    margin-bottom: 3rem;
+.navbar ul {
+    display: flex;
+    gap: 1.5rem;
 }
 
-.donation-form h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #f4f4f4;
-}
-
-.donation-form label {
-    font-size: 1.1rem;
-    color: #f4f4f4;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.donation-form input, .donation-form select {
-    padding: 1.2rem;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    border-radius: 8px;
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--neutral-color);
+    font-weight: bold;
     font-size: 1rem;
-    margin-bottom: 1.5rem;
-    transition: background-color 0.3s ease;
+    position: relative;
+    transition: color 0.3s ease-in-out;
 }
 
-.donation-form input:focus, .donation-form select:focus {
-    background-color: #444;
-    outline: none;
-    border: 2px solid #01b4e4;
+.navbar ul li a:hover {
+    color: var(--hover-color);
 }
 
-.donation-form button {
-    padding: 1rem 2rem;
-    background-color: #01b4e4;
-    color: #fff;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 8px;
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--hover-color);
+    transition: width 0.4s ease-in-out;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+/* Toggle Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 1100;
 }
 
-.donation-form button:hover {
-    background-color: #f39c12;
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--neutral-color);
+    transition: all 0.3s ease-in-out;
 }
 
-/* Boutons directs */
-.direct-donation {
-    text-align: center;
-    margin-top: 3rem;
+/* Animation Toggle */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
-.direct-donation h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #f4f4f4;
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
 }
 
-.direct-donation .btn {
-    padding: 1rem 2rem;
-    background-color: #01b4e4;
-    color: #fff;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 0.5rem;
-    transition: background-color 0.3s ease;
-}
-
-.direct-donation .btn:hover {
-    background-color: #f39c12;
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    #support {
-        padding: 2rem;
+    .menu-toggle {
+        display: flex;
     }
 
-    .donation-form, .direct-donation {
-        padding: 1.5rem;
+    .navbar {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--primary-color);
+        width: 200px;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     }
 
-    .donation-form button, .direct-donation .btn {
-        width: 100%;
+    .navbar.active {
+        height: 100vh;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 1rem;
         padding: 1rem;
     }
 
-    .direct-donation {
-        display: flex;
-        flex-direction: column;
+    .navbar ul li a {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Section d'introduction */
+.intro-section {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #00c9ff;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+p {
+    
+    text-align: center;
+}
+
+.intro-section p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+/* Section de soutien */
+#support {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.donation-form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.donation-form h2 {
+    font-size: 2rem;
+    color: #92fe9d;
+    margin-bottom: 20px;
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 1.2rem;
+    text-align: left;
+    color: #ffffff;
+}
+
+input, select {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    outline: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+input:focus, select:focus {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+    border: 1px solid #00c9ff;
+}
+
+/* Bouton */
+.btn {
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(to right, #00c9ff, #92fe9d);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Réactivité */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
     }
 
-    .direct-donation .btn {
-        width: 100%;
-        margin-bottom: 1rem;
+    .donation-form {
+        padding: 20px;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+}
+/* Pied de page principal */
+.footer-section {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 -5px 10px var(--footer-shadow);
+}
+
+/* Contenu du pied de page */
+.footer-content p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Liens */
+.footer-content a {
+    color: var(--footer-link);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: var(--footer-hover);
+}
+
+/* Icônes sociales */
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    color: var(--footer-text);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--footer-hover);
+    transform: scale(1.2);
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+
+    .social-links a {
+        font-size: 1.3rem;
     }
 }
 
@@ -198,7 +393,6 @@ p {
             <p>Faites un don pour soutenir nos projets. Chaque contribution compte !</p>
         </div>
         <section id="support">
-            <div class="container">
         
                 <div class="donation-form">
                     <h2>Faire un don</h2>
@@ -216,13 +410,6 @@ p {
                     </form>
                 </div>
         
-                <!-- Boutons directs pour PayPal et Stripe -->
-                <div class="direct-donation">
-                    <h3>Faire un don directement :</h3>
-                    <button id="stripe-donation" class="btn">Donner avec Stripe</button>
-                    <button id="paypal-donation" class="btn">Donner avec PayPal</button>
-                </div>
-            </div>
         </section>
         
     </main>

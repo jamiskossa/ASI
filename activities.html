@@ -9,39 +9,88 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Style pour la section Nos Événements */
+       /* Styles généraux */
 #nos-evenements {
-    padding: 2rem;
-    background-color: #f8f8f8;
-    text-align: center;
-    color: #000;
-}
-
-.event-description, h1 {
-    color: #000;
-    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 #nos-evenements h2 {
+    text-align: center;
     font-size: 2rem;
-    color: #003d6b;
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
+    color: #004aad;
 }
 
-#nos-evenements .event-presentation {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-    margin: 0 auto;
+.event-presentation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
 }
 
-/* Slideshow */
+.event-presentation h3 {
+    font-size: 1.5rem;
+    color: #004aad;
+    grid-column: span 2; /* Étend le titre sur les deux colonnes */
+    text-align: center;
+}
+
 .slideshow-container {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.slideshow-container img {
     max-width: 100%;
-    margin: 2rem auto;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.event-details {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.event-details p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.event-details .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #004aad;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.event-details .btn:hover {
+    background-color: #00337a;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+    .event-presentation {
+        grid-template-columns: 1fr;
+    }
+
+    .event-presentation h3 {
+        grid-column: span 1;
+    }
 }
 
 .slide {

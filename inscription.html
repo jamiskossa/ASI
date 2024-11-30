@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <title>Inscription à l'Événement</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="style.css">
     <style>
         /* Style de base */
@@ -20,6 +19,159 @@ body {
     font-family: 'Roboto', sans-serif;
     background: #121212;
     color: #ddd;
+}
+
+/* Header */
+header {
+    background: var(--footer-bg);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 1s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: spin 4s linear infinite;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--neutral-color);
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+    color: var(--hover-color);
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--hover-color);
+    transition: width 0.4s ease-in-out;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+/* Toggle Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1100;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--neutral-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animation Toggle */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--primary-color);
+        width: 200px;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar.active {
+        height: 100vh;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .navbar ul li a {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 h1, p {
@@ -129,6 +281,61 @@ p {
     }
 }
 
+/* Pied de page principal */
+.footer-section {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 -5px 10px var(--footer-shadow);
+}
+
+/* Contenu du pied de page */
+.footer-content p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Liens */
+.footer-content a {
+    color: var(--footer-link);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: var(--footer-hover);
+}
+
+/* Icônes sociales */
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    color: var(--footer-text);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--footer-hover);
+    transform: scale(1.2);
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+
+    .social-links a {
+        font-size: 1.3rem;
+    }
+}
     </style>
 </head>
 <body>

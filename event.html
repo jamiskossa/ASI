@@ -1,0 +1,211 @@
+<html><head><base href="https://agi-guinee.org">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscription Événement - AGI</title>
+<style>
+:root {
+  --primary: #009639;
+  --secondary: #CE1126;
+  --yellow: #FCD116;
+  --dark: #333;
+  --light: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--light);
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav a {
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--primary);
+}
+
+.header {
+  background: var(--primary);
+  color: var(--light);
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.registration-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: var(--light);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background: #007f31;
+}
+
+.form-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .registration-container {
+    margin: 4rem 1rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <ul>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/qui-sommes-nous">Qui sommes-nous</a></li>
+    <li><a href="/services">Nos services</a></li>
+    <li><a href="/evenements">Événements</a></li>
+    <li><a href="/ressources">Ressources</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="header">
+  <h1>Inscription à l'événement</h1>
+  <p>Réservez votre place dès maintenant</p>
+</header>
+
+<main class="registration-container">
+  <form class="registration-form" action="https://api.agi-guinee.org/event-registration" method="POST">
+    <div class="form-group">
+      <label for="event">Événement*</label>
+      <select id="event" name="event" required>
+        <option value="">Sélectionnez un événement</option>
+        <option value="conf-ia-2024">Conférence IA 2024</option>
+        <option value="workshop-data">Workshop Data Science</option>
+        <option value="hackathon-2024">Hackathon Innovation 2024</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="name">Nom complet*</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Téléphone*</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+
+    <div class="form-group">
+      <label for="organization">Organisation/Institution</label>
+      <input type="text" id="organization" name="organization">
+    </div>
+
+    <div class="form-group">
+      <label for="profession">Profession/Fonction*</label>
+      <input type="text" id="profession" name="profession" required>
+    </div>
+
+    <div class="form-group">
+      <label for="expectations">Quelles sont vos attentes pour cet événement?</label>
+      <textarea id="expectations" name="expectations" rows="4"></textarea>
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="terms" name="terms" required>
+      <label for="terms">J'accepte les conditions de participation*</label>
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="newsletter" name="newsletter">
+      <label for="newsletter">Je souhaite recevoir la newsletter de l'AGI</label>
+    </div>
+
+    <button type="submit" class="submit-btn">S'inscrire</button>
+
+    <p class="form-note">* Champs obligatoires</p>
+  </form>
+</main>
+
+</body>
+</html>

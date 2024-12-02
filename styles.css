@@ -684,75 +684,95 @@ header {
   }
 
 /* Section principale */
+/* Conteneur principal */
 .partners-carousel {
-  padding: 2rem;
   text-align: center;
-  background: var(--neutral-bg);
-  border-radius: 10px;
-  box-shadow: 0 5px 15px var(--shadow);
-  margin: 2rem 0;
+  padding: 40px 20px;
+  background-color: #f8f8f8;
+  position: relative;
 }
 
+/* Titre du carousel */
 .partners-carousel h2 {
   font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-/* Carousel */
+/* Wrapper pour éviter les débordements */
+.carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Carrousel - Mise en forme en bande défilante */
 .carousel {
   display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 1rem;
-  scrollbar-width: none; /* Masquer la scrollbar sur Firefox */
+  flex-wrap: nowrap;
+  animation: slide 20s linear infinite;
 }
 
-.carousel::-webkit-scrollbar {
-  display: none; /* Masquer la scrollbar sur Chrome/Safari */
-}
-
-/* Partner card */
 .partner-card {
   flex: 0 0 auto;
-  width: 200px;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.partner-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px var(--shadow);
+  width: 200px; /* Largeur des cartes */
+  margin: 0 15px;
+  transition: transform 0.3s ease;
 }
 
 .partner-card img {
-  max-width: 80%;
-  max-height: 80%;
-  object-fit: contain;
-  transition: transform 0.5s ease;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.partner-card:hover img {
+/* Effet hover pour les cartes */
+.partner-card:hover {
   transform: scale(1.1);
 }
 
+/* Animation de défilement du carrousel */
+@keyframes slide {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
 /* Réactivité */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .partners-carousel h2 {
       font-size: 1.8rem;
   }
 
   .partner-card {
-      width: 150px;
-      height: 120px;
+      width: 180px;
   }
+}
+
+@media (max-width: 768px) {
+  .partners-carousel h2 {
+      font-size: 1.6rem;
+  }
+
+  .partner-card {
+      width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-carousel h2 {
+      font-size: 1.4rem;
+  }
+
+  .partner-card {
+      width: 130px;
+  }
+}
+
+.carousel:hover {
+  animation-play-state: paused;
 }
 
 /* Pied de page */

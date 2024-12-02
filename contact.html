@@ -4,46 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Contactez-nous - ASI</title>
+    <title>Formulaire de Contact</title>
     <style>
-        /* Votre CSS est déjà intégré ici, pas de changement nécessaire. */
+        /* Style global */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: #333;
+            
+            min-height: 100vh;
+        }
 
-        /* Base Styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background: #121212;
-    color: #ddd;
-    line-height: 1.6;
-}
-
-h1, p {
-    text-align: center;
-}
-
-/* Variables CSS */
-:root {
-    --primary-color: #01b4e4;
-    --secondary-color: #f39c12;
-    --neutral-color: #ddd;
-    --hover-color: #f39c12;
-    --footer-bg: #1a1a1a;
-    --footer-text: #bbb;
-    --footer-link: #01b4e4;
-    --footer-hover: #f39c12;
-    --footer-shadow: rgba(0, 0, 0, 0.3);
-    --footer-bg: #001f3f; /* Bleu profond */
-}
-
-/* Header */
+        /* Header */
 header {
-    background: var(--footer-bg);
+  background-color: #1e3a8a;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -52,12 +28,11 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Container */
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 /* Logo */
@@ -67,301 +42,192 @@ header {
     border-radius: 50%;
     animation: spin 4s linear infinite;
 }
-
-/* Navbar */
-.navbar {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-}
-
-.navbar ul {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.navbar ul li a {
+  .topnav {
+    overflow: hidden;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    color: var(--neutral-color);
-    font-weight: bold;
-    font-size: 1rem;
-    position: relative;
-    transition: color 0.3s ease-in-out;
-}
-
-.navbar ul li a:hover {
-    color: var(--hover-color);
-}
-
-.navbar ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--hover-color);
-    transition: width 0.4s ease-in-out;
-}
-
-.navbar ul li a:hover::after {
-    width: 100%;
-}
-
-/* Toggle Menu */
-.menu-toggle {
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #ff6600;
+    color: white;
+  }
+  
+  .topnav .icon {
     display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    position: relative;
-    z-index: 1100;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: var(--neutral-color);
-    transition: all 0.3s ease-in-out;
-}
-
-/* Animation Toggle */
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
     }
-
-    .navbar {
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: var(--primary-color);
-        width: 200px;
-        height: 0;
-        overflow: hidden;
-        transition: height 0.3s ease-in-out;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
     }
-
-    .navbar.active {
-        height: 100vh;
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
     }
+  }
 
-    .navbar ul {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
+        form {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
 
-    .navbar ul li a {
-        text-align: center;
-        font-size: 1.2rem;
-    }
-}
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
 
-/* Animations */
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
 
-h1 {
-    text-align: center;
-    font-size: 2rem;
-    color: #00d2ff;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
+        input:focus, textarea:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
 
-.intro-section {
-    padding: 20px;
-    text-align: center;
-}
+        button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.contact-section {
-    padding: 20px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
+        button:hover {
+            background: #2980b9;
+        }
 
-.container {
-    max-width: 1300px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+        /* Responsive */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
 
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-}
+            input, textarea, button {
+                font-size: 14px;
+            }
+        }
 
-.contact-info {
-    flex: 1;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-}
-
-.contact-info img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: 3px solid #00d2ff;
-}
-
-.contact-info ul {
-    list-style: none;
-    padding: 0;
-}
-
-.contact-info li {
-    margin: 10px 0;
-    font-size: 1.1rem;
-}
-
-.contact-info a {
-    color: #00d2ff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-    color: #ffffff;
-}
-
-.contact-form {
-    flex: 2;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-.contact-form label {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.contact-form input, 
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    font-size: 1rem;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: 2px solid #00d2ff;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.contact-form button {
-    background: linear-gradient(to right, #00d2ff, #3a7bd5);
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.contact-form button:hover {
-    background: linear-gradient(to right, #3a7bd5, #00d2ff);
-    transform: scale(1.05);
-}
-
-@media screen and (max-width: 768px) {
-    .contact-content {
-    display: grid;
-    grid-template-columns: 1fr;
-
-}
-
-    .contact-info,
-    .contact-form {
-        flex: 1;
-    }
-}
-/* Footer */
+        /* Pied de page */
 .footer-section {
-    background: var(--footer-bg);
-    color: var(--footer-text);
-    padding: 2rem 1rem;
+    background-color: #1e3a8a;
+    color: #ffffff;
+    padding: 20px 0;
     text-align: center;
-    box-shadow: 0 -5px 10px var(--footer-shadow);
+    font-family: 'Poppins', sans-serif;
+    border-top: 5px solid #4f46e5;
+    position: relative;
 }
 
 .footer-content p {
-    margin: 0.5rem 0;
+    margin: 5px 0;
     font-size: 0.9rem;
-    line-height: 1.5;
 }
 
 .footer-content a {
-    color: var(--footer-link);
+    color: #ffffff;
     text-decoration: none;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .footer-content a:hover {
-    color: var(--footer-hover);
+    color: #4f46e5;
+}
+
+.social-links {
+    margin-top: 20px;
 }
 
 .social-links a {
-    display: inline-block;
-    margin: 0 0.5rem;
+    color: #ffffff;
     font-size: 1.5rem;
-    color: var(--footer-text);
+    margin: 0 10px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: var(--footer-hover);
+    color: #4f46e5;
     transform: scale(1.2);
+}
+
+/* Réactivité */
+@media (max-width: 1024px) {
+    .footer-content p {
+        font-size: 1rem;
+    }
+
+    .social-links a {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content p {
+        font-size: 0.9rem;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+
+    .social-links a {
+        font-size: 1rem;
+        margin: 0 6px;
+    }
 }
 
     </style>
@@ -373,90 +239,64 @@ h1 {
             <div class="logo">
                 <img src="flyers.jpg" alt="Logo ASI" />
             </div>
-    
-            <!-- Bouton Toggle pour Mobile -->
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-    
-            <!-- Navigation -->
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À propos</a></li>
-                    <li><a href="activities.html">Activités</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="support.html">Soutien</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <div class="intro-section">
-            <h1>Contactez-nous</h1>
-            <p>
-                Contactez-nous pour toute demande de renseignements ou d'assistance. 
-                Notre équipe se consacre à vous aider à répondre à vos besoins et à assurer une communication efficace.
-            </p>
-        </div>
-        <section class="contact-section">
-            <div class="container">
-                <div class="contact-content">
-                    <!-- Colonne Informations -->
-                    <div class="contact-info">
-                        <img src="flyers.jpg" alt="Photo de contact" class="team">
-                        <ul>
-                            <li><strong>Email :</strong> <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a></li>
-                            <li><strong>Téléphone :</strong> <a href="tel:+33650586044">+33 6 50 58 60 44</a></li>
-                            <li><strong>Adresse :</strong> 8 Rue de la Nouvelle France, 93300 Aubervilliers </li>
-                        </ul>
-                    </div>
-    
-                    <!-- Colonne Formulaire -->
-                    <div class="contact-form">
-                        <form action="send_message.php" method="POST">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
-    
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Votre email" required>
-    
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
-    
-                            <button type="submit">Envoyer</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <footer class="footer-section">
-        <div class="footer-content">
-            <p>&copy; 2024 ASI - Tous droits réservés. Créé par Yattara Ousmane.</p>
-            <div class="social-links">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="about.html">À propos</a>
+            <a href="activities.html">Activités</a>
+            <a href="support.html">Soutien</a>
+            <a href="contact.html">Contact</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+    </header>
+    <section>
+    <form action="https://your-association-domain.com/contact-handler" method="POST">
+        <h2>Contactez-nous</h2>
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+        
+        <label for="subject">Objet</label>
+        <input type="text" id="subject" name="subject" placeholder="Objet de votre message" required>
+        
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Écrivez votre message ici..." required></textarea>
+        
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+    <!-- Pied de page -->
+<footer class="footer-section">
+    <div class="footer-content">
+        <p>&copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane Tous droits réservés.</p>
+        <p>
+            Contactez-nous : 
+            <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | 
+            Tél : +33650586044 <br> +224623993030
+        </p>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script>
-        // Script pour le bouton toggle de menu
-        const menuToggle = document.getElementById('menu-toggle');
-        const navbar = document.querySelector('.navbar');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navbar.classList.toggle('active');
-        });
+<script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
     </script>
+
 </body>
 </html>
-

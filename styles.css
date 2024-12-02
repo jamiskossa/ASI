@@ -7,163 +7,111 @@
 }
 /* Styles généraux */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
 /* Structure principale */
 main {
-  padding: 20px;
+    padding: 20px;
 }
 
 /* Vidéo d'arrière-plan */
 .hero iframe {
-  width: 100%;
-  height: 400px;
-  max-width: 100%;
+    width: 100%;
+    height: 400px;
+    max-width: 100%;
 }
 
 /* Sections */
 section {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 #vision h2 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 #vision p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
 }
 
 /* Grilles pour les services */
 .grid-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
 }
 
 .grid-item {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .grid-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .grid-item h3 {
-  font-size: 1.2rem;
-  color: #333;
+    font-size: 1.2rem;
+    color: #333;
 }
 
 /* Statistiques */
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 .stat {
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .stat h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
 /* Images responsives */
 .image-container img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 
-/* Mobile : Moins de 600px */
-@media (max-width: 600px) {
-  .grid-section {
-      grid-template-columns: 1fr; /* Une colonne pour les petits écrans */
-  }
-
-  .hero iframe {
-      height: 200px; /* Adapter la taille de l'iframe */
-  }
-
-  #vision h2 {
-      font-size: 1.5rem; /* Réduire la taille du texte */
-  }
-
-  .stats-grid {
-      grid-template-columns: 1fr 1fr; /* Deux colonnes pour les petits écrans */
-  }
-
-  .grid-item h3 {
-      font-size: 1rem; /* Réduire la taille du titre */
-  }
-
-  .footer-content {
-      text-align: center;
-  }
-
-  .social-links {
-      text-align: center;
-      margin-top: 20px;
-  }
-
-  .social-links a {
-      margin: 0 10px;
-  }
-}
-
-/* Tablette : Entre 600px et 1024px */
+/* Réactivité */
 @media (max-width: 1024px) {
-  .grid-section {
-      grid-template-columns: 1fr 1fr 1fr; /* Trois colonnes pour les tablettes */
-  }
-
-  .stats-grid {
-      grid-template-columns: 1fr 1fr 1fr; /* Trois colonnes pour les tablettes */
-  }
-
-  .hero iframe {
-      height: 300px;
-  }
-
-  #vision h2 {
-      font-size: 1.8rem;
-  }
-
-  .grid-item h3 {
-      font-size: 1.1rem;
-  }
+    main {
+        padding: 1.5rem;
+    }
 }
 
-/* Plus grand : au-dessus de 1024px (bureaux) */
-@media (min-width: 1024px) {
-  .grid-section {
-      grid-template-columns: 1fr 1fr 1fr 1fr; /* Quatre colonnes pour les grands écrans */
-  }
-
-  .stats-grid {
-      grid-template-columns: repeat(4, 1fr); /* Quatre colonnes pour les grands écrans */
-  }
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
 }
 
+@media (max-width: 480px) {
+    main {
+        padding: 0.5rem;
+    }
+}
 
 /* Header */
 header {
@@ -804,96 +752,81 @@ header {
   }
 
 /* Section principale */
-/* Conteneur principal */
+/* Styles de base */
 .partners-carousel {
+  padding: 20px;
   text-align: center;
-  padding: 40px 20px;
-  background-color: #f8f8f8;
-  position: relative;
 }
 
-/* Titre du carousel */
 .partners-carousel h2 {
-  font-size: 2rem;
+  font-size: 24px;
   margin-bottom: 20px;
   color: #333;
 }
 
-/* Wrapper pour éviter les débordements */
-.carousel-wrapper {
-  overflow: hidden;
-  position: relative;
-}
-
-/* Carrousel - Mise en forme en bande défilante */
 .carousel {
   display: flex;
   flex-wrap: nowrap;
-  animation: slide 20s linear infinite;
+  justify-content: space-between;
+  overflow-x: auto; /* Permet de défiler horizontalement */
+  gap: 15px;
+  margin: 0 auto;
 }
 
 .partner-card {
-  flex: 0 0 auto;
-  width: 200px; /* Largeur des cartes */
-  margin: 0 15px;
+  flex: 0 0 auto; /* Ne permet pas l'agrandissement ou rétrécissement */
+  width: 100%; /* S'assure que l'élément prenne toute la largeur possible */
+  max-width: 200px; /* Limite la largeur des cartes */
   transition: transform 0.3s ease;
 }
 
 .partner-card img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%; /* L'image est redimensionnée pour s'adapter au conteneur */
+  height: auto;
+  display: block;
+  border-radius: 8px;
 }
 
-/* Effet hover pour les cartes */
 .partner-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05); /* Effet de zoom au survol */
 }
 
-/* Animation de défilement du carrousel */
-@keyframes slide {
-  0% {
-      transform: translateX(0);
-  }
-  100% {
-      transform: translateX(-100%);
-  }
-}
-
-/* Réactivité */
+/* Responsive pour les écrans de tablettes et mobiles */
 @media (max-width: 1024px) {
-  .partners-carousel h2 {
-      font-size: 1.8rem;
+  .carousel {
+      gap: 10px; /* Réduit l'espacement entre les éléments */
   }
 
   .partner-card {
-      width: 180px;
+      max-width: 160px; /* Réduit la taille des cartes */
   }
 }
 
 @media (max-width: 768px) {
-  .partners-carousel h2 {
-      font-size: 1.6rem;
+  .carousel {
+      justify-content: flex-start; /* Aligne les éléments à gauche pour plus d'espace */
+      gap: 5px; /* Réduit l'espacement entre les éléments */
   }
 
   .partner-card {
-      width: 150px;
+      max-width: 120px; /* Réduit la taille des cartes sur les petits écrans */
   }
 }
 
 @media (max-width: 480px) {
   .partners-carousel h2 {
-      font-size: 1.4rem;
+      font-size: 20px; /* Réduit la taille du titre pour les petits écrans */
+  }
+
+  .carousel {
+      gap: 5px; /* Réduit encore l'espacement */
   }
 
   .partner-card {
-      width: 130px;
+      max-width: 100px; /* Réduit encore la taille des cartes */
   }
 }
 
-.carousel:hover {
-  animation-play-state: paused;
-}
 
 /* Pied de page */
 .footer-section {

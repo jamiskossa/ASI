@@ -47,7 +47,7 @@ main {
 
 /* Header */
 header {
-    background: #001f3f; /* Bleu profond */
+  background-color: #1e3a8a;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;

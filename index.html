@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <title>ASI</title>     
 </head>
 <body>
@@ -16,195 +15,185 @@
             <div class="logo">
                 <img src="flyers.jpg" alt="Logo ASI" />
             </div>
-    
-            <!-- Bouton Toggle pour Mobile -->
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-    
-            <!-- Navigation -->
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À propos</a></li>
-                    <li><a href="activities.html">Activités</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="support.html">Soutien</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="about.html">À propos</a>
+            <a href="activities.html">Activités</a>
+            <a href="support.html">Soutien</a>
+            <a href="contact.html">Contact</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
     </header>
     
-    <div class="hero">
-        <iframe src="https://www.youtube.com/embed/buc5X2Lp6ko?autoplay=1&mute=1&controls=0&loop=1&playlist=buc5X2Lp6ko" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-
     <main>
+        <div class="hero">
+            <iframe src="https://www.youtube.com/embed/buc5X2Lp6ko?autoplay=1&mute=1&controls=0&loop=1&playlist=buc5X2Lp6ko" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
         <section id="vision">
             <h2>Promouvoir la solidarité envers les migrants</h2>
             <p>
                 Notre mission est de créer des opportunités d'intégration et d'autonomisation pour que les migrants
-                puissent prospérer dans leurs communautés.
+                puissent prospérer dans leurs communautés. Construire des ponts entre les communautés et les migrants.
+                Donner du pouvoir aux migrants grâce à des services personnalisés. Plaidoyer pour des politiques inclusives et durables.
             </p>
-            <p>Construire des ponts entre les communautés et les migrants.</p>
-            <p>Donner du pouvoir aux migrants grâce à des services personnalisés.</p>
-            <p>Plaidoyer pour des politiques inclusives et durables.</p>
         </section>
-        
-
-        <section class="services-section">
+    
+        <section class="grid-section">
             <!-- Ligne 1 -->
-            <div class="container">
-                <div class="services-content">
-                    <div class="column">
-                        <h2>Découvrez nos services complets pour les migrants</h2>
-                    </div>
-                    <div class="column">
-                        <p>
-                            L'ASI propose une gamme de services conçus pour soutenir les migrants et renforcer la résilience des communautés. 
-                            Notre équipe dédiée fournit une assistance personnalisée, des programmes communautaires et un plaidoyer politique 
-                            pour assurer une intégration et un développement durables.
-                        </p>
-                        <p>
-                            Découvrez comment nous pouvons vous aider, vous ou votre communauté, à prospérer.
-                        </p>
-                    </div>
+            <div class="conteneur">
+              <div class="services-content">
+                <div class="column">
+                  <h2>Découvrez nos services complets pour les migrants</h2>
                 </div>
+                <div class="column">
+                  <p>
+                    L'ASI propose une gamme de services conçus pour soutenir les migrants et renforcer la résilience des communautés. 
+                    Notre équipe dédiée fournit une assistance personnalisée, des programmes communautaires et un plaidoyer politique 
+                    pour assurer une intégration et un développement durables.
+                  </p>
+                  <p>
+                    Découvrez comment nous pouvons vous aider, vous ou votre communauté, à prospérer.
+                  </p>
+                </div>
+              </div>
             </div>
-        
-            <!-- Ligne 2 : Grilles des services -->
-            <div class="service-grid">
-                <div class="service-card">
-                    <div class="image-column">
-                        <img src="flyers.jpg" alt="Image Services" />
-                    </div>
-                    <h3>Accompagnement personnalisé des migrants</h3>
-                    <p>
-                        Nos services de soutien personnalisés aident les migrants de retour à s'orienter vers la réintégration, en proposant des conseils, des programmes de placement professionnel et d'intégration communautaire.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="image-column">
-                        <img src="flyers.jpg" alt="Image Services" />
-                    </div>
-                    <h3>Renforcer la résilience communautaire</h3>
+          
+            <div class="grid-item">
+              <img src="flyers.jpg" alt="Image 1">
+              <h3>Accompagnement personnalisé des migrants</h3>
+              <p>
+                Nos services de soutien personnalisés aident les migrants de retour à s'orienter vers la réintégration, en proposant des conseils, des programmes de placement professionnel et d'intégration communautaire.
+            </p>
+            </div>
+            <div class="grid-item">
+              <img src="flyers.jpg" alt="Image 2">
+              <h3>Renforcer la résilience communautaire</h3>
                     <p>
                         Nos programmes renforcent la capacité des communautés d’accueil à soutenir les migrants par le biais d’ateliers, de formations et de ressources collaboratives.
                     </p>
-                </div>
-                <div class="service-card">
-                    <div class="image-column">
-                        <img src="flyers.jpg" alt="Image Services" />
-                    </div>
-                    <h3>Plaidoyer pour des politiques durables</h3>
+            </div>
+            <div class="grid-item">
+              <img src="flyers.jpg" alt="Image 3">
+              <h3>Plaidoyer pour des politiques durables</h3>
                     <p>
                         Nous nous engageons dans un plaidoyer politique pour influencer les politiques migratoires, dans le but de développer des établissements durables bénéficiant à toutes les parties.
                     </p>
-                </div>
             </div>
+            <div class="grid-item">
+                <img src="flyers.jpg" alt="Image 3">
+                <h3>Plaidoyer pour des politiques durables</h3>
+                      <p>
+                          Nous nous engageons dans un plaidoyer politique pour influencer les politiques migratoires, dans le but de développer des établissements durables bénéficiant à toutes les parties.
+                      </p>
+              </div>
+              <div class="grid-item">
+                <img src="flyers.jpg" alt="Image 3">
+                <h3>Plaidoyer pour des politiques durables</h3>
+                      <p>
+                          Nous nous engageons dans un plaidoyer politique pour influencer les politiques migratoires, dans le but de développer des établissements durables bénéficiant à toutes les parties.
+                      </p>
+              </div>
         </section>
-        
-
+          
         <section class="engagement-section">
             <!-- Image -->
             <div class="image-container">
-                <img src="flyers.jpg" alt="Engagement envers les migrants">
+              <img src="flyers.jpg" alt="Engagement envers les migrants">
             </div>
-        
+          
             <!-- Texte -->
             <div class="text-container">
-                <h2>Notre engagement envers les migrants</h2>
-                <p>
-                    Chez <strong>ASI</strong>, nous nous engageons à promouvoir la solidarité nationale et internationale envers les migrants. 
-                    Notre mission est de veiller à ce que chaque migrant reçoive le soutien dont il a besoin pour se réintégrer avec succès dans 
-                    sa communauté, en favorisant une culture d'empathie et de collaboration.
-                </p>
-                
-                <!-- Statistiques -->
-                <div class="stats-grid">
-                    <div class="stat">
-                        <h3>500</h3>
-                        <p>Migrants soutenus</p>
-                        <p>
-                            Grâce à nos différents programmes, nous avons aidé avec succès plus de 500 migrants dans leur parcours vers la réintégration.
-                        </p>
-                    </div>
-                    <div class="stat">
-                        <h3>20</h3>
-                        <p>Programmes communautaires</p>
-                        <p>
-                            Nous avons mis en œuvre 20 programmes de résilience communautaire visant à renforcer la capacité des communautés d’accueil.
-                        </p>
-                    </div>
-                    <div class="stat">
-                        <h3>10</h3>
-                        <p>Politiques préconisées</p>
-                        <p>
-                            Nos efforts de plaidoyer ont conduit à l’élaboration de 10 politiques d’installation durables.
-                        </p>
-                    </div>
-                    <div class="stat">
-                        <h3>100</h3>
-                        <p>Ateliers menés</p>
-                        <p>
-                            Nous avons organisé 100 ateliers axés sur l’intégration communautaire et le soutien aux migrants.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-
-        <section class="integration-section">
-            <!-- Texte -->
-            <div class="text-container">
-                <h2>Une vision d’intégration complète pour les migrants</h2>
-                <p>
-                    ASI envisage un avenir dans lequel les migrants seront pleinement intégrés dans leurs communautés, contribuant et bénéficiant d'une société harmonieuse. 
-                    Nous nous efforçons de créer des environnements où les migrants se sentent accueillis et valorisés, favorisant le respect et la compréhension mutuels.
-                </p>
-                <div class="stats-grid">
-                    <div class="stat">
-                        <h3>100 <span>%</span></h3>
-                        <p>Migrants intégrés dans les communautés.</p>
-                    </div>
-                    <div class="stat">
-                        <h3>50 <span>%</span></h3>
-                        <p>Des communautés renforcées grâce à la résilience.</p>
-                    </div>
-                </div>
-            </div>
-        
-            <!-- Image -->
-            <div class="image-container">
-                <img src="ambassade.png" alt="Vision d'intégration des migrants">
-            </div>
-        </section>
-        
-        <section class="migration-section">
-            <!-- Image -->
-            <div class="image-container">
-                <img src="flyers.jpg" alt="Migration en Guinée">
-            </div>
-        
-            <!-- Texte -->
-            <div class="text-container">
-                <h2>Comprendre la migration en Guinée</h2>
-                <p>
-                    La Guinée est confrontée à d’importants défis migratoires, notamment les retours volontaires et involontaires. L’intégration économique des migrants et la résilience des communautés d’accueil sont essentielles pour le développement durable. ASI s’engage à relever ces défis par le biais d’initiatives stratégiques et de programmes de soutien aux communautés.
-                </p>
+              <h2>Notre engagement envers les migrants</h2>
+              <p>
+                Chez <strong>ASI</strong>, nous nous engageons à promouvoir la solidarité nationale et internationale envers les migrants.
+                Notre mission est de veiller à ce que chaque migrant reçoive le soutien dont il a besoin pour se réintégrer avec succès dans 
+                sa communauté, en favorisant une culture d'empathie et de collaboration.
+              </p>
+          
+              <!-- Statistiques -->
+              <div class="stats-grid">
                 <div class="stat">
-                    <h3>10</h3>
-                    <p>Migrants soutenus</p>
+                  <h3>500</h3>
+                  <p>Migrants soutenus</p>
+                  <p>
+                    Grâce à nos différents programmes, nous avons aidé avec succès plus de 500 migrants dans leur parcours vers la réintégration.
+                  </p>
                 </div>
+                <div class="stat">
+                  <h3>20</h3>
+                  <p>Programmes communautaires</p>
+                  <p>
+                    Nous avons mis en œuvre 20 programmes de résilience communautaire visant à renforcer la capacité des communautés d’accueil.
+                  </p>
+                </div>
+                <div class="stat">
+                  <h3>10</h3>
+                  <p>Politiques préconisées</p>
+                  <p>
+                    Nos efforts de plaidoyer ont conduit à l’élaboration de 10 politiques d’installation durables.
+                  </p>
+                </div>
+                <div class="stat">
+                  <h3>100</h3>
+                  <p>Ateliers menés</p>
+                  <p>
+                    Nous avons organisé 100 ateliers axés sur l’intégration communautaire et le soutien aux migrants.
+                  </p>
+                </div>
+              </div>
             </div>
-        </section>
-        
+          </section>
+          
+          
+          <section class="integration-section">
+            <!-- Texte -->
+            <div class="text-container">
+              <h2>Une vision d’intégration complète pour les migrants</h2>
+              <p>
+                ASI envisage un avenir dans lequel les migrants seront pleinement intégrés dans leurs communautés, contribuant et bénéficiant d'une société harmonieuse. 
+                Nous nous efforçons de créer des environnements où les migrants se sentent accueillis et valorisés, favorisant le respect et la compréhension mutuels.
+              </p>
+              <div class="stats-grid">
+                <div class="stat">
+                  <h3>100 <span>%</span></h3>
+                  <p>Migrants intégrés dans les communautés.</p>
+                </div>
+                <div class="stat">
+                  <h3>50 <span>%</span></h3>
+                  <p>Des communautés renforcées grâce à la résilience.</p>
+                </div>
+              </div>
+            </div>
+          
+            <!-- Image -->
+            <div class="image-container">
+              <img src="ambassade.png" alt="Vision d'intégration des migrants">
+            </div>
+          </section>
+          
+          <section class="migration-section">
+            <!-- Image -->
+            <div class="image-container">
+              <img src="flyers.jpg" alt="Migration en Guinée">
+            </div>
+          
+            <!-- Texte -->
+            <div class="text-container">
+              <h2>Comprendre la migration en Guinée</h2>
+              <p>
+                La Guinée est confrontée à d’importants défis migratoires, notamment les retours volontaires et involontaires. L’intégration économique des migrants et la résilience des communautés d’accueil sont essentielles pour le développement durable. ASI s’engage à relever ces défis par le biais d’initiatives stratégiques et de programmes de soutien aux communautés.
+              </p>
+              <div class="stat">
+                <h3>10</h3>
+                <p>Migrants soutenus</p>
+              </div>
+            </div>
+          </section>                 
 
-        <section class="partners-carousel">
+          <section class="partners-carousel">
             <h2>Nos Partenaires</h2>
             <div class="carousel">
                 <div class="partner-card">
@@ -222,13 +211,9 @@
                         <img src="flyers.jpg" alt="Flyers">
                     </a>
                 </div>
-                <div class="partner-card">
-                    <a href="partenaire1-page.html">
-                        <img src="flyers.jpg" alt="Flyers">
-                    </a>
-                </div>
             </div>
         </section>
+        
         
     </main>
 
@@ -242,22 +227,23 @@
             Tél : +33650586044 <br> +224623993030
         </p>
         <div class="social-links">
-            <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
-            <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 </footer>
 
-    <script>
-       // Toggle Menu Animation
-const menuToggle = document.getElementById('menu-toggle');
-const navbar = document.querySelector('.navbar');
-
-menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-});
-
+<script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
     </script>
 </body>
 </html>

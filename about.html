@@ -7,361 +7,279 @@
     <title>ASI - À propos de nous</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Style pour la section Mission et Vision */
-.mission-vision-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3rem;
-    background: #f1f1f1;
-    color: #333;
+        .mission-vision-section {
+  padding: 2rem 1rem;
+  background: linear-gradient(120deg, rgba(255, 165, 0, 0.8), rgba(30, 144, 255, 0.8), rgba(255, 255, 255, 0.9));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
 }
 
-/* Conteneur de la section */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
+.mission-vision-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
 }
 
-/* Contenu textuel */
-.text-content {
-    flex: 1;
-    max-width: 50%;
-    padding-right: 2rem;
+.mission-vision-section .text-content {
+  flex: 1;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Titre de la section */
-.text-content h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #003d6b;
+.mission-vision-section .text-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #ff9a00;
 }
 
-/* Paragraphe général */
-.text-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+.mission-vision-section .text-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
-/* Points clés */
-.key-point {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
+.mission-vision-section .text-content .key-point {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.key-point .percentage {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #003d6b;
-    margin-right: 1rem;
+.mission-vision-section .text-content .key-point .percentage {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, rgba(0, 255, 204, 0.8), rgba(0, 36, 61, 0.8));
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 255, 204, 0.5);
 }
 
-.key-point p {
-    font-size: 1.1rem;
-    line-height: 1.4;
+.mission-vision-section .text-content .conclusion {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-/* Paragraphe de conclusion */
-.conclusion {
-    font-style: italic;
-    font-size: 1.1rem;
-    margin-top: 2rem;
+.mission-vision-section .image-content {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: scaleUp 1.5s ease-in-out;
 }
 
-/* Contenu image */
-.image-content {
-    flex: 1;
-    max-width: 40%;
-    text-align: center;
+.mission-vision-section .image-content img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.image-content img {
+.mission-vision-section .image-content img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate
+    Y(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .mission-vision-section .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mission-vision-section .text-content, 
+  .mission-vision-section .image-content {
     max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
+    flex: none;
+  }
 
-/* Réactivité */
-@media (max-width: 1024px) {
-    .text-content {
-        max-width: 60%;
-    }
-
-    .image-content {
-        max-width: 35%;
-    }
-}
-
-@media (max-width: 768px) {
-    .mission-vision-section {
-        flex-direction: column;
-        padding: 2rem;
-    }
-
-    .text-content {
-        max-width: 100%;
-        padding-right: 0;
-    }
-
-    .image-content {
-        max-width: 100%;
-        margin-top: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .mission-vision-section {
-        padding: 1rem;
-    }
-
-    .text-content h2 {
-        font-size: 1.6rem;
-    }
-
-    .key-point .percentage {
-        font-size: 1.8rem;
-    }
-
-    .key-point p {
-        font-size: 1rem;
-    }
-}
-
-/* Style pour la section Objectifs stratégiques */
-.strategic-objectives-section {
-    padding: 3rem;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-/* Conteneur de la section */
-.container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-/* Colonne 1 : Texte introductif */
-.column {
-    flex: 1;
-    margin-right: 2rem;
-}
-
-/* Titre de la section */
-.column h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #003d6b;
-}
-
-/* Paragraphe de la section */
-.column p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+  .mission-vision-section .text-content {
     margin-bottom: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .mission-vision-section .image-content img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
 }
 
-/* Colonne 2 : Objectifs spécifiques */
-.column .objective {
-    margin-bottom: 1.5rem;
-}
-
-.objective h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #003d6b;
-    margin-bottom: 0.5rem;
-}
-
-.objective p {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* Réactivité */
-@media (max-width: 1024px) {
-    .column {
-        flex: 1 1 45%;
-        margin-right: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .strategic-objectives-section {
-        padding: 2rem;
-    }
-
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .column {
-        max-width: 100%;
-        margin-right: 0;
-        margin-bottom: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .column h2 {
-        font-size: 1.8rem;
-    }
-
-    .objective h3 {
-        font-size: 1.3rem;
-    }
-
-    .objective p {
-        font-size: 0.9rem;
-    }
-}
-
-/* Style pour la section Équipe */
 .team-section {
-    padding: 3rem;
-    background-color: #f8f8f8;
-    text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e90ff, #ffffff, #ff8c00);
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
 }
 
 .team-section h2 {
-    font-size: 2.5rem;
-    color: #003d6b;
-    margin-bottom: 3rem;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  color: #ffdd00;
+  grid-column: 1 / -1; /* Occupe toute la largeur sur la première ligne */
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Conteneur pour les cartes de l'équipe */
 .team-cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 0 auto;
-    max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes égales */
+  gap: 2rem;
+  grid-template-rows: auto; /* Les lignes seront ajustées en fonction du contenu */
+  justify-items: center;
 }
 
-/* Carte de l'équipe */
 .team-card {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 280px;
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideInUp 1.5s ease-in-out;
 }
 
 .team-card:hover {
-    transform: translateY(-10px);
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.team-photo {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    margin-bottom: 1.5rem;
+.team-card .team-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #ffdd00;
 }
 
-/* Informations du membre */
 .team-card h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #003d6b;
-    margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  color: #fff;
 }
 
 .team-card .position {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #ffdd00;
+  margin-bottom: 1rem;
 }
 
 .team-card .bio {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: #333;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
 }
 
-/* Icônes de contact */
 .contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .contact-icon {
-    font-size: 1.5rem;
-    color: #003d6b;
-    transition: color 0.3s ease;
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-icon:hover {
-    color: #f39c12;
+  color: #ffdd00;
+  transform: scale(1.2);
 }
 
-/* Bouton Contacter */
 .contact-btn {
-    background-color: #003d6b;
-    color: white;
-    padding: 0.8rem 2rem;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background: #ff8c00;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .contact-btn:hover {
-    background-color: #f39c12;
+  background: #ffdd00;
+  transform: translateY(-3px);
 }
 
-/* Réactivité */
-@media (max-width: 1024px) {
-    .team-cards {
-        justify-content: center;
-    }
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-@media (max-width: 768px) {
-    .team-card {
-        width: 100%;
-        margin-bottom: 2rem;
-    }
-    
-    .contact-icon {
-        font-size: 1.2rem;
-    }
-
-    .contact-btn {
-        width: 100%;
-    }
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@media (max-width: 480px) {
-    .team-section h2 {
-        font-size: 2rem;
-    }
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .team-cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les grands écrans mobiles/tablettes */
+  }
+}
 
-    .team-card {
-        width: 100%;
-        padding: 1.5rem;
-    }
+@media screen and (max-width: 768px) {
+  .team-section h2 {
+    font-size: 2rem;
+  }
 
-    .team-card h3 {
-        font-size: 1.3rem;
-    }
-
-    .team-card .bio {
-        font-size: 0.9rem;
-    }
+  .team-cards {
+    grid-template-columns: 1fr; /* 1 seule colonne sur les petits écrans */
+  }
 }
 
 
@@ -396,9 +314,9 @@
     </header>
 
     <div class="hero">
-        <iframe src="https://www.youtube.com/embed/buc5X2Lp6ko?autoplay=1&mute=1&controls=0&loop=1&playlist=buc5X2Lp6ko" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/yo2rAOlIAGo?autoplay=1&mute=1&controls=0&loop=1&playlist=yo2rAOlIAGo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
-<main>
+<main futuristic-main>
 <section class="mission-vision-section">
     <div class="container">
         <!-- Contenu textuel -->
@@ -476,8 +394,9 @@
 </section>
 
 <section class="team-section">
+    <h2>Notre Équipe</h2>
     <div class="container">
-        <h2>Notre Équipe</h2>
+        
         <div class="team-cards">
             <!-- Carte Membre 1 -->
             <div class="team-card">
@@ -571,8 +490,10 @@
             Tél : +33650586044 <br> +224623993030
         </p>
         <div class="social-links">
-            <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
-            <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 </footer>

@@ -609,7 +609,7 @@ header {
       transform: translateX(0);
     }
   }
-  
+ 
   section {
     display: flex;
     flex-wrap: wrap;

@@ -6,187 +6,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>ASI - Nos Activités</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styless.css">
 
     <style>
+/* Section principale */
 #activities {
-    color: #000;
-}
-
-       /* Styles généraux */
-#nos-evenements {
-    padding: 20px;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-#nos-evenements h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #004aad;
-}
-
-.event-presentation {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 20px;
-    align-items: center;
-}
-
-.event-presentation h3 {
-    font-size: 1.5rem;
-    color: #004aad;
-    grid-column: span 2; /* Étend le titre sur les deux colonnes */
+    padding: 40px 20px;
+    background-color: #f4f4f4;
     text-align: center;
 }
 
-.slideshow-container {
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-    max-width: 400px;
+/* Conteneur de contenu */
+#activities .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.slideshow-container img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-    
+/* Titre */
+#activities h1 {
+    font-size: 2em;
+    color: #2a7ae4;
+    margin-bottom: 15px;
 }
 
-.event-details {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-}
-
-.event-details p {
-    margin-bottom: 20px;
-    font-size: 1rem;
+/* Description */
+#activities .event-description {
+    font-size: 1.2em;
+    color: #555;
     line-height: 1.6;
-}
-
-.event-details .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #004aad;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.event-details .btn:hover {
-    background-color: #00337a;
+    margin: 0;
 }
 
 /* Réactivité */
 @media (max-width: 768px) {
-    .event-presentation {
-        grid-template-columns: 1fr;
+    #activities {
+        padding: 30px 15px;
     }
 
-    .event-presentation h3 {
-        grid-column: span 1;
+    #activities h1 {
+        font-size: 1.8em;
     }
+
+    #activities .event-description {
+        font-size: 1em;
+    }
+}
+
+  /* Section principale */
+#nos-evenements {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #ff8c00, #1e90ff, #ffffff);
+    text-align: center;
+}
+
+#nos-evenements .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Titre de la section */
+#nos-evenements h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #eceef0;
+}
+
+/* Présentation de l'événement */
+.event-presentation h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.event-description p {
+    font-size: 1.2em;
+    color: #161313;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 .slide {
     display: none;
+}
+
+.slide img {
     width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
+/* Animation de transition */
 .fade {
-    animation-name: fade;
+    animation-name: fadeEffect;
     animation-duration: 1.5s;
-    animation-timing-function: ease-in-out;
 }
 
-@keyframes fade {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-/* Texte et description de l'événement */
-#nos-evenements h3 {
-    font-size: 1.8rem;
-    color: #003d6b;
-    margin-bottom: 1.5rem;
-}
-
-#nos-evenements p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #0e0c0c;
-    margin-bottom: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Bouton d'inscription */
-.btn {
-    background-color: #003d6b;
-    color: white;
-    padding: 0.8rem 2rem;
-    font-size: 1.1rem;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #f39c12;
+@keyframes fadeEffect {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Réactivité */
-@media (max-width: 1024px) {
-    #nos-evenements .event-presentation {
-        padding: 1.5rem;
-    }
-}
-
 @media (max-width: 768px) {
     #nos-evenements h2 {
-        font-size: 2rem;
+        font-size: 2em;
     }
 
-    #nos-evenements h3 {
-        font-size: 1.5rem;
+    .event-presentation h3 {
+        font-size: 1.5em;
     }
 
-    #nos-evenements p {
-        font-size: 0.95rem;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 1rem;
+    .event-description p {
+        font-size: 1em;
     }
 }
 
-@media (max-width: 480px) {
-    #nos-evenements h2 {
-        font-size: 1.8rem;
-    }
-
-    #nos-evenements h3 {
-        font-size: 1.3rem;
-    }
-
-    #nos-evenements p {
-        font-size: 0.9rem;
-    }
-}
 
 /* Style pour la section Events Grid */
 #events-grid {
@@ -198,7 +148,7 @@
 }
 
 .event-card {
-    background-color: white;
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.8), rgba(0, 36, 61, 0.8));
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -316,12 +266,15 @@
     </header>
     <main>
         <section id="activities">
-            <h1>Découvrez les projets et événements pour promouvoir la réintégration des migrants</h1>
-            <p class="event-description">
-                Ces projets et événements seront une excellente occasion de découvrir de nouvelles initiatives pour l'intégration des migrants. 
-                Ils comprendront des ateliers, des conférences, et des activités communautaires pour favoriser la cohésion sociale.
-            </p>
+            <div class="content-wrapper">
+                <h1>Découvrez les projets et événements pour promouvoir la réintégration des migrants</h1>
+                <p class="event-description">
+                    Ces projets et événements seront une excellente occasion de découvrir de nouvelles initiatives pour l'intégration des migrants. 
+                    Ils comprendront des ateliers, des conférences, et des activités communautaires pour favoriser la cohésion sociale.
+                </p>
+            </div>
         </section>
+        
         
 
         <!-- Section: Nos Événements -->
@@ -381,7 +334,7 @@
                         <img src="24.png" alt="Événement 1">
                     </div>
                 </div>
-                <div>
+                <div  class="event-description">
                     <p>
                         La première activité organisée par Alternative Solidarité Immigration (ASI) a été une journée mémorable, riche en rencontres et en échanges. 
                         Les représentants, partenaires et collaborateurs de ASI se sont rassemblés dans une ambiance chaleureuse et conviviale, renforçant les liens qui unissent cette communauté engagée. 
@@ -389,16 +342,16 @@
                         La journée s'est conclue par un délicieux repas au restaurant, permettant à tous de célébrer ensemble cette belle initiative et de repartir inspirés pour les projets à venir.
                     </p>
 
-                    <a href="inscription.html" class="btn">S'inscrire à l'événement</a>
                 </div>
             </div>
         </section>
 
         <section id="events-grid">
-            <!-- événement 1 -->
+        
+            <!-- Événement 1 -->
             <div class="event-card">
                 <figure>
-                    <img src="flyers.jpg" alt="Événement 5" width="150px">
+                    <img src="flyers.jpg" alt="Événement 5" class="event-img">
                     <figcaption>Événement à venir - Conférence sur l'intégration</figcaption>
                 </figure>
                 <div class="event-details">
@@ -409,10 +362,10 @@
                 </div>
             </div>
         
-            <!-- événement 2 -->
+            <!-- Événement 2 -->
             <div class="event-card">
                 <figure>
-                    <img src="flyers.jpg" alt="Événement 6" width="150px">
+                    <img src="flyers.jpg" alt="Événement 6" class="event-img">
                     <figcaption>Atelier - Petit déjeuner des partenaires</figcaption>
                 </figure>
                 <div class="event-details">
@@ -423,10 +376,10 @@
                 </div>
             </div>
         
-            <!-- événement 3 -->
+            <!-- Événement 3 -->
             <div class="event-card">
                 <figure>
-                    <img src="flyers.jpg" alt="Événement 7" width="150px">
+                    <img src="flyers.jpg" alt="Événement 7" class="event-img">
                     <figcaption>Forum sur les opportunités économiques</figcaption>
                 </figure>
                 <div class="event-details">
@@ -437,10 +390,10 @@
                 </div>
             </div>
         
-            <!-- événement 4 -->
+            <!-- Événement 4 -->
             <div class="event-card">
                 <figure>
-                    <img src="flyers.jpg" alt="Événement 8" width="150px">
+                    <img src="flyers.jpg" alt="Événement 8" class="event-img">
                     <figcaption>Formation - Emplois durables</figcaption>
                 </figure>
                 <div class="event-details">
@@ -452,7 +405,6 @@
             </div>
         </section>
         
-
     </main>
 
     <!-- Pied de page -->
@@ -465,8 +417,10 @@
             Tél : +33650586044 <br> +224623993030
         </p>
         <div class="social-links">
-            <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
-            <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 </footer>

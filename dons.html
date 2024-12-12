@@ -3,15 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styless.css">
+    <title>Donation</title>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="flyers.jpg" alt="Logo ASI" />
+            </div>
+    
+            <!-- Bouton Toggle pour Mobile -->
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="activities.html">Activités</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="adhesion.html">Adhésion</a></li>
+                    <li><a href="dons.html">Dons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="donorbox-form">
         <iframe id="haWidget" allowtransparency="true" scrolling="auto" 
         src="https://www.helloasso.com/associations/alternatives-solidarite-immigration-asi/formulaires/1/widget" 
         style="width: 100%; height: 750px; border: none;"></iframe>
     </div>
-    <script src="https://donorbox.org/widget.js" paypalExpress="true"></script>
+
+
+    <!-- Pied de page -->
+<footer class="footer-section">
+    <div class="footer-content">
+        <p>&copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane Tous droits réservés.</p>
+        <p>
+            Contactez-nous : 
+            <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | 
+            Tél : +33650586044 <br> +224623993030
+        </p>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+    <script>
+        // Toggle Menu Animation
+ const menuToggle = document.getElementById('menu-toggle');
+ const navbar = document.querySelector('.navbar');
+ 
+ menuToggle.addEventListener('click', () => {
+     navbar.classList.toggle('active');
+     menuToggle.classList.toggle('active');
+ });
+ 
+     </script>
     
 </body>
 </html>

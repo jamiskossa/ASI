@@ -143,41 +143,26 @@ header {
     }
   }
 
-  .hero {
+  .hero{
     width: 100%;
-    height: 80vh;
+    overflow: hidden;
 }
 
-.hero iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
 }
 
-.particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    pointer-events: none;
-}
-@keyframes move {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
-}
-.particles:before, .particles:after {
-    content: "";
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(255,255,255,0.2), rgba(255,255,255,0) 70%);
-    animation: move 10s linear infinite;
+    width: 100%;
+    height: 100%;
 }
-.particles:after {
-    animation-delay: 5s;
-}
+
 
 #vision {
     position: relative;

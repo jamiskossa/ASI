@@ -258,7 +258,7 @@ header {
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  background: linear-gradient(to left, #dfa508, #f57b17);
+  
 }
 
 /* Partie 1 : Titre et texte */

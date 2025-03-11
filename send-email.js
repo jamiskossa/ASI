@@ -1,53 +1,41 @@
-exports.handler = async (event) => {
-    console.log("Requête reçue:", event.body); // Debug
+// netlify/functions/send-email.js
+const postmark = require('postmark');
+
+// Remplacez par votre clé API Postmark
+const client = new postmark.Client('votre_clé_api_postmark');
+
+exports.handler = async (event, context) => {
+  if (event.httpMethod === 'POST') {
+    const { name, email, subject, message } = JSON.parse(event.body);
+
+    // Construire l'email à envoyer
+    const emailContent = {
+      From: email, 
+      To: 'contact@alternatives.asi.org', // L'email de destination
+      Subject: subject,
+      HtmlBody: `<p>Nom: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
+      TextBody: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    };
 
     try {
-        const { name, email, subject, message } = JSON.parse(event.body);
-        console.log("Données reçues:", name, email, subject, message); // Debug
+      // Envoie de l'email via Postmark
+      await client.sendEmail(emailContent);
 
-        // Vérifiez que les champs ne sont pas vides
-        if (!name || !email || !subject || !message) {
-            return {
-                statusCode: 400,
-                body: JSON.stringify({ error: "Tous les champs sont requis" })
-            };
-        }
-
-        const response = await fetch("https://api.postmarkapp.com/email", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "X-Postmark-Server-Token": "f146c1ed-0b9b-414c-b0fb-b4071c7bc890"
-            },
-            body: JSON.stringify({
-                From: "contact@alternatives.asi.org",
-                To: "contact@alternatives.asi.org",
-                Subject: `Nouveau message: ${subject}`,
-                HtmlBody: `
-                    <h2>Nouveau message reçu</h2>
-                    <p><strong>Nom :</strong> ${name}</p>
-                    <p><strong>Email :</strong> ${email}</p>
-                    <p><strong>Objet :</strong> ${subject}</p>
-                    <p><strong>Message :</strong> ${message}</p>
-                `,
-                MessageStream: "outbound"
-            })
-        });
-
-        const result = await response.json();
-        console.log("Réponse Postmark:", result); // Debug
-
-        return {
-            statusCode: response.status,
-            body: JSON.stringify(result)
-        };
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: 'Message envoyé avec succès!' }),
+      };
     } catch (error) {
-        console.error("Erreur serveur:", error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: "Erreur interne du serveur" })
-        };
+      console.error(error);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ message: 'Une erreur est survenue lors de l\'envoi de l\'email.' }),
+      };
     }
-};
+  }
 
+  return {
+    statusCode: 405,
+    body: JSON.stringify({ message: 'Méthode non autorisée' }),
+  };
+};

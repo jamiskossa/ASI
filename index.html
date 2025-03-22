@@ -9,28 +9,33 @@
     <title>ASI</title>   
  </head>
 <body>
-
     <header>
         <div class="container">
             <!-- Logo -->
             <div class="logo">
                 <img src="flyers.jpg" alt="Logo ASI" />
             </div>
-
-         <!-- Menu de navigation amélioré -->
-         <div class="topnav" id="myTopnav">
-            <a href="index.html" class="active">Accueil</a>
-            <a href="about.html">À propos</a>
-            <a href="activities.html">Activités</a>
-            <a href="blog.html">Blog</a>
-            <a href="adhesion.html">Adhésion</a>
-            <a href="dons.html">Dons</a>
-            <a href="contact.html">Contact</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-              <i class="fa fa-bars"></i>
-            </a>
+    
+            <!-- Bouton Toggle pour Mobile -->
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="activities.html">Activités</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="adhesion.html">Adhésion</a></li>
+                    <li><a href="dons.html">Dons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
     </header>
     <div class="hero">
       <div class="video-container">
@@ -227,5 +232,16 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+    // Toggle Menu Animation
+const menuToggle = document.getElementById('menu-toggle');
+const navbar = document.querySelector('.navbar');
+
+menuToggle.addEventListener('click', () => {
+ navbar.classList.toggle('active');
+ menuToggle.classList.toggle('active');
+});
+
+ </script>
 </body>
 </html>

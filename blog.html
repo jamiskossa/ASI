@@ -1,254 +1,1340 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>ASI - Blog</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styless.css">
-    <style>
-        body {
-            background: linear-gradient(to left, #d3cce3, #e9e4f0);
+    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                        },
+                        accent: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-down': 'slideDown 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
         }
-        /* Style pour le main */
-main {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 2rem;
-    flex-wrap: wrap; /* Pour la réactivité */
-}
-
-/* Contenu principal */
-#blog-header {
-    width: 100%;
-    padding: 2rem;
-    background-color: #003d6b;
-    color: white;
-    text-align: center;
-    border-radius: 8px;
-}
-
-#blog-posts {
-    flex: 1; /* Prend tout l'espace disponible */
-}
-
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.blog-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.blog-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-.blog-content {
-    padding: 1rem;
-}
-
-.blog-content h2 {
-    font-size: 1.25rem;
-    color: #003d6b;
-}
-
-.blog-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 1rem 0;
-    color: #000;
-}
-
-.blog-content .btn {
-    background-color: #003d6b;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 1.1rem;
-}
-
-.blog-content .btn:hover {
-    background-color: #f39c12;
-}
-
-/* Sidebar */
-.blog-sidebar {
-    width: 250px;
-    background-color: #00ffff;
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-
-.blog-sidebar h3 {
-    color: #003d6b;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.blog-sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.blog-sidebar ul li {
-    margin-bottom: 0.8rem;
-}
-
-.blog-sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1.1rem;
-}
-
-.blog-sidebar ul li a:hover {
-    color: #f39c12;
-}
-
-/* Réactivité pour les petits écrans */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .blog-sidebar {
-        width: 100%;
-    }
-}
-
-    </style>
+    </script>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <!-- Logo -->
-            <div class="logo">
-                <img src="flyers.jpg" alt="Logo ASI" />
-            </div>
+
+<body class="font-sans bg-gradient-to-br from-gray-50 to-white text-gray-800 overflow-x-hidden">
     
-            <!-- Bouton Toggle pour Mobile -->
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- ========================================
+         HEADER SECTION - Navigation moderne
+    ======================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-primary-100 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-3 animate-fade-in">
+                    <div class="relative group">
+                        <img src="flyers.jpg" alt="Logo ASI" 
+                             class="h-10 w-10 lg:h-12 lg:w-12 rounded-full object-cover ring-2 ring-primary-200 group-hover:ring-primary-400 transition-all duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-full bg-primary-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg lg:text-xl font-bold text-primary-800">ASI</h1>
+                        <p class="text-xs text-gray-600 -mt-1">Solidarité Immigration</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Accueil</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="about.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>À propos</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="activities.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Activités</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="blog.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-primary-600 bg-primary-50 transition-all duration-300 relative group">
+                        <span>Blog</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-500"></div>
+                    </a>
+                    <a href="adhesion.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Adhésion</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="dons.html" class="nav-link px-3 py-2 bg-secondary-400 hover:bg-secondary-500 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Dons
+                    </a>
+                    <a href="contact.html" class="nav-link px-3 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Contact
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-primary-50 hover:bg-primary-100 transition-all duration-300 group">
+                    <div class="relative w-6 h-6">
+                        <span class="menu-line absolute top-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                        <span class="menu-line absolute top-1/2 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700 transform -translate-y-1/2"></span>
+                        <span class="menu-line absolute bottom-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                    </div>
+                </button>
             </div>
-    
-            <!-- Navigation -->
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À propos</a></li>
-                    <li><a href="activities.html">Activités</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="adhesion.html">Adhésion</a></li>
-                    <li><a href="dons.html">Dons</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-2xl border-t border-primary-100 transform -translate-y-full opacity-0 invisible transition-all duration-500 ease-out">
+                <nav class="px-4 py-6 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-home mr-3 text-primary-500"></i>Accueil
+                    </a>
+                    <a href="about.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-info-circle mr-3 text-primary-500"></i>À propos
+                    </a>
+                    <a href="activities.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-calendar-alt mr-3 text-primary-500"></i>Activités
+                    </a>
+                    <a href="blog.html" class="block px-4 py-3 rounded-lg text-primary-600 bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-blog mr-3 text-primary-500"></i>Blog
+                    </a>
+                    <a href="adhesion.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-user-plus mr-3 text-primary-500"></i>Adhésion
+                    </a>
+                    <a href="dons.html" class="block px-4 py-3 rounded-lg bg-secondary-400 hover:bg-secondary-500 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-heart mr-3"></i>Dons
+                    </a>
+                    <a href="contact.html" class="block px-4 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                </nav>
+            </div>
         </div>
     </header>
-    <main>
-        <section id="blog-header" class="section-padding">
-            <h1>Bienvenue sur le Blog d'ASI</h1>
-            <p>Découvrez nos articles, histoires et actualités pour soutenir les migrants et renforcer les communautés.</p>
-        </section>
 
-        <section id="blog-posts" class="section-padding">
-            <div class="container">
-                <div class="blog-grid">
-<!-- Article 3 -->
-<article class="blog-card">
-    <img src="20.png" alt="Blog 3">
-    <div class="blog-content">
-        <h2><a href="blog-details.html">Atelier Petit Déjeuner Des Partenaires d'ASI</a></h2>
-        <p>La première activité organisée par Alternative Solidarité Immigration (ASI) a été une journée mémorable, riche en rencontres et en échanges. 
-            Les représentants, partenaires et collaborateurs de ASI se sont rassemblés dans une ambiance chaleureuse et conviviale, renforçant les liens qui unissent cette communauté engagée. Le programme bien structuré offre des moments de discussions enrichissantes, d'échanges d'idées et de partages d'expériences, reflétant les valeurs d'entraide et de solidarité portées par l'association. 
-            La journée s'est conclue par un délicieux repas au restaurant, permettant à tous de célébrer ensemble cette belle initiative et de repartir inspirés pour les projets à venir.</p>
-    </div>
-</article>
+    <!-- ========================================
+         HERO SECTION - Blog Header
+    ======================================== -->
+    <section class="relative pt-16 lg:pt-20 pb-16 lg:pb-24 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 overflow-hidden">
+        <!-- Background Animation Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full animate-float"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full animate-pulse-slow"></div>
+        </div>
 
-                    <!-- Article 1 -->
-                    <article class="blog-card">
-                        <img src="mig.jpg" alt="Blog 1">
-                        <div class="blog-content">
-                            <h2><a href="blog-details.html">5 initiatives pour la réintégration des migrants</a></h2>
-                            <p>Découvrez comment ASI et ses partenaires soutiennent les migrants grâce à des projets innovants et durables.</p>
-                            <a href="blog-details.html" class="btn">A venir</a>
-                        </div>
-                    </article>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center animate-slide-up">
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    Blog <span class="text-secondary-200">ASI</span>
+                </h1>
+                                <p class="text-lg sm:text-xl text-primary-100 max-w-3xl mx-auto leading-relaxed">
+                    Découvrez nos articles, histoires et actualités pour soutenir les migrants et renforcer les communautés.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MAIN CONTENT
+    ======================================== -->
+    <main class="relative">
+
+        <!-- ========================================
+             BLOG POSTS SECTION
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-50/50 to-transparent"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
                     
+                    <!-- Main Blog Content -->
+                    <div class="lg:col-span-3">
+                        
+                        <!-- Featured Article -->
+                        <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary-200 mb-12 animate-slide-up">
+                            <div class="relative overflow-hidden">
+                                <img src="20.png" alt="Atelier Petit Déjeuner Des Partenaires d'ASI" 
+                                     class="w-full h-64 sm:h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-primary-500 text-white text-sm font-medium rounded-full">
+                                    <i class="fas fa-star mr-1"></i>
+                                    Article vedette
+                                </div>
+                                <div class="absolute bottom-4 left-4 flex items-center space-x-4 text-white">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-calendar-alt mr-2"></i>
+                                        <span class="text-sm">28 Novembre 2024</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-user mr-2"></i>
+                                        <span class="text-sm">Équipe ASI</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-6 lg:p-8">
+                                <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                                    Atelier Petit Déjeuner Des Partenaires d'ASI
+                                </h2>
+                                <p class="text-gray-600 leading-relaxed mb-6">
+                                    La première activité organisée par Alternative Solidarité Immigration (ASI) a été une journée mémorable, 
+                                    riche en rencontres et en échanges. Les représentants, partenaires et collaborateurs de ASI se sont 
+                                    rassemblés dans une ambiance chaleureuse et conviviale, renforçant les liens qui unissent cette 
+                                    communauté engagée.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-primary-100 text-primary-700 text-sm font-medium rounded-full">Événement</span>
+                                    <span class="px-3 py-1 bg-secondary-100 text-secondary-700 text-sm font-medium rounded-full">Partenaires</span>
+                                    <span class="px-3 py-1 bg-accent-100 text-accent-700 text-sm font-medium rounded-full">Networking</span>
+                                </div>
+                                <a href="activities.html" 
+                                   class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn">
+                                    <span>Voir nos activités</span>
+                                    <i class="fas fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                                </a>
+                            </div>
+                        </article>
 
-                    <!-- Article 2 -->
-                    <article class="blog-card">
-                        <img src="mig.jpg" alt="Blog 2">
-                        <div class="blog-content">
-                            <h2><a href="blog-details.html">Histoires de réussite : Des migrants inspirants</a></h2>
-                            <p>Rencontrez des personnes qui ont surmonté les défis de la migration pour construire une vie meilleure.</p>
-                            <a href="blog-details.html" class="btn">A venir</a>
-                        </div>
-                    </article>
+                        <!-- Blog Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            
+                            <!-- Article 1 -->
+                            <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-secondary-200 animate-slide-up" style="animation-delay: 0.2s;">
+                                <div class="relative overflow-hidden">
+                                    <img src="mig.jpg" alt="5 initiatives pour la réintégration des migrants" 
+                                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div class="absolute top-4 right-4 px-3 py-1 bg-secondary-500 text-white text-sm font-medium rounded-full">
+                                        À venir
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                                        <i class="fas fa-calendar-alt mr-2"></i>
+                                        <span>Bientôt disponible</span>
+                                        <span class="mx-2">•</span>
+                                        <i class="fas fa-tag mr-2"></i>
+                                        <span>Initiatives</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-secondary-600 transition-colors duration-300">
+                                        5 initiatives pour la réintégration des migrants
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed mb-4">
+                                        Découvrez comment ASI et ses partenaires soutiennent les migrants grâce à des projets innovants et durables.
+                                    </p>
+                                    <a href="contact.html" 
+                                       class="inline-flex items-center text-secondary-600 font-medium hover:text-secondary-700 transition-colors duration-300 group/link">
+                                        <span>En savoir plus</span>
+                                        <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300"></i>
+                                    </a>
+                                </div>
+                            </article>
 
-                    <!-- Article 3 -->
-                    <article class="blog-card">
-                        <img src="mig.jpg" alt="Blog 3">
-                        <div class="blog-content">
-                            <h2><a href="blog-details.html">Comment participer à nos événements</a></h2>
-                            <p>Rejoignez nos ateliers, conférences et activités pour contribuer à la solidarité et à l’intégration.</p>
-                            <a href="contact.html" class="btn">Contacter ASI</a>
+                            <!-- Article 2 -->
+                            <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-accent-200 animate-slide-up" style="animation-delay: 0.4s;">
+                                <div class="relative overflow-hidden">
+                                    <img src="mig.jpg" alt="Histoires de réussite : Des migrants inspirants" 
+                                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-accent-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div class="absolute top-4 right-4 px-3 py-1 bg-accent-500 text-white text-sm font-medium rounded-full">
+                                        À venir
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                                        <i class="fas fa-calendar-alt mr-2"></i>
+                                        <span>Bientôt disponible</span>
+                                        <span class="mx-2">•</span>
+                                        <i class="fas fa-tag mr-2"></i>
+                                        <span>Témoignages</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-accent-600 transition-colors duration-300">
+                                        Histoires de réussite : Des migrants inspirants
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed mb-4">
+                                        Rencontrez des personnes qui ont surmonté les défis de la migration pour construire une vie meilleure.
+                                    </p>
+                                    <a href="contact.html" 
+                                       class="inline-flex items-center text-accent-600 font-medium hover:text-accent-700 transition-colors duration-300 group/link">
+                                        <span>En savoir plus</span>
+                                        <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300"></i>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <!-- Article 3 -->
+                            <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary-200 animate-slide-up md:col-span-2" style="animation-delay: 0.6s;">
+                                <div class="md:flex">
+                                    <div class="md:w-1/2 relative overflow-hidden">
+                                        <img src="mig.jpg" alt="Comment participer à nos événements" 
+                                             class="w-full h-48 md:h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div class="absolute top-4 right-4 px-3 py-1 bg-primary-500 text-white text-sm font-medium rounded-full">
+                                            Guide
+                                        </div>
+                                    </div>
+                                    <div class="md:w-1/2 p-6 lg:p-8 flex flex-col justify-center">
+                                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                                            <i class="fas fa-calendar-alt mr-2"></i>
+                                            <span>Guide pratique</span>
+                                            <span class="mx-2">•</span>
+                                            <i class="fas fa-tag mr-2"></i>
+                                            <span>Événements</span>
+                                        </div>
+                                        <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                                            Comment participer à nos événements
+                                        </h3>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            Rejoignez nos ateliers, conférences et activités pour contribuer à la solidarité et à l'intégration.
+                                        </p>
+                                        <a href="contact.html" 
+                                           class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn w-fit">
+                                            <span>Contacter ASI</span>
+                                            <i class="fas fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                    </article>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="lg:col-span-1 animate-slide-up" style="animation-delay: 0.8s;">
+                        <div class="sticky top-24 space-y-8">
+                            
+                            <!-- Categories Widget -->
+                            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                                <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                                    <i class="fas fa-folder-open text-primary-500 mr-3"></i>
+                                    Catégories
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li>
+                                        <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-primary-50 transition-colors duration-300 group">
+                                            <span class="text-gray-700 group-hover:text-primary-600">Initiatives</span>
+                                            <span class="text-xs bg-primary-100 text-primary-600 px-2 py-1 rounded-full">3</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-secondary-50 transition-colors duration-300 group">
+                                            <span class="text-gray-700 group-hover:text-secondary-600">Histoires de migrants</span>
+                                            <span class="text-xs bg-secondary-100 text-secondary-600 px-2 py-1 rounded-full">5</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-accent-50 transition-colors duration-300 group">
+                                            <span class="text-gray-700 group-hover:text-accent-600">Événements</span>
+                                            <span class="text-xs bg-accent-100 text-accent-600 px-2 py-1 rounded-full">8</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-primary-50 transition-colors duration-300 group">
+                                                                                      <span class="text-gray-700 group-hover:text-primary-600">Politique et plaidoyer</span>
+                                            <span class="text-xs bg-primary-100 text-primary-600 px-2 py-1 rounded-full">2</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-secondary-50 transition-colors duration-300 group">
+                                            <span class="text-gray-700 group-hover:text-secondary-600">Communauté</span>
+                                            <span class="text-xs bg-secondary-100 text-secondary-600 px-2 py-1 rounded-full">7</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Recent Posts Widget -->
+                            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                                <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                                    <i class="fas fa-clock text-secondary-500 mr-3"></i>
+                                    Articles récents
+                                </h3>
+                                <div class="space-y-4">
+                                    <article class="flex space-x-3 group">
+                                        <img src="20.png" alt="Article récent" 
+                                             class="w-16 h-16 rounded-lg object-cover group-hover:scale-105 transition-transform duration-300">
+                                        <div class="flex-1">
+                                            <h4 class="text-sm font-medium text-gray-900 group-hover:text-primary-600 transition-colors duration-300 line-clamp-2">
+                                                Atelier Petit Déjeuner Des Partenaires
+                                            </h4>
+                                            <p class="text-xs text-gray-500 mt-1">28 Nov 2024</p>
+                                        </div>
+                                    </article>
+                                    <article class="flex space-x-3 group">
+                                        <img src="mig.jpg" alt="Article récent" 
+                                             class="w-16 h-16 rounded-lg object-cover group-hover:scale-105 transition-transform duration-300">
+                                        <div class="flex-1">
+                                            <h4 class="text-sm font-medium text-gray-900 group-hover:text-primary-600 transition-colors duration-300 line-clamp-2">
+                                                Initiatives pour la réintégration
+                                            </h4>
+                                            <p class="text-xs text-gray-500 mt-1">À venir</p>
+                                        </div>
+                                    </article>
+                                    <article class="flex space-x-3 group">
+                                        <img src="mig.jpg" alt="Article récent" 
+                                             class="w-16 h-16 rounded-lg object-cover group-hover:scale-105 transition-transform duration-300">
+                                        <div class="flex-1">
+                                            <h4 class="text-sm font-medium text-gray-900 group-hover:text-primary-600 transition-colors duration-300 line-clamp-2">
+                                                Histoires de réussite
+                                            </h4>
+                                            <p class="text-xs text-gray-500 mt-1">À venir</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <!-- Newsletter Widget -->
+                            <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl shadow-lg p-6 text-white">
+                                <h3 class="text-xl font-bold mb-4 flex items-center">
+                                    <i class="fas fa-envelope text-secondary-200 mr-3"></i>
+                                    Newsletter
+                                </h3>
+                                <p class="text-primary-100 mb-4 text-sm">
+                                    Restez informé de nos dernières actualités et événements.
+                                </p>
+                                <form class="space-y-3">
+                                    <input type="email" 
+                                           placeholder="Votre email" 
+                                           class="w-full px-4 py-2 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300">
+                                    <button type="submit" 
+                                            class="w-full px-4 py-2 bg-white text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all duration-300 hover:scale-105">
+                                        S'abonner
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Tags Widget -->
+                            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                                <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                                    <i class="fas fa-tags text-accent-500 mr-3"></i>
+                                    Tags populaires
+                                </h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-primary-100 text-primary-700 text-sm font-medium rounded-full hover:bg-primary-200 transition-colors duration-300 cursor-pointer">
+                                        Migration
+                                    </span>
+                                    <span class="px-3 py-1 bg-secondary-100 text-secondary-700 text-sm font-medium rounded-full hover:bg-secondary-200 transition-colors duration-300 cursor-pointer">
+                                        Solidarité
+                                    </span>
+                                    <span class="px-3 py-1 bg-accent-100 text-accent-700 text-sm font-medium rounded-full hover:bg-accent-200 transition-colors duration-300 cursor-pointer">
+                                        Intégration
+                                    </span>
+                                    <span class="px-3 py-1 bg-primary-100 text-primary-700 text-sm font-medium rounded-full hover:bg-primary-200 transition-colors duration-300 cursor-pointer">
+                                        Communauté
+                                    </span>
+                                    <span class="px-3 py-1 bg-secondary-100 text-secondary-700 text-sm font-medium rounded-full hover:bg-secondary-200 transition-colors duration-300 cursor-pointer">
+                                        Partenaires
+                                    </span>
+                                    <span class="px-3 py-1 bg-accent-100 text-accent-700 text-sm font-medium rounded-full hover:bg-accent-200 transition-colors duration-300 cursor-pointer">
+                                        Événements
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </section>
 
-        <!-- Sidebar: Categories -->
-        <aside class="blog-sidebar">
-            <h3>Catégories</h3>
-            <ul>
-                <li><a href="#">Initiatives</a></li>
-                <li><a href="#">Histoires de migrants</a></li>
-                <li><a href="#">Événements</a></li>
-                <li><a href="#">Politique et plaidoyer</a></li>
-                <li><a href="#">Communauté</a></li>
-            </ul>
-        </aside>
+        <!-- ========================================
+             CTA SECTION - Call to Action
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 relative overflow-hidden">
+            <!-- Background Animation Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full animate-float"></div>
+                <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full animate-pulse-slow"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                        Partagez votre <span class="text-secondary-200">histoire</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-primary-100 max-w-3xl mx-auto mb-12 leading-relaxed">
+                        Vous avez une histoire inspirante à partager ? Vous souhaitez contribuer à notre blog ? 
+                        Contactez-nous pour faire entendre votre voix.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="contact.html" 
+                           class="inline-flex items-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-pen-alt mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Écrire un article</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        
+                        <a href="activities.html" 
+                           class="inline-flex items-center px-8 py-4 bg-secondary-500 hover:bg-secondary-400 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-calendar-alt mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Nos événements</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        
+                        <a href="adhesion.html" 
+                           class="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-primary-700 transition-all duration-300 hover:scale-105 group">
+                            <i class="fas fa-user-plus mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Rejoindre ASI</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-   <!-- Pied de page -->
-<footer class="footer-section">
-    <div class="footer-content">
-        <p>&copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane Tous droits réservés.</p>
-        <p>
-            Contactez-nous : 
-            <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | 
-            Tél : +33650586044 <br> +224623993030
-        </p>
-        <div class="social-links">
-            <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
-            <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
+
+    <!-- ========================================
+         FOOTER SECTION - Pied de page moderne
+    ======================================== -->
+    <footer class="bg-gray-900 text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Main Footer Content -->
+            <div class="py-12 lg:py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    
+                    <!-- Company Info -->
+                    <div class="lg:col-span-2 animate-slide-up">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <img src="flyers.jpg" alt="Logo ASI" 
+                                 class="h-12 w-12 rounded-full object-cover ring-2 ring-primary-400">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">ASI</h3>
+                                <p class="text-sm text-gray-300">Alternative Solidarité Immigration</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                            Nous accompagnons les migrants dans leur parcours d'intégration et renforçons 
+                            la résilience des communautés d'accueil pour un avenir solidaire et durable.
+                        </p>
+                        
+                        <!-- Social Links -->
+                        <div class="flex space-x-4">
+                            <a href="https://facebook.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-facebook-f text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-twitter text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-linkedin-in text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-instagram text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Liens rapides</h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="about.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    À propos
+                                </a>
+                            </li>
+                            <li>
+                                                                <a href="activities.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Nos activités
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adhesion.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Adhésion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="animate-slide-up" style="animation-delay: 0.4s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Contact</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-envelope text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Email</p>
+                                    <a href="mailto:alternatives.asi@gmail.com" 
+                                       class="text-white hover:text-primary-400 transition-colors duration-300">
+                                        alternatives.asi@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-phone text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Téléphone</p>
+                                    <p class="text-white">+33 6 50 58 60 44</p>
+                                    <p class="text-white">+224 623 99 30 30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-gray-400 text-sm text-center md:text-left">
+                        &copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane - Tous droits réservés.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Politique de confidentialité
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Mentions légales
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
-<script>
-    // Toggle Menu Animation
-const menuToggle = document.getElementById('menu-toggle');
-const navbar = document.querySelector('.navbar');
+    </footer>
 
-menuToggle.addEventListener('click', () => {
- navbar.classList.toggle('active');
- menuToggle.classList.toggle('active');
-});
+    <!-- ========================================
+         SCROLL TO TOP BUTTON
+    ======================================== -->
+    <button id="scroll-to-top" 
+            class="fixed bottom-6 right-6 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible hover:scale-110 z-50 group">
+        <i class="fas fa-chevron-up group-hover:scale-110 transition-transform duration-300"></i>
+    </button>
 
- </script>
+    <!-- ========================================
+         JAVASCRIPT SECTION
+    ======================================== -->
+    <script>
+        // ========================================
+        // MOBILE MENU TOGGLE - Animation futuriste
+        // ========================================
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLines = document.querySelectorAll('.menu-line');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('menu-open');
+            
+            if (isOpen) {
+                // Fermer le menu
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                // Animation des lignes du burger
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            } else {
+                // Ouvrir le menu
+                mobileMenu.classList.add('menu-open');
+                mobileMenu.style.transform = 'translateY(0)';
+                mobileMenu.style.opacity = '1';
+                mobileMenu.style.visibility = 'visible';
+                
+                // Animation des lignes du burger vers X
+                menuLines[0].style.transform = 'rotate(45deg) translateY(6px)';
+                menuLines[1].style.opacity = '0';
+                menuLines[2].style.transform = 'rotate(-45deg) translateY(-6px)';
+            }
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            });
+        });
+
+        // ========================================
+        // SCROLL TO TOP BUTTON
+        // ========================================
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+                scrollToTopBtn.style.visibility = 'visible';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+                scrollToTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ========================================
+        // HEADER SCROLL EFFECT
+        // ========================================
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.classList.add('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.classList.remove('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // ========================================
+        // INTERSECTION OBSERVER - Animations au scroll
+        // ========================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les éléments avec des classes d'animation
+        const animatedElements = document.querySelectorAll('.animate-slide-up, .animate-fade-in, .animate-scale-in');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // ========================================
+        // NEWSLETTER FORM HANDLING
+        // ========================================
+        const newsletterForm = document.querySelector('form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = e.target.querySelector('input[type="email"]').value;
+                
+                if (email) {
+                    // Simulation d'envoi
+                    const submitBtn = e.target.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    
+                    submitBtn.textContent = 'Envoi...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Inscrit !';
+                        submitBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                        submitBtn.classList.remove('bg-white', 'hover:bg-primary-50', 'text-primary-600');
+                        submitBtn.classList.add('text-white');
+                        
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.classList.remove('bg-green-500', 'hover:bg-green-600', 'text-white');
+                            submitBtn.classList.add('bg-white', 'hover:bg-primary-50', 'text-primary-600');
+                            e.target.reset();
+                        }, 2000);
+                    }, 1000);
+                }
+            });
+        }
+
+        // ========================================
+        // SMOOTH SCROLLING POUR LES LIENS D'ANCRAGE
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ========================================
+        // LOADING ANIMATION
+        // ========================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Ajouter une classe pour déclencher les animations initiales
+            setTimeout(() => {
+                const initialElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+                initialElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 100);
+        });
+
+        // ========================================
+        // PARALLAX EFFECT POUR LES ÉLÉMENTS DE FOND
+        // ========================================
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.animate-float');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // ========================================
+        // PERFORMANCE OPTIMIZATION
+        // ========================================
+        
+        // Lazy loading pour les images
+        const images = document.querySelectorAll('img[src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('fade-in');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Debounce function pour optimiser les événements de scroll
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Appliquer le debounce aux événements de scroll
+        const debouncedScrollHandler = debounce(() => {
+            // Handlers de scroll optimisés ici
+        }, 10);
+
+        window.addEventListener('scroll', debouncedScrollHandler);
+
+        // ========================================
+        // ACCESSIBILITY IMPROVEMENTS
+        // ========================================
+        
+        // Gestion du focus pour la navigation au clavier
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Amélioration de l'accessibilité pour le menu mobile
+        mobileMenuToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenuToggle.click();
+            }
+        });
+
+        // ========================================
+        // BLOG SPECIFIC FEATURES
+        // ========================================
+        
+        // Reading time estimation
+        function calculateReadingTime() {
+            const articles = document.querySelectorAll('article');
+            articles.forEach(article => {
+                const text = article.textContent;
+                const wordCount = text.trim().split(/\s+/).length;
+                const readingTime = Math.ceil(wordCount / 200); // 200 words per minute
+                
+                // Add reading time badge if not exists
+                const existingBadge = article.querySelector('.reading-time');
+                if (!existingBadge && readingTime > 1) {
+                    const badge = document.createElement('span');
+                    badge.className = 'reading-time text-xs text-gray-500 ml-2';
+                    badge.innerHTML = `<i class="fas fa-clock mr-1"></i>${readingTime} min de lecture`;
+                    
+                    const dateElement = article.querySelector('.text-sm.text-gray-500');
+                    if (dateElement) {
+                        dateElement.appendChild(badge);
+                    }
+                }
+            });
+        }
+
+               // Call reading time calculation
+        calculateReadingTime();
+
+        // ========================================
+        // SEARCH FUNCTIONALITY
+        // ========================================
+        function initializeSearch() {
+            // Create search input if it doesn't exist
+            const sidebar = document.querySelector('.blog-sidebar .sticky');
+            if (sidebar && !document.querySelector('#blog-search')) {
+                const searchWidget = document.createElement('div');
+                searchWidget.className = 'bg-white rounded-2xl shadow-lg p-6 border border-gray-100 mb-8';
+                searchWidget.innerHTML = `
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-search text-primary-500 mr-3"></i>
+                        Rechercher
+                    </h3>
+                    <div class="relative">
+                        <input type="text" 
+                               id="blog-search"
+                               placeholder="Rechercher des articles..." 
+                               class="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300">
+                        <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                `;
+                sidebar.insertBefore(searchWidget, sidebar.firstChild);
+            }
+
+            // Search functionality
+            const searchInput = document.getElementById('blog-search');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const articles = document.querySelectorAll('article');
+                    
+                    articles.forEach(article => {
+                        const title = article.querySelector('h2, h3').textContent.toLowerCase();
+                        const content = article.querySelector('p').textContent.toLowerCase();
+                        
+                        if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                            article.style.display = 'block';
+                            article.classList.add('animate-fade-in');
+                        } else {
+                            article.style.display = searchTerm === '' ? 'block' : 'none';
+                        }
+                    });
+                });
+            }
+        }
+
+        // Initialize search after DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeSearch);
+
+        // ========================================
+        // SOCIAL SHARING
+        // ========================================
+        function addSocialSharing() {
+            const articles = document.querySelectorAll('article');
+            articles.forEach(article => {
+                const title = article.querySelector('h2, h3').textContent;
+                const url = window.location.href;
+                
+                // Check if social sharing already exists
+                if (!article.querySelector('.social-share')) {
+                    const socialShare = document.createElement('div');
+                    socialShare.className = 'social-share flex items-center space-x-3 mt-4 pt-4 border-t border-gray-100';
+                    socialShare.innerHTML = `
+                        <span class="text-sm text-gray-600 font-medium">Partager:</span>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" 
+                           target="_blank" 
+                           class="w-8 h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-facebook-f text-xs"></i>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}" 
+                           target="_blank" 
+                           class="w-8 h-8 bg-blue-400 hover:bg-blue-500 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-twitter text-xs"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}" 
+                           target="_blank" 
+                           class="w-8 h-8 bg-blue-800 hover:bg-blue-900 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin-in text-xs"></i>
+                        </a>
+                        <button onclick="copyToClipboard('${url}')" 
+                                class="w-8 h-8 bg-gray-600 hover:bg-gray-700 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fas fa-link text-xs"></i>
+                        </button>
+                    `;
+                    
+                    const content = article.querySelector('.blog-content, .p-6, .p-8');
+                    if (content) {
+                        content.appendChild(socialShare);
+                    }
+                }
+            });
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show success message
+                const toast = document.createElement('div');
+                toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 animate-slide-up';
+                toast.textContent = 'Lien copié dans le presse-papiers !';
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            });
+        }
+
+        // Add social sharing to articles
+        addSocialSharing();
+
+        // ========================================
+        // CATEGORY FILTERING
+        // ========================================
+        function initializeCategoryFiltering() {
+            const categoryLinks = document.querySelectorAll('.blog-sidebar a[href="#"]');
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const category = link.textContent.trim();
+                    filterArticlesByCategory(category);
+                    
+                    // Update active state
+                    categoryLinks.forEach(l => l.classList.remove('bg-primary-50', 'text-primary-600'));
+                    link.classList.add('bg-primary-50', 'text-primary-600');
+                });
+            });
+        }
+
+        function filterArticlesByCategory(category) {
+            const articles = document.querySelectorAll('article');
+            articles.forEach(article => {
+                const tags = article.querySelectorAll('.px-3.py-1');
+                let hasCategory = false;
+                
+                tags.forEach(tag => {
+                    if (tag.textContent.toLowerCase().includes(category.toLowerCase())) {
+                        hasCategory = true;
+                    }
+                });
+                
+                if (hasCategory || category === 'Toutes') {
+                    article.style.display = 'block';
+                    article.classList.add('animate-fade-in');
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize category filtering
+        initializeCategoryFiltering();
+
+        // ========================================
+        // DARK MODE TOGGLE (Optional)
+        // ========================================
+        function initializeDarkMode() {
+            // Check if dark mode preference exists
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            
+            if (darkMode) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // Create dark mode toggle button
+            const darkModeToggle = document.createElement('button');
+            darkModeToggle.className = 'fixed bottom-6 left-6 w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50 group';
+            darkModeToggle.innerHTML = '<i class="fas fa-moon group-hover:scale-110 transition-transform duration-300"></i>';
+            darkModeToggle.id = 'dark-mode-toggle';
+            
+            darkModeToggle.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('darkMode', isDark);
+                
+                // Update icon
+                const icon = darkModeToggle.querySelector('i');
+                icon.className = isDark ? 'fas fa-sun group-hover:scale-110 transition-transform duration-300' : 'fas fa-moon group-hover:scale-110 transition-transform duration-300';
+            });
+            
+            document.body.appendChild(darkModeToggle);
+        }
+
+        // Uncomment to enable dark mode
+        // initializeDarkMode();
+
+        // ========================================
+        // CONSOLE WELCOME MESSAGE
+        // ========================================
+        console.log(`
+        📝 ASI Blog - Alternative Solidarité Immigration
+        ═══════════════════════════════════════════════
+        
+        Bienvenue sur notre blog !
+        
+        Fonctionnalités disponibles:
+        • Recherche d'articles
+        • Filtrage par catégories
+        • Partage social
+        • Newsletter
+        • Interface responsive
+        
+        Développé avec ❤️ par l'équipe ASI
+        Pour plus d'informations : alternatives.asi@gmail.com
+        `);
+
+    </script>
+
+    <!-- ========================================
+         ADDITIONAL CSS STYLES
+    ======================================== -->
+    <style>
+        /* Styles CSS personnalisés pour compléter Tailwind */
+        
+        /* Smooth scrolling global */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations personnalisées */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* États d'animation */
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Styles pour la navigation au clavier */
+        .keyboard-navigation *:focus {
+            outline: 2px solid #3B82F6 !important;
+            outline-offset: 2px;
+        }
+
+        /* Amélioration des transitions */
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Styles pour les éléments de chargement */
+        .loaded .animate-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Line clamp utility */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Hover effects pour les cartes */
+        .blog-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Styles pour les tags */
+        .tag-hover:hover {
+            transform: scale(1.05);
+        }
+
+        /* Animation pour les éléments sociaux */
+        .social-share a:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Styles pour le mode sombre (si activé) */
+        .dark {
+            color-scheme: dark;
+        }
+
+        .dark body {
+            background: linear-gradient(to bottom right, #1f2937, #111827);
+        }
+
+        .dark .bg-white {
+            background-color: #1f2937;
+        }
+
+        .dark .text-gray-900 {
+            color: #f9fafb;
+        }
+
+        .dark .text-gray-600 {
+            color: #d1d5db;
+        }
+
+        .dark .border-gray-100 {
+            border-color: #374151;
+        }
+
+        /* Media queries pour les animations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Styles pour l'impression */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            .blog-sidebar {
+                display: none !important;
+            }
+            
+            .lg\:col-span-3 {
+                grid-column: span 4 !important;
+            }
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .md\:flex {
+                flex-direction: column;
+            }
+            
+            .md\:w-1\/2 {
+                width: 100%;
+            }
+        }
+    </style>
+
 </body>
 </html>

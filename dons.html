@@ -1,76 +1,1679 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styless.css">
-    <title>Donation</title>
+    <title>Dons - ASI Alternative Solidarité Immigration</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                        },
+                        accent: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-down': 'slideDown 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'rotate': 'rotate 20s linear infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        glow: {
+                            '0%': { textShadow: '0 0 20px rgba(59, 130, 246, 0.5)' },
+                            '100%': { textShadow: '0 0 30px rgba(59, 130, 246, 0.8)' }
+                        },
+                        rotate: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <!-- Logo -->
-            <div class="logo">
-                <img src="flyers.jpg" alt="Logo ASI" />
-            </div>
+
+<body class="font-sans bg-gradient-to-br from-gray-50 to-white text-gray-800 overflow-x-hidden">
     
-            <!-- Bouton Toggle pour Mobile -->
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- ========================================
+         HEADER SECTION - Navigation moderne
+    ======================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-primary-100 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-3 animate-fade-in">
+                    <div class="relative group">
+                        <img src="flyers.jpg" alt="Logo ASI" 
+                             class="h-10 w-10 lg:h-12 lg:w-12 rounded-full object-cover ring-2 ring-primary-200 group-hover:ring-primary-400 transition-all duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-full bg-primary-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg lg:text-xl font-bold text-primary-800">ASI</h1>
+                        <p class="text-xs text-gray-600 -mt-1">Solidarité Immigration</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Accueil</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="about.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>À propos</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="activities.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Activités</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="blog.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Blog</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="adhesion.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Adhésion</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="dons.html" class="nav-link px-3 py-2 bg-secondary-400 hover:bg-secondary-500 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Dons
+                    </a>
+                    <a href="contact.html" class="nav-link px-3 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Contact
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-primary-50 hover:bg-primary-100 transition-all duration-300 group">
+                    <div class="relative w-6 h-6">
+                        <span class="menu-line absolute top-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                        <span class="menu-line absolute top-1/2 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700 transform -translate-y-1/2"></span>
+                        <span class="menu-line absolute bottom-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                    </div>
+                </button>
             </div>
-    
-            <!-- Navigation -->
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À propos</a></li>
-                    <li><a href="activities.html">Activités</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="adhesion.html">Adhésion</a></li>
-                    <li><a href="dons.html">Dons</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-2xl border-t border-primary-100 transform -translate-y-full opacity-0 invisible transition-all duration-500 ease-out">
+                <nav class="px-4 py-6 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-home mr-3 text-primary-500"></i>Accueil
+                    </a>
+                    <a href="about.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-info-circle mr-3 text-primary-500"></i>À propos
+                    </a>
+                    <a href="activities.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-calendar-alt mr-3 text-primary-500"></i>Activités
+                    </a>
+                    <a href="blog.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-blog mr-3 text-primary-500"></i>Blog
+                    </a>
+                    <a href="adhesion.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-user-plus mr-3 text-primary-500"></i>Adhésion
+                    </a>
+                    <a href="dons.html" class="block px-4 py-3 rounded-lg bg-secondary-400 hover:bg-secondary-500 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-heart mr-3"></i>Dons
+                    </a>
+                    <a href="contact.html" class="block px-4 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <div class="donorbox-form">
-        <iframe id="haWidget" allowtransparency="true" scrolling="auto" 
-        src="https://www.helloasso.com/associations/alternatives-solidarite-immigration-asi/formulaires/1/widget" 
-        style="width: 100%; height: 750px; border: none;"></iframe>
-    </div>
-
-
-    <!-- Pied de page -->
-<footer class="footer-section">
-    <div class="footer-content">
-        <p>&copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane Tous droits réservés.</p>
-        <p>
-            Contactez-nous : 
-            <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | 
-            Tél : +33650586044 <br> +224623993030
-        </p>
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <!-- ========================================
+         HERO SECTION - Page de dons
+    ======================================== -->
+    <section class="relative pt-16 lg:pt-20 min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary-50 via-white to-accent-50 overflow-hidden">
+        <!-- Background Animation Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 4s;"></div>
         </div>
-    </div>
-</footer>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 animate-slide-up">
+                                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Soutenez notre <span class="text-secondary-600 animate-glow">mission</span>
+                    <br class="hidden sm:block">
+                    par vos <span class="text-accent-600">dons</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+                    Votre générosité permet à ASI de continuer à accompagner les migrants dans leur parcours d'intégration 
+                    et de renforcer la résilience des communautés d'accueil.
+                </p>
+                
+                <!-- Impact Stats -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
+                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-secondary-100 animate-scale-in" style="animation-delay: 0.2s;">
+                        <div class="text-3xl font-bold text-secondary-600 mb-2">€50</div>
+                        <p class="text-sm text-gray-600">Aide 1 migrant pendant 1 mois</p>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-accent-100 animate-scale-in" style="animation-delay: 0.4s;">
+                        <div class="text-3xl font-bold text-accent-600 mb-2">€100</div>
+                        <p class="text-sm text-gray-600">Finance 1 formation complète</p>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary-100 animate-scale-in" style="animation-delay: 0.6s;">
+                        <div class="text-3xl font-bold text-primary-600 mb-2">€200</div>
+                        <p class="text-sm text-gray-600">Soutient 1 famille entière</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MAIN CONTENT
+    ======================================== -->
+    <main class="relative">
+
+        <!-- ========================================
+             DONATION FORM SECTION
+        ======================================== -->
+        <section id="form" class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 bg-gradient-to-r from-secondary-50/50 to-transparent"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Faire un <span class="text-secondary-600">don</span> maintenant
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Choisissez le montant de votre don et contribuez directement à nos actions solidaires.
+                    </p>
+                </div>
+
+                <!-- Form Container -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 animate-scale-in">
+                        <!-- Form Header -->
+                        <div class="bg-gradient-to-r from-secondary-600 to-accent-600 px-8 py-6">
+                            <div class="flex items-center justify-center space-x-3">
+                                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-heart text-white text-xl animate-pulse"></i>
+                                </div>
+                                <div class="text-center">
+                                    <h3 class="text-2xl font-bold text-white">Don Solidaire</h3>
+                                    <p class="text-secondary-100">Chaque don compte</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HelloAsso Widget Container -->
+                        <div class="p-2">
+                            <div class="relative rounded-2xl overflow-hidden bg-gray-50">
+                                <iframe 
+                                    id="haWidget" 
+                                    allowtransparency="true" 
+                                    scrolling="auto"
+                                    src="https://www.helloasso.com/associations/alternatives-solidarite-immigration-asi/formulaires/1/widget"
+                                    class="w-full border-none rounded-2xl"
+                                    style="height: 750px; min-height: 600px;">
+                                </iframe>
+                                
+                                <!-- Loading Overlay -->
+                                <div id="form-loading" class="absolute inset-0 bg-white flex items-center justify-center">
+                                    <div class="text-center">
+                                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary-600 mx-auto mb-4"></div>
+                                        <p class="text-gray-600">Chargement du formulaire de don...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Footer -->
+                        <div class="bg-gray-50 px-8 py-6 border-t border-gray-100">
+                            <div class="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+                                <div class="flex items-center space-x-2 text-sm text-gray-600">
+                                    <i class="fas fa-shield-alt text-secondary-500"></i>
+                                    <span>Paiement 100% sécurisé</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-sm text-gray-600">
+                                    <i class="fas fa-receipt text-accent-500"></i>
+                                    <span>Reçu fiscal automatique</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-sm text-gray-600">
+                                    <i class="fas fa-question-circle text-primary-500"></i>
+                                    <span>Besoin d'aide ? <a href="contact.html" class="text-secondary-600 hover:text-secondary-700 font-medium">Contactez-nous</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             WHY DONATE SECTION
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-50 to-white relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 right-0 w-72 h-72 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Content Container -->
+                    <div class="animate-slide-up">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                            Pourquoi <span class="text-secondary-600">donner</span>
+                            <br>à ASI ?
+                        </h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                            Vos dons nous permettent de financer directement nos programmes d'accompagnement, 
+                            nos formations et nos actions de plaidoyer. Chaque euro compte pour améliorer 
+                            la vie des migrants et renforcer la cohésion sociale.
+                        </p>
+
+                        <!-- Impact List -->
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm border border-secondary-100 hover:shadow-md transition-all duration-300">
+                                <div class="w-10 h-10 bg-secondary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-2">Accompagnement personnalisé</h4>
+                                    <p class="text-gray-600 text-sm">Financement des conseillers et des programmes d'intégration individualisés.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm border border-accent-100 hover:shadow-md transition-all duration-300">
+                                <div class="w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-graduation-cap text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-2">Formations et ateliers</h4>
+                                    <p class="text-gray-600 text-sm">Organisation de sessions de formation professionnelle et d'intégration culturelle.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm border border-primary-100 hover:shadow-md transition-all duration-300">
+                                <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-home text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-2">Aide au logement</h4>
+                                    <p class="text-gray-600 text-sm">Support pour trouver et maintenir un logement décent et abordable.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Container -->
+                    <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-secondary-400 to-accent-400 rounded-2xl transform rotate-3 scale-105 opacity-20"></div>
+                            <img src="flyers.jpg" alt="Impact des dons ASI" 
+                                 class="relative w-full rounded-2xl shadow-2xl object-cover h-64 sm:h-80 lg:h-96">
+                            <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-white rounded-2xl shadow-lg flex items-center justify-center">
+                                <i class="fas fa-hand-holding-heart text-3xl text-secondary-500 animate-pulse"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             DONATION IMPACT SECTION
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0">
+                <div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-accent-50/30 to-transparent"></div>
+                <div class="absolute top-0 right-0 w-96 h-96 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style="animation-delay: 1s;"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        L'impact de vos <span class="text-accent-600">dons</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Découvrez comment vos contributions transforment concrètement la vie des migrants.
+                    </p>
+                </div>
+
+                <!-- Impact Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Impact Card 1 -->
+                    <div class="text-center p-8 bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-secondary-200 animate-scale-in" style="animation-delay: 0.2s;">
+                        <div class="w-16 h-16 bg-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-user-friends text-white text-2xl"></i>
+                        </div>
+                        <div class="text-4xl font-bold text-secondary-600 mb-2 counter" data-target="500">0</div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Migrants aidés</h3>
+                        <p class="text-gray-600 text-sm">Grâce aux dons de nos généreux donateurs</p>
+                    </div>
+
+                    <!-- Impact Card 2 -->
+                    <div class="text-center p-8 bg-gradient-to-br from-accent-50 to-accent-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-accent-200 animate-scale-in" style="animation-delay: 0.4s;">
+                        <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                        </div>
+                        <div class="text-4xl font-bold text-accent-600 mb-2 counter" data-target="150">0</div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Formations dispensées</h3>
+                        <p class="text-gray-600 text-sm">Sessions de formation professionnelle et culturelle</p>
+                    </div>
+
+                    <!-- Impact Card 3 -->
+                    <div class="text-center p-8 bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-primary-200 animate-scale-in" style="animation-delay: 0.6s;">
+                        <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-home text-white text-2xl"></i>
+                        </div>
+                        <div class="text-4xl font-bold text-primary-600 mb-2 counter" data-target="200">0</div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Logements trouvés</h3>
+                        <p class="text-gray-600 text-sm">Familles relogées dans des conditions décentes</p>
+                    </div>
+
+                    <!-- Impact Card 4 -->
+                    <div class="text-center p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 animate-scale-in" style="animation-delay: 0.8s;">
+                        <div class="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-euro-sign text-white text-2xl"></i>
+                        </div>
+                        <div class="text-4xl font-bold text-gray-600 mb-2">€<span class="counter" data-target="50000">0</span></div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Collectés en 2024</h3>
+                        <p class="text-gray-600 text-sm">Montant total des dons reçus cette année</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             TESTIMONIALS SECTION
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-float" style="animation-delay: 3s;"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Témoignages de nos <span class="text-primary-600">donateurs</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Découvrez pourquoi nos donateurs nous font confiance et continuent de nous soutenir.
+                    </p>
+                </div>
+
+                <!-- Testimonials Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-2xl transition-all duration-500 animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="flex items-center mb-6">
+                            <img src="flyers.jpg" alt="Marie Dubois" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Marie Dubois</h4>
+                                <p class="text-sm text-gray-600">Donatrice régulière</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-4">
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            "Je soutiens ASI depuis 3 ans. Leur transparence et leur impact réel sur le terrain 
+                            me motivent à continuer mes dons mensuels. Chaque euro est utilisé à bon escient."
+                        </p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-2xl transition-all duration-500 animate-slide-up" style="animation-delay: 0.4s;">
+                        <div class="flex items-center mb-6">
+                            <img src="flyers.jpg" alt="Jean Martin" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Jean Martin</h4>
+                                <p class="text-sm text-gray-600">Donateur ponctuel</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-4">
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            "L'équipe d'ASI fait un travail remarquable. J'ai pu voir concrètement l'impact 
+                            de mes dons lors de leur dernière assemblée générale. Une association de confiance !"
+                        </p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-2xl transition-all duration-500 animate-slide-up md:col-span-2 lg:col-span-1" style="animation-delay: 0.6s;">
+                        <div class="flex items-center mb-6">
+                            <img src="flyers.jpg" alt="Sophie Laurent" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Sophie Laurent</h4>
+                                <p class="text-sm text-gray-600">Entreprise partenaire</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-4">
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                            <i class="fas fa-star text-secondary-400"></i>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            "Notre entreprise soutient ASI dans le cadre de notre politique RSE. 
+                            Leur professionnalisme et leurs résultats nous confortent dans notre choix."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             FAQ SECTION - Questions fréquentes
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 bg-gradient-to-r from-secondary-50/30 to-transparent"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Questions <span class="text-secondary-600">fréquentes</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Trouvez les réponses aux questions les plus courantes sur les dons à ASI.
+                    </p>
+                </div>
+
+                <!-- FAQ Grid -->
+                <div class="max-w-4xl mx-auto space-y-4">
+                    
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden animate-slide-up" style="animation-delay: 0.2s;">
+                        <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+                            <h3 class="text-lg font-semibold text-gray-900">Mes dons sont-ils déductibles des impôts ?</h3>
+                            <i class="fas fa-chevron-down text-secondary-600 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                Oui, ASI étant une association d'intérêt général, vos dons sont déductibles à hauteur de 66% 
+                                de leur montant dans la limite de 20% de votre revenu imposable. Vous recevrez automatiquement 
+                                un reçu fiscal après votre don.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden animate-slide-up" style="animation-delay: 0.4s;">
+                        <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+                            <h3 class="text-lg font-semibold text-gray-900">Comment puis-je suivre l'utilisation de mon don ?</h3>
+                            <i class="fas fa-chevron-down text-secondary-600 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                Nous publions régulièrement des rapports d'activité détaillés sur notre site web et envoyons 
+                                une newsletter trimestrielle à nos donateurs. Vous pouvez également nous contacter directement 
+                                pour obtenir des informations spécifiques sur nos programmes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden animate-slide-up" style="animation-delay: 0.6s;">
+                        <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+                            <h3 class="text-lg font-semibold text-gray-900">Puis-je faire un don ponctuel ou récurrent ?</h3>
+                            <i class="fas fa-chevron-down text-secondary-600 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                Vous avez le choix ! Notre formulaire de don vous permet de faire un don ponctuel ou de mettre 
+                                en place un don mensuel récurrent. Les dons récurrents nous aident à mieux planifier nos actions 
+                                et à avoir un impact plus durable.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden animate-slide-up" style="animation-delay: 0.8s;">
+                        <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+                            <h3 class="text-lg font-semibold text-gray-900">Quel est le montant minimum pour un don ?</h3>
+                            <i class="fas fa-chevron-down text-secondary-600 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                Il n'y a pas de montant minimum ! Chaque don, même le plus petit, compte et contribue à notre mission. 
+                                Que ce soit 5€, 20€ ou plus, votre générosité fait la différence dans la vie des migrants que nous accompagnons.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden animate-slide-up" style="animation-delay: 1s;">
+                        <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+                            <h3 class="text-lg font-semibold text-gray-900">Mes données personnelles sont-elles protégées ?</h3>
+                            <i class="fas fa-chevron-down text-secondary-600 transform transition-transform duration-300"></i>
+                        </button>
+                        <                        <div class="faq-content hidden px-8 pb-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                Absolument ! Nous respectons strictement le RGPD et ne partageons jamais vos données personnelles 
+                                avec des tiers. Vos informations sont uniquement utilisées pour le traitement de votre don et 
+                                l'envoi de nos communications (si vous y consentez). Vous pouvez à tout moment demander la 
+                                suppression de vos données.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             CTA SECTION - Call to Action
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-secondary-600 via-secondary-700 to-accent-600 relative overflow-hidden">
+            <!-- Background Animation Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full animate-float"></div>
+                <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full animate-pulse-slow"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                        Agissez <span class="text-accent-200">maintenant</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-secondary-100 max-w-3xl mx-auto mb-12 leading-relaxed">
+                        Chaque don compte. Chaque geste solidaire transforme une vie. 
+                        Rejoignez notre communauté de donateurs engagés pour l'intégration des migrants.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="#form" 
+                           class="inline-flex items-center px-8 py-4 bg-white text-secondary-700 font-semibold rounded-xl hover:bg-secondary-50 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-heart mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Faire un don maintenant</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        
+                        <a href="adhesion.html" 
+                           class="inline-flex items-center px-8 py-4 bg-accent-500 hover:bg-accent-400 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-user-plus mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Devenir membre</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        
+                        <a href="contact.html" 
+                           class="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-secondary-700 transition-all duration-300 hover:scale-105 group">
+                            <i class="fas fa-envelope mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Nous contacter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================
+         FOOTER SECTION - Pied de page moderne
+    ======================================== -->
+    <footer class="bg-gray-900 text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Main Footer Content -->
+            <div class="py-12 lg:py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    
+                    <!-- Company Info -->
+                    <div class="lg:col-span-2 animate-slide-up">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <img src="flyers.jpg" alt="Logo ASI" 
+                                 class="h-12 w-12 rounded-full object-cover ring-2 ring-primary-400">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">ASI</h3>
+                                <p class="text-sm text-gray-300">Alternative Solidarité Immigration</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                            Nous accompagnons les migrants dans leur parcours d'intégration et renforçons 
+                            la résilience des communautés d'accueil pour un avenir solidaire et durable.
+                        </p>
+                        
+                        <!-- Social Links -->
+                        <div class="flex space-x-4">
+                            <a href="https://facebook.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-facebook-f text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-twitter text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-linkedin-in text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-instagram text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Liens rapides</h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="about.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    À propos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="activities.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Nos activités
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adhesion.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Adhésion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="animate-slide-up" style="animation-delay: 0.4s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Contact</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-envelope text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Email</p>
+                                    <a href="mailto:alternatives.asi@gmail.com" 
+                                       class="text-white hover:text-primary-400 transition-colors duration-300">
+                                        alternatives.asi@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-phone text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Téléphone</p>
+                                    <p class="text-white">+33 6 50 58 60 44</p>
+                                    <p class="text-white">+224 623 99 30 30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-gray-400 text-sm text-center md:text-left">
+                        &copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane - Tous droits réservés.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Politique de confidentialité
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Mentions légales
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         SCROLL TO TOP BUTTON
+    ======================================== -->
+    <button id="scroll-to-top" 
+            class="fixed bottom-6 right-6 w-12 h-12 bg-secondary-600 hover:bg-secondary-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible hover:scale-110 z-50 group">
+        <i class="fas fa-chevron-up group-hover:scale-110 transition-transform duration-300"></i>
+    </button>
+
+    <!-- ========================================
+         JAVASCRIPT SECTION
+    ======================================== -->
     <script>
-        // Toggle Menu Animation
- const menuToggle = document.getElementById('menu-toggle');
- const navbar = document.querySelector('.navbar');
- 
- menuToggle.addEventListener('click', () => {
-     navbar.classList.toggle('active');
-     menuToggle.classList.toggle('active');
- });
- 
-     </script>
-    
+        // ========================================
+        // MOBILE MENU TOGGLE - Animation futuriste
+        // ========================================
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLines = document.querySelectorAll('.menu-line');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('menu-open');
+            
+            if (isOpen) {
+                // Fermer le menu
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                // Animation des lignes du burger
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            } else {
+                // Ouvrir le menu
+                mobileMenu.classList.add('menu-open');
+                mobileMenu.style.transform = 'translateY(0)';
+                mobileMenu.style.opacity = '1';
+                mobileMenu.style.visibility = 'visible';
+                
+                // Animation des lignes du burger vers X
+                menuLines[0].style.transform = 'rotate(45deg) translateY(6px)';
+                menuLines[1].style.opacity = '0';
+                menuLines[2].style.transform = 'rotate(-45deg) translateY(-6px)';
+            }
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            });
+        });
+
+               // ========================================
+        // SCROLL TO TOP BUTTON
+        // ========================================
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+                scrollToTopBtn.style.visibility = 'visible';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+                scrollToTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ========================================
+        // HEADER SCROLL EFFECT
+        // ========================================
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.classList.add('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.classList.remove('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // ========================================
+        // INTERSECTION OBSERVER - Animations au scroll
+        // ========================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les éléments avec des classes d'animation
+        const animatedElements = document.querySelectorAll('.animate-slide-up, .animate-fade-in, .animate-scale-in');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // ========================================
+        // COUNTER ANIMATION - Compteurs animés
+        // ========================================
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // Observer pour les statistiques
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counterElement = entry.target.querySelector('.counter');
+                    if (counterElement && !counterElement.classList.contains('animated')) {
+                        counterElement.classList.add('animated');
+                        const targetValue = parseInt(counterElement.getAttribute('data-target'));
+                        if (!isNaN(targetValue)) {
+                            animateCounter(counterElement, targetValue);
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observer toutes les cartes de statistiques
+        const statCards = document.querySelectorAll('.animate-scale-in');
+        statCards.forEach(card => statsObserver.observe(card));
+
+        // ========================================
+        // FAQ TOGGLE FUNCTIONALITY
+        // ========================================
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                const isOpen = !content.classList.contains('hidden');
+                
+                // Fermer toutes les autres FAQ
+                faqToggles.forEach(otherToggle => {
+                    if (otherToggle !== toggle) {
+                        const otherContent = otherToggle.nextElementSibling;
+                        const otherIcon = otherToggle.querySelector('i');
+                        otherContent.classList.add('hidden');
+                        otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle la FAQ actuelle
+                if (isOpen) {
+                    content.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // ========================================
+        // IFRAME LOADING HANDLER
+        // ========================================
+        const iframe = document.getElementById('haWidget');
+        const loadingOverlay = document.getElementById('form-loading');
+
+        iframe.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 300);
+            }, 1000);
+        });
+
+        // Fallback pour masquer le loading après 5 secondes
+        setTimeout(() => {
+            if (loadingOverlay.style.display !== 'none') {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 300);
+            }
+        }, 5000);
+
+        // ========================================
+        // SMOOTH SCROLLING POUR LES LIENS D'ANCRAGE
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ========================================
+        // LOADING ANIMATION
+        // ========================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Ajouter une classe pour déclencher les animations initiales
+            setTimeout(() => {
+                const initialElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+                initialElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 100);
+        });
+
+        // ========================================
+        // PARALLAX EFFECT POUR LES ÉLÉMENTS DE FOND
+        // ========================================
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.animate-float');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // ========================================
+        // RESPONSIVE IFRAME HANDLING
+        // ========================================
+        function handleIframeResize() {
+            const iframe = document.getElementById('haWidget');
+            if (iframe) {
+                const container = iframe.parentElement;
+                const containerWidth = container.offsetWidth;
+                
+                // Ajuster la hauteur selon la largeur de l'écran
+                if (window.innerWidth < 768) {
+                    iframe.style.height = '800px';
+                } else if (window.innerWidth < 1024) {
+                    iframe.style.height = '750px';
+                } else {
+                    iframe.style.height = '750px';
+                }
+            }
+        }
+
+        window.addEventListener('resize', handleIframeResize);
+        handleIframeResize(); // Initial call
+
+        // ========================================
+        // DONATION AMOUNT SUGGESTIONS
+        // ========================================
+        function createDonationSuggestions() {
+            const suggestions = [
+                { amount: 25, description: "Aide alimentaire pour 1 semaine" },
+                { amount: 50, description: "Kit d'intégration complet" },
+                { amount: 100, description: "Formation professionnelle" },
+                { amount: 200, description: "Accompagnement familial" }
+            ];
+
+            // Cette fonction pourrait être utilisée pour créer des boutons de suggestion
+            // si le widget HelloAsso le permet
+        }
+
+        // ========================================
+        // PERFORMANCE OPTIMIZATION
+        // ========================================
+        
+        // Lazy loading pour les images
+        const images = document.querySelectorAll('img[src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('fade-in');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Debounce function pour optimiser les événements de scroll
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Appliquer le debounce aux événements de scroll
+        const debouncedScrollHandler = debounce(() => {
+            // Handlers de scroll optimisés ici
+        }, 10);
+
+        window.addEventListener('scroll', debouncedScrollHandler);
+
+        // ========================================
+        // ACCESSIBILITY IMPROVEMENTS
+        // ========================================
+        
+        // Gestion du focus pour la navigation au clavier
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Amélioration de l'accessibilité pour le menu mobile
+        mobileMenuToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenuToggle.click();
+            }
+        });
+
+        // Amélioration de l'accessibilité pour les FAQ
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggle.click();
+                }
+            });
+        });
+
+        // ========================================
+        // DONATION TRACKING (Google Analytics)
+        // ========================================
+        function trackDonation(amount, frequency) {
+            // Cette fonction peut être utilisée pour tracker les dons
+            // avec Google Analytics ou d'autres outils d'analyse
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'donation', {
+                    'event_category': 'engagement',
+                    'event_label': frequency,
+                    'value': amount
+                });
+            }
+        }
+
+        // ========================================
+        // CONSOLE WELCOME MESSAGE
+        // ========================================
+        console.log(`
+        💝 Page de Dons - ASI
+        ═══════════════════════════════════════════
+        
+        Merci pour votre générosité !
+        
+        Chaque don compte et fait la différence
+        dans la vie des migrants que nous accompagnons.
+        
+        Pour plus d'informations : alternatives.asi@gmail.com
+        `);
+
+    </script>
+
+    <!-- ========================================
+         ADDITIONAL CSS STYLES
+    ======================================== -->
+    <style>
+        /* Styles CSS personnalisés pour compléter Tailwind */
+        
+        /* Smooth scrolling global */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations personnalisées */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* États d'animation */
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Styles pour la navigation au clavier */
+        .keyboard-navigation *:focus {
+            outline: 2px solid #EAB308 !important;
+            outline-offset: 2px;
+        }
+
+        /* Amélioration des transitions */
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Styles pour les éléments de chargement */
+        .loaded .animate-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Amélioration des ombres */
+        .shadow-custom {
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Styles pour les éléments interactifs */
+        .interactive-element {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Optimisation des performances */
+        .gpu-accelerated {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        /* Styles pour l'iframe */
+        #haWidget {
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animation de chargement pour l'iframe */
+        #form-loading {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Styles pour les FAQ */
+        .faq-content {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .faq-toggle i {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Media queries pour les animations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Styles pour l'impression */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            iframe {
+                display: none !important;
+            }
+            
+                        .print-message::after {
+                content: "Pour faire un don, visitez notre site web : https://asi-website.com/dons";
+                display: block;
+                padding: 20px;
+                border: 2px solid #000;
+                margin: 20px 0;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .donation-form {
+                padding: 1rem;
+            }
+            
+            .faq-toggle {
+                padding: 1rem;
+            }
+        }
+
+        /* Animation pour l'effet de lueur */
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(234, 179, 8, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(234, 179, 8, 0.8), 0 0 30px rgba(234, 179, 8, 0.6);
+            }
+        }
+
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* Styles pour les témoignages */
+        .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Styles pour les cartes d'impact */
+        .impact-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Styles pour les boutons CTA */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Styles pour les étoiles de notation */
+        .star-rating {
+            color: #F59E0B;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+        }
+
+        /* Amélioration des focus states */
+        .focus-visible:focus {
+            outline: 2px solid #EAB308;
+            outline-offset: 2px;
+            border-radius: 0.375rem;
+        }
+
+        /* Styles pour les éléments de fond animés */
+        .bg-animated-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bg-animated-element:nth-child(2) {
+            animation-delay: 2s;
+        }
+
+        .bg-animated-element:nth-child(3) {
+            animation-delay: 4s;
+        }
+
+        /* Styles pour les indicateurs de sécurité */
+        .security-badge {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Styles pour les montants de don suggérés */
+        .donation-amount {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .donation-amount:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .donation-amount.selected {
+            background: linear-gradient(135deg, #EAB308, #F59E0B);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Styles pour les progress bars */
+        .progress-bar {
+            background: linear-gradient(90deg, #EAB308, #F59E0B);
+            height: 0.5rem;
+            border-radius: 9999px;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Styles pour les tooltips */
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+        }
+
+        /* Styles pour les notifications */
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-left: 4px solid #10B981;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        /* Styles pour les badges de confiance */
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* Styles pour les cartes de témoignages améliorées */
+        .testimonial-enhanced {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-enhanced::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(234, 179, 8, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        /* Styles pour les animations de chargement */
+        .loading-spinner {
+            border: 3px solid rgba(234, 179, 8, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid #EAB308;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Styles pour les effets de particules */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #EAB308;
+            border-radius: 50%;
+            animation: particle-float 3s ease-in-out infinite;
+        }
+
+        @keyframes particle-float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.5;
+            }
+        }
+
+        /* Styles pour les graphiques de progression */
+        .progress-circle {
+            transform: rotate(-90deg);
+        }
+
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        .progress-circle .bg {
+            stroke: rgba(234, 179, 8, 0.2);
+        }
+
+        .progress-circle .progress {
+            stroke: #EAB308;
+            stroke-dasharray: 0 100;
+            transition: stroke-dasharray 1s ease-in-out;
+        }
+
+        /* Styles pour les effets de survol avancés */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Styles pour les indicateurs de statut */
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .status-indicator.active {
+            background: #10B981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+        }
+
+        .status-indicator.inactive {
+            background: #6B7280;
+        }
+
+        /* Styles pour les animations de texte */
+        .text-animate {
+            background: linear-gradient(45deg, #EAB308, #F59E0B, #EAB308);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+    </style>
+
 </body>
 </html>

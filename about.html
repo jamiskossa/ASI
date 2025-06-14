@@ -1,590 +1,1489 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
-    <title>ASI - À propos de nous</title>
-    <link rel="stylesheet" href="styless.css">
-    <style>
-        .mission-vision-section {
-  padding: 2rem 1rem;
-  background: linear-gradient(120deg, rgba(255, 165, 0, 0.8), rgba(30, 144, 255, 0.8), rgba(255, 255, 255, 0.9));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-  overflow: hidden;
-}
-
-.mission-vision-section .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  max-width: 1200px;
-  width: 100%;
-}
-
-.mission-vision-section .text-content {
-  flex: 1;
-  max-width: 600px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-.mission-vision-section .text-content h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  color: #ff9a00;
-}
-
-.mission-vision-section .text-content p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.mission-vision-section .text-content .key-point {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.mission-vision-section .text-content .key-point .percentage {
-  font-size: 1.5rem;
-  font-weight: bold;
-  background: linear-gradient(135deg, rgba(0, 255, 204, 0.8), rgba(0, 36, 61, 0.8));
-  padding: 0.5rem 1rem;
-  border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(0, 255, 204, 0.5);
-}
-
-.mission-vision-section .text-content .conclusion {
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.mission-vision-section .image-content {
-  flex: 1;
-  max-width: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: scaleUp 1.5s ease-in-out;
-}
-
-.mission-vision-section .image-content img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mission-vision-section .image-content img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translate
-    Y(0);
-  }
-}
-
-@keyframes scaleUp {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .mission-vision-section .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .mission-vision-section .text-content, 
-  .mission-vision-section .image-content {
-    max-width: 100%;
-    flex: none;
-  }
-
-  .mission-vision-section .text-content {
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
-  }
-
-  .mission-vision-section .image-content img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-}
-
-.team-section {
-  padding: 2rem;
-  background: linear-gradient(135deg, #1e90ff, #ffffff);
-  color: #110a0a;
-  font-family: 'Roboto', sans-serif;
-}
-
-.team-section h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  color: #070401;
-  grid-column: 1 / -1; /* Occupe toute la largeur sur la première ligne */
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-.team-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colonnes égales */
-  gap: 2rem;
-  grid-template-rows: auto; /* Les lignes seront ajustées en fonction du contenu */
-  justify-items: center;
-}
-
-.team-card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: slideInUp 1.5s ease-in-out;
-}
-
-.team-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-}
-
-.team-card .team-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 3px solid #ffdd00;
-}
-
-.team-card h3 {
-  font-size: 1.5rem;
-  margin: 0.5rem 0;
-  color: #0a0707;
-}
-
-.team-card .position {
-  font-size: 1rem;
-  color: #0f0f0a;
-  margin-bottom: 1rem;
-}
-
-.team-card .bio {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.5rem;
-}
-
-.contact-info {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.contact-icon {
-  font-size: 1.5rem;
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.contact-icon:hover {
-  color: #ffdd00;
-  transform: scale(1.2);
-}
-
-.contact-btn {
-  background: #ff8c00;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.contact-btn:hover {
-  background: #ffdd00;
-  transform: translateY(-3px);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Design */
-@media screen and (max-width: 1024px) {
-  .team-cards {
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les grands écrans mobiles/tablettes */
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .team-section h2 {
-    font-size: 2rem;
-  }
-
-  .team-cards {
-    grid-template-columns: 1fr; /* 1 seule colonne sur les petits écrans */
-  }
-}
-
-.strategic-objectives-section {
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, #4a90e2, #444343);
-  color: #333;
-  font-family: 'Roboto', sans-serif;
-}
-
-.strategic-objectives-section .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.strategic-objectives-section h2 {
-  font-size: 2.5rem;
-  color: #ffdd00;
-  text-align: center;
-  grid-column: 1 / -1; /* Le titre occupe toute la largeur de la première ligne */
-  margin-bottom: 1.5rem;
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-.strategic-objectives-section p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.objective h3 {
-  font-size: 1.75rem;
-  color: #1e90ff;
-  margin-bottom: 1rem;
-}
-
-.objective p {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Responsive Design */
-@media screen and (max-width: 1024px) {
-  .strategic-objectives-section .container {
-    grid-template-columns: 1fr; /* 1 colonne sur les écrans plus petits */
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .strategic-objectives-section h2 {
-    font-size: 2rem;
-  }
-
-  .objective h3 {
-    font-size: 1.5rem;
-  }
-
-  .objective p {
-    font-size: 0.9rem;
-  }
-}
-
-    </style>
-<body>
-    <header>
-        <div class="container">
-            <!-- Logo -->
-            <div class="logo">
-                <img src="flyers.jpg" alt="Logo ASI" />
-            </div>
+    <title>À propos - ASI Alternative Solidarité Immigration</title>
+    <meta name="description" content="Découvrez l'histoire, la mission et l'équipe d'ASI - Alternative Solidarité Immigration. Notre engagement pour l'accompagnement des migrants.">
+    <link rel="stylesheet" href="styles.css">
     
-            <!-- Bouton Toggle pour Mobile -->
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-            <!-- Navigation -->
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À propos</a></li>
-                    <li><a href="activities.html">Activités</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="adhesion.html">Adhésion</a></li>
-                    <li><a href="dons.html">Dons</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                        },
+                        accent: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-down': 'slideDown 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans bg-gradient-to-br from-gray-50 to-white text-gray-800 overflow-x-hidden">
+    
+    <!-- ========================================
+         HEADER SECTION - Navigation moderne
+    ======================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-primary-100 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-3 animate-fade-in">
+                    <div class="relative group">
+                        <img src="flyers.jpg" alt="Logo ASI" 
+                             class="h-10 w-10 lg:h-12 lg:w-12 rounded-full object-cover ring-2 ring-primary-200 group-hover:ring-primary-400 transition-all duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-full bg-primary-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg lg:text-xl font-bold text-primary-800">ASI</h1>
+                        <p class="text-xs text-gray-600 -mt-1">Solidarité Immigration</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Accueil</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="about.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-primary-600 bg-primary-50 transition-all duration-300 relative group">
+                        <span>À propos</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-500 transition-all duration-300"></div>
+                    </a>
+                    <a href="activities.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Activités</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="blog.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Blog</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="adhesion.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Adhésion</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="dons.html" class="nav-link px-3 py-2 bg-secondary-400 hover:bg-secondary-500 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Dons
+                    </a>
+                    <a href="contact.html" class="nav-link px-3 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Contact
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-primary-50 hover:bg-primary-100 transition-all duration-300 group">
+                    <div class="relative w-6 h-6">
+                        <span class="menu-line absolute top-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                        <span class="menu-line absolute top-1/2 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700 transform -translate-y-1/2"></span>
+                        <span class="menu-line absolute bottom-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-2xl border-t border-primary-100 transform -translate-y-full opacity-0 invisible transition-all duration-500 ease-out">
+                <nav class="px-4 py-6 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-home mr-3 text-primary-500"></i>Accueil
+                    </a>
+                    <a href="about.html" class="block px-4 py-3 rounded-lg text-primary-600 bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-info-circle mr-3 text-primary-500"></i>À propos
+                    </a>
+                    <a href="activities.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-calendar-alt mr-3 text-primary-500"></i>Activités
+                    </a>
+                    <a href="blog.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-blog mr-3 text-primary-500"></i>Blog
+                    </a>
+                    <a href="adhesion.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-user-plus mr-3 text-primary-500"></i>Adhésion
+                    </a>
+                    <a href="dons.html" class="block px-4 py-3 rounded-lg bg-secondary-400 hover:bg-secondary-500 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-heart mr-3"></i>Dons
+                    </a>
+                    <a href="contact.html" class="block px-4 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <div class="hero">
-      <div class="video-container">
-          <iframe width="540" height="315" src="https://www.youtube.com/embed/ymbqD8dVAgc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-<main futuristic-main>
-<section class="mission-vision-section">
-    <div class="container">
-        <!-- Contenu textuel -->
-        <div class="text-content">
-            <h2>Notre mission et notre vision</h2>
-            Chez ASI, notre mission est de promouvoir la solidarité nationale et internationale en faveur des migrants. 
-            Nous veillons à ce qu’ils reçoivent le soutien nécessaire pour une réintégration réussie dans leurs communautés.
-            <div class="key-point">
-                <span class="percentage">100%</span>
-                <p>Nous envisageons une Guinée où les migrants s’intègrent pleinement dans la société, contribuant au tissu culturel et économique de leurs communautés.</p>
-            </div>
-            <div class="key-point">
-                <span class="percentage">100%</span>
-                <p>
-                    L’empathie est au cœur de nos valeurs ; nous comprenons les défis auxquels sont confrontés les migrants et leur offrons un soutien compatissant.
-                </p>
-            </div>
-            <div class="key-point">
-                <span class="percentage">100%</span>
-                <p>
-                    La collaboration avec les communautés locales, les gouvernements et les organisations est essentielle pour créer des solutions durables.
-                </p>
-            </div>
-            <div class="key-point">
-                <span class="percentage">100%</span>
-                <p>
-                    L’intégrité guide nos opérations, garantissant que nous respectons les normes les plus élevées d’honnêteté et de transparence.
-                </p>
-            </div>
-            <p class="conclusion">
-                Chez ASI, nous nous engageons à favoriser un environnement où les migrants peuvent s’épanouir et contribuer activement au développement de leur communauté.
-            </p>
+    <!-- ========================================
+         HERO SECTION - Page À propos
+    ======================================== -->
+    <section class="relative pt-16 lg:pt-20 min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 overflow-hidden">
+        <!-- Background Animation Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 4s;"></div>
         </div>
-        <!-- Image -->
-        <div class="image-content">
-            <img src="flyers.jpg" alt="Notre mission et notre vision">
-        </div>
-    </div>
-</section>
 
-<section class="strategic-objectives-section">
-    <div class="container">
-        <!-- Colonne 1 : Texte introductif -->
-        <div class="column">
-            <h2>Donner du pouvoir aux migrants grâce à des objectifs stratégiques</h2>
-            <p>
-                Chez ASI, nous nous engageons à favoriser un environnement favorable aux migrants. 
-                Nos objectifs stratégiques visent à améliorer le soutien individuel, 
-                à renforcer la résilience communautaire et à défendre des politiques d’installation durables. 
-                Ces objectifs guident notre mission d’intégration des migrants dans la société.
-            </p>
-        </div>
-        <!-- Colonne 2 : Objectifs spécifiques -->
-        <div class="column">
-            <div class="objective">
-                <h3>Accompagnement individuel</h3>
-                <p>
-                    Nous offrons une assistance personnalisée aux migrants de retour, 
-                    les aidant à se réintégrer et à accéder aux ressources essentielles.
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 animate-slide-up">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    À propos d'<span class="text-primary-600">ASI</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+                    Découvrez notre histoire, notre mission et l'équipe passionnée qui œuvre chaque jour 
+                    pour l'accompagnement et l'intégration des migrants.
                 </p>
             </div>
-            <div class="objective">
-                <h3>Résilience communautaire</h3>
-                <p>
-                    Nos programmes visent à autonomiser les communautés d’accueil, 
-                    en favorisant la collaboration et la compréhension avec les migrants.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="team-section">
-    <h2>Notre Équipe</h2>
-    <div class="container">
-        
-        <div class="team-cards">
-            <!-- Carte Membre 1 -->
-            <div class="team-card">
-                <img src="1.png" alt="Photo de Membre 1" class="team-photo">
-                <h3>CAMARA Daouda</h3>
-                <p class="position">Président</p>
-                <p class="bio">
-                    Courte biographie décrivant les qualifications, les compétences, 
-                    et le rôle du membre dans l'équipe.
-                </p>
-                <div class="contact-info">
-                    <a href="tel:+1234567890" class="contact-icon phone">📞</a>
-                    <a href="mailto:email@example.com" class="contact-icon email">📧</a>
-                    <a href="https://facebook.com/profile" target="_blank" class="contact-icon facebook">📘</a>
-                    <a href="https://linkedin.com/in/profile" target="_blank" class="contact-icon linkedin">🔗</a>
-                    <a href="https://wa.me/1234567890" target="_blank" class="contact-icon whatsapp">💬</a>
+                        <!-- Video Container -->
+            <div class="max-w-4xl mx-auto animate-scale-in">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-white p-2">
+                    <div class="aspect-video rounded-xl overflow-hidden">
+                        <iframe 
+                            class="w-full h-full" 
+                            src="https://www.youtube.com/embed/ymbqD8dVAgc" 
+                            title="À propos d'ASI - Alternative Solidarité Immigration" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
-                <button class="contact-btn">Contacter</button>
-            </div>
-
-            <!-- Carte Membre 2 -->
-            <div class="team-card">
-                <img src="9.png" alt="Photo de Membre 2" class="team-photo">
-                <h3>Mohamed Lamine CAMARA</h3>
-                <p class="position">Membre du Conseil d'administration</p>
-                <p class="bio">
-                    Courte biographie décrivant les qualifications, les compétences, 
-                    et le rôle du membre dans l'équipe.
-                </p>
-                <div class="contact-info">
-                    <a href="tel:+9876543210" class="contact-icon phone">📞</a>
-                    <a href="mailto:email2@example.com" class="contact-icon email">📧</a>
-                    <a href="https://facebook.com/profile2" target="_blank" class="contact-icon facebook">📘</a>
-                    <a href="https://linkedin.com/in/profile2" target="_blank" class="contact-icon linkedin">🔗</a>
-                    <a href="https://wa.me/9876543210" target="_blank" class="contact-icon whatsapp">💬</a>
-                </div>
-                <button class="contact-btn">Contacter</button>
-            </div>
-
-            <!-- Ajouter d'autres cartes ici -->
-
-             <!-- Carte Membre 2 -->
-             <div class="team-card">
-                <img src="8.png" alt="Photo de Membre 2" class="team-photo">
-                <h3>Moussa DOUMBOUYA</h3>
-                <p class="position">Membre du Conseil d'administration</p>
-                <p class="bio">
-                    Courte biographie décrivant les qualifications, les compétences, 
-                    et le rôle du membre dans l'équipe.
-                </p>
-                <div class="contact-info">
-                    <a href="tel:+9876543210" class="contact-icon phone">📞</a>
-                    <a href="mailto:email2@example.com" class="contact-icon email">📧</a>
-                    <a href="https://facebook.com/profile2" target="_blank" class="contact-icon facebook">📘</a>
-                    <a href="https://linkedin.com/in/profile2" target="_blank" class="contact-icon linkedin">🔗</a>
-                    <a href="https://wa.me/9876543210" target="_blank" class="contact-icon whatsapp">💬</a>
-                </div>
-                <button class="contact-btn">Contacter</button>
-            </div>
-
-             <!-- Carte Membre 2 -->
-             <div class="team-card">
-                <img src="demby.png" alt="Photo de Membre 2" class="team-photo">
-                <h3>Aboubacar Demba Camara</h3>
-                <p class="position">Chargé de Planification et Information</p>
-                <p class="bio">
-                    Courte biographie décrivant les qualifications, les compétences, 
-                    et le rôle du membre dans l'équipe.
-                </p>
-                <div class="contact-info">
-                    <a href="tel:+9876543210" class="contact-icon phone">📞</a>
-                    <a href="mailto:email2@example.com" class="contact-icon email">📧</a>
-                    <a href="https://facebook.com/profile2" target="_blank" class="contact-icon facebook">📘</a>
-                    <a href="https://linkedin.com/in/profile2" target="_blank" class="contact-icon linkedin">🔗</a>
-                    <a href="https://wa.me/9876543210" target="_blank" class="contact-icon whatsapp">💬</a>
-                </div>
-                <button class="contact-btn">Contacter</button>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- ========================================
+         MAIN CONTENT
+    ======================================== -->
+    <main class="relative">
+
+        <!-- ========================================
+             MISSION & VISION SECTION
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-50/50 to-transparent"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Content Container -->
+                    <div class="animate-slide-up">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                            Notre <span class="text-primary-600">mission</span> et notre 
+                            <span class="text-secondary-600">vision</span>
+                        </h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                            Chez ASI, notre mission est de promouvoir la solidarité nationale et internationale en faveur des migrants. 
+                            Nous veillons à ce qu'ils reçoivent le soutien nécessaire pour une réintégration réussie dans leurs communautés.
+                        </p>
+
+                        <!-- Key Points Grid -->
+                        <div class="space-y-6">
+                            
+                            <!-- Key Point 1 -->
+                            <div class="flex items-start space-x-4 p-6 bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl border border-primary-200 hover:shadow-lg transition-all duration-300 group">
+                                <div class="flex-shrink-0 w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-2">Intégration complète</h3>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        Nous envisageons une Guinée où les migrants s'intègrent pleinement dans la société, 
+                                        contribuant au tissu culturel et économique de leurs communautés.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Key Point 2 -->
+                            <div class="flex items-start space-x-4 p-6 bg-gradient-to-r from-secondary-50 to-secondary-100 rounded-xl border border-secondary-200 hover:shadow-lg transition-all duration-300 group">
+                                <div class="flex-shrink-0 w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-2">Empathie et compassion</h3>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        L'empathie est au cœur de nos valeurs ; nous comprenons les défis auxquels sont confrontés 
+                                        les migrants et leur offrons un soutien compatissant.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Key Point 3 -->
+                            <div class="flex items-start space-x-4 p-6 bg-gradient-to-r from-accent-50 to-accent-100 rounded-xl border border-accent-200 hover:shadow-lg transition-all duration-300 group">
+                                <div class="flex-shrink-0 w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-2">Collaboration durable</h3>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        La collaboration avec les communautés locales, les gouvernements et les organisations 
+                                        est essentielle pour créer des solutions durables.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Key Point 4 -->
+                            <div class="flex items-start space-x-4 p-6 bg-gradient-to-r from-primary-50 to-secondary-50 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 group">
+                                <div class="flex-shrink-0 w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-2">Intégrité et transparence</h3>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        L'intégrité guide nos opérations, garantissant que nous respectons les normes 
+                                        les plus élevées d'honnêteté et de transparence.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conclusion -->
+                        <div class="mt-8 p-6 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl text-white">
+                            <p class="text-lg leading-relaxed italic">
+                                "Chez ASI, nous nous engageons à favoriser un environnement où les migrants peuvent 
+                                s'épanouir et contribuer activement au développement de leur communauté."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Image Container -->
+                    <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-2xl transform rotate-3 scale-105 opacity-20"></div>
+                            <img src="flyers.jpg" alt="Notre mission et notre vision" 
+                                 class="relative w-full rounded-2xl shadow-2xl object-cover h-64 sm:h-80 lg:h-96">
+                            <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-white rounded-2xl shadow-lg flex items-center justify-center">
+                                <i class="fas fa-globe-americas text-3xl text-primary-500 animate-pulse"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             STRATEGIC OBJECTIVES SECTION
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-secondary-50 to-white relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 right-0 w-72 h-72 bg-secondary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Donner du pouvoir aux migrants grâce à des 
+                        <span class="text-secondary-600">objectifs stratégiques</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                        Chez ASI, nous nous engageons à favoriser un environnement favorable aux migrants. 
+                        Nos objectifs stratégiques visent à améliorer le soutien individuel, à renforcer la résilience 
+                        communautaire et à défendre des politiques d'installation durables.
+                    </p>
+                </div>
+
+                <!-- Objectives Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                    
+                    <!-- Objective 1 -->
+                    <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-secondary-100 hover:border-secondary-200 group">
+                            <div class="p-8 lg:p-10">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-secondary-500 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fas fa-user-friends text-2xl text-white"></i>
+                                    </div>
+                                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-secondary-600 transition-colors duration-300">
+                                        Accompagnement individuel
+                                    </h3>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed text-lg">
+                                    Nous offrons une assistance personnalisée aux migrants de retour, 
+                                    les aidant à se réintégrer et à accéder aux ressources essentielles 
+                                    pour leur développement personnel et professionnel.
+                                </p>
+                                
+                                <!-- Features List -->
+                                <ul class="mt-6 space-y-3">
+                                    <li class="flex items-center text-gray-600">
+                                        <i class="fas fa-check-circle text-secondary-500 mr-3"></i>
+                                        Conseil personnalisé et orientation
+                                    </li>
+                                    <li class="flex items-center text-gray-600">
+                                        <i class="fas fa-check-circle text-secondary-500 mr-3"></i>
+                                        Programmes de placement professionnel
+                                    </li>
+                                    <li class="flex items-center text-gray-600">
+                                        <i class="fas fa-check-circle text-secondary-500 mr-3"></i>
+                                        Intégration communautaire
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objective 2 -->
+                    <div class="animate-slide-up" style="animation-delay: 0.4s;">
+                        <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-accent-100 hover:border-accent-200 group">
+                            <div class="p-8 lg:p-10">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-accent-500 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fas fa-hands-helping text-2xl text-white"></i>
+                                    </div>
+                                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-accent-600 transition-colors duration-300">
+                                        Résilience communautaire
+                                    </h3>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed text-lg">
+                                    Nos programmes visent à autonomiser les communautés d'accueil, 
+                                    en favorisant la collaboration et la compréhension mutuelle 
+                                    avec les migrants pour un développement harmonieux.
+                                </p>
+                                
+                                <!-- Features List -->
+                                <ul class="mt-6 space-y-3">
+                                    <li class="flex items-center text-gray-600">
+                                        <i class="fas fa-check-circle text-accent-500 mr-3"></i>
+                                        Ateliers de sensibilisation
+                                    </li>
+                                    <li class="flex items-center text-gray-600">
+                                        <i class="fas fa-check-circle text-accent-500 mr-3"></i>
+                                        Formations collaboratives
+                                    </li>
+                                    <li class="flex items-center text-gray-600">
+                                        <i class="fas fa-check-circle text-accent-500 mr-3"></i>
+                                        Ressources communautaires
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             TEAM SECTION - Équipe moderne
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0">
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-50/30 to-transparent"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style="animation-delay: 1s;"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                               <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Notre <span class="text-primary-600">équipe</span> passionnée
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Rencontrez les personnes dévouées qui travaillent chaque jour pour faire d'ASI 
+                        une organisation d'impact au service des migrants et de leurs communautés.
+                    </p>
+                </div>
+
+                <!-- Team Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    
+                    <!-- Team Member 1 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary-200 animate-scale-in" style="animation-delay: 0.1s;">
+                        <div class="relative overflow-hidden">
+                            <img src="1.png" alt="CAMARA Daouda" 
+                                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                                <i class="fas fa-crown text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-300">
+                                CAMARA Daouda
+                            </h3>
+                            <p class="text-primary-600 font-semibold mb-4">Président</p>
+                            <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+                                Leader visionnaire avec une expertise approfondie dans l'accompagnement des migrants 
+                                et le développement de politiques d'intégration durables.
+                            </p>
+                            
+                            <!-- Contact Icons -->
+                            <div class="flex justify-center space-x-3 mb-4">
+                                <a href="tel:+1234567890" class="w-10 h-10 bg-primary-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-primary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fas fa-phone text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="mailto:email@example.com" class="w-10 h-10 bg-primary-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-primary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fas fa-envelope text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/profile" target="_blank" class="w-10 h-10 bg-primary-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-primary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fab fa-linkedin-in text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://wa.me/1234567890" target="_blank" class="w-10 h-10 bg-primary-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-primary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fab fa-whatsapp text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                            </div>
+                            
+                            <button class="w-full px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                Contacter
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-secondary-200 animate-scale-in" style="animation-delay: 0.2s;">
+                        <div class="relative overflow-hidden">
+                            <img src="9.png" alt="Mohamed Lamine CAMARA" 
+                                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                                <i class="fas fa-users text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-2 group-hover:text-secondary-600 transition-colors duration-300">
+                                Mohamed Lamine CAMARA
+                            </h3>
+                            <p class="text-secondary-600 font-semibold mb-4">Membre du Conseil d'administration</p>
+                            <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+                                Expert en gouvernance associative et développement stratégique, 
+                                contribuant activement aux décisions stratégiques de l'organisation.
+                            </p>
+                            
+                            <!-- Contact Icons -->
+                            <div class="flex justify-center space-x-3 mb-4">
+                                <a href="tel:+9876543210" class="w-10 h-10 bg-secondary-100 hover:bg-secondary-500 rounded-full flex items-center justify-center text-secondary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fas fa-phone text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="mailto:email2@example.com" class="w-10 h-10 bg-secondary-100 hover:bg-secondary-500 rounded-full flex items-center justify-center text-secondary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fas fa-envelope text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/profile2" target="_blank" class="w-10 h-10 bg-secondary-100 hover:bg-secondary-500 rounded-full flex items-center justify-center text-secondary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fab fa-linkedin-in text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://wa.me/9876543210" target="_blank" class="w-10 h-10 bg-secondary-100 hover:bg-secondary-500 rounded-full flex items-center justify-center text-secondary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fab fa-whatsapp text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                            </div>
+                            
+                            <button class="w-full px-4 py-2 bg-secondary-600 hover:bg-secondary-700 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                Contacter
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-accent-200 animate-scale-in" style="animation-delay: 0.3s;">
+                        <div class="relative overflow-hidden">
+                            <img src="8.png" alt="Moussa DOUMBOUYA" 
+                                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-accent-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                                <i class="fas fa-handshake text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-2 group-hover:text-accent-600 transition-colors duration-300">
+                                Moussa DOUMBOUYA
+                            </h3>
+                            <p class="text-accent-600 font-semibold mb-4">Membre du Conseil d'administration</p>
+                            <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+                                Spécialiste en relations communautaires et développement de partenariats, 
+                                facilitant les liens entre ASI et les acteurs locaux.
+                            </p>
+                            
+                            <!-- Contact Icons -->
+                            <div class="flex justify-center space-x-3 mb-4">
+                                <a href="tel:+9876543210" class="w-10 h-10 bg-accent-100 hover:bg-accent-500 rounded-full flex items-center justify-center text-accent-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fas fa-phone text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="mailto:email3@example.com" class="w-10 h-10 bg-accent-100 hover:bg-accent-500 rounded-full flex items-center justify-center text-accent-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fas fa-envelope text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/profile3" target="_blank" class="w-10 h-10 bg-accent-100 hover:bg-accent-500 rounded-full flex items-center justify-center text-accent-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fab fa-linkedin-in text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://wa.me/9876543210" target="_blank" class="w-10 h-10 bg-accent-100 hover:bg-accent-500 rounded-full flex items-center justify-center text-accent-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fab fa-whatsapp text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                            </div>
+                            
+                            <button class="w-full px-4 py-2 bg-accent-600 hover:bg-accent-700 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                Contacter
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary-200 animate-scale-in" style="animation-delay: 0.4s;">
+                        <div class="relative overflow-hidden">
+                            <img src="demby.png" alt="Aboubacar Demba Camara" 
+                                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                                <i class="fas fa-chart-line text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-300">
+                                Aboubacar Demba Camara
+                            </h3>
+                            <p class="text-primary-600 font-semibold mb-4">Chargé de Planification et Information</p>
+                                                        <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+                                Responsable de la stratégie de communication et de la planification des projets, 
+                                assurant la coordination efficace des activités et la diffusion d'informations.
+                            </p>
+                            
+                            <!-- Contact Icons -->
+                            <div class="flex justify-center space-x-3 mb-4">
+                                <a href="tel:+9876543210" class="w-10 h-10 bg-primary-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-primary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fas fa-phone text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="mailto:email4@example.com" class="w-10 h-10 bg-primary-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-primary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fas fa-envelope text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/profile4" target="_blank" class="w-10 h-10 bg-primary-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-primary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fab fa-linkedin-in text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://wa.me/9876543210" target="_blank" class="w-10 h-10 bg-primary-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-primary-600 hover:text-white transition-all duration-300 hover:scale-110 group/icon">
+                                    <i class="fab fa-whatsapp text-sm group-hover/icon:scale-110 transition-transform duration-300"></i>
+                                </a>
+                            </div>
+                            
+                            <button class="w-full px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                Contacter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             VALUES SECTION - Nos valeurs
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-accent-50 to-white relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 left-0 w-80 h-80 bg-accent-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-float" style="animation-delay: 2s;"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Nos <span class="text-accent-600">valeurs</span> fondamentales
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Ces valeurs guident chacune de nos actions et définissent notre approche 
+                        dans l'accompagnement des migrants et le renforcement des communautés.
+                    </p>
+                </div>
+
+                <!-- Values Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                    
+                    <!-- Value 1 -->
+                    <div class="group text-center animate-scale-in" style="animation-delay: 0.1s;">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-heart text-3xl text-white"></i>
+                            </div>
+                            <div class="absolute -inset-4 bg-primary-100 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </div>
+                        <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                            Solidarité
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Nous croyons en la force de l'union et de l'entraide pour surmonter 
+                            les défis et construire un avenir meilleur ensemble.
+                        </p>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div class="group text-center animate-scale-in" style="animation-delay: 0.2s;">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-2xl mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-users text-3xl text-white"></i>
+                            </div>
+                            <div class="absolute -inset-4 bg-secondary-100 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </div>
+                        <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-secondary-600 transition-colors duration-300">
+                            Inclusion
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Nous œuvrons pour une société inclusive où chaque personne, 
+                            indépendamment de son origine, trouve sa place et peut s'épanouir.
+                        </p>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div class="group text-center animate-scale-in" style="animation-delay: 0.3s;">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-accent-500 to-accent-600 rounded-2xl mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-lightbulb text-3xl text-white"></i>
+                            </div>
+                            <div class="absolute -inset-4 bg-accent-100 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </div>
+                        <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-accent-600 transition-colors duration-300">
+                            Innovation
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Nous développons des approches créatives et innovantes pour répondre 
+                            aux besoins évolutifs des migrants et des communautés.
+                        </p>
+                    </div>
+
+                    <!-- Value 4 -->
+                    <div class="group text-center animate-scale-in" style="animation-delay: 0.4s;">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-balance-scale text-3xl text-white"></i>
+                            </div>
+                            <div class="absolute -inset-4 bg-gray-100 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </div>
+                        <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                            Équité
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Nous garantissons un traitement juste et équitable pour tous, 
+                            en respectant la dignité et les droits de chaque individu.
+                        </p>
+                    </div>
+
+                    <!-- Value 5 -->
+                    <div class="group text-center animate-scale-in" style="animation-delay: 0.5s;">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-accent-500 to-primary-500 rounded-2xl mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-seedling text-3xl text-white"></i>
+                            </div>
+                            <div class="absolute -inset-4 bg-accent-100 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </div>
+                        <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-accent-600 transition-colors duration-300">
+                            Durabilité
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Nos actions visent des impacts durables qui bénéficient aux générations 
+                            actuelles et futures dans un esprit de développement responsable.
+                        </p>
+                    </div>
+
+                    <!-- Value 6 -->
+                    <div class="group text-center animate-scale-in" style="animation-delay: 0.6s;">
+                        <div class="relative mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-secondary-500 to-accent-500 rounded-2xl mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-handshake text-3xl text-white"></i>
+                            </div>
+                            <div class="absolute -inset-4 bg-secondary-100 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </div>
+                        <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-secondary-600 transition-colors duration-300">
+                            Partenariat
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Nous cultivons des partenariats solides avec tous les acteurs 
+                            pour maximiser notre impact et créer des synergies positives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             CTA SECTION - Call to Action
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 relative overflow-hidden">
+            <!-- Background Animation Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full animate-float"></div>
+                <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full animate-pulse-slow"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                        Rejoignez notre <span class="text-secondary-200">mission</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-primary-100 max-w-3xl mx-auto mb-12 leading-relaxed">
+                        Vous partagez nos valeurs ? Vous souhaitez contribuer à notre cause ? 
+                        Découvrez comment vous pouvez nous aider à faire la différence.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="adhesion.html" 
+                           class="inline-flex items-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-user-plus mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Devenir membre</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        
+                        <a href="dons.html" 
+                           class="inline-flex items-center px-8 py-4 bg-secondary-500 hover:bg-secondary-400 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-heart mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Faire un don</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        
+                                                <a href="contact.html" 
+                           class="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-primary-700 transition-all duration-300 hover:scale-105 group">
+                            <i class="fas fa-envelope mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Nous contacter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-   <!-- Pied de page -->
-<footer class="footer-section">
-    <div class="footer-content">
-        <p>&copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane Tous droits réservés.</p>
-        <p>
-            Contactez-nous : 
-            <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | 
-            Tél : +33650586044 <br> +224623993030
-        </p>
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+
+    <!-- ========================================
+         FOOTER SECTION - Pied de page moderne
+    ======================================== -->
+    <footer class="bg-gray-900 text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Main Footer Content -->
+            <div class="py-12 lg:py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    
+                    <!-- Company Info -->
+                    <div class="lg:col-span-2 animate-slide-up">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <img src="flyers.jpg" alt="Logo ASI" 
+                                 class="h-12 w-12 rounded-full object-cover ring-2 ring-primary-400">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">ASI</h3>
+                                <p class="text-sm text-gray-300">Alternative Solidarité Immigration</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                            Nous accompagnons les migrants dans leur parcours d'intégration et renforçons 
+                            la résilience des communautés d'accueil pour un avenir solidaire et durable.
+                        </p>
+                        
+                        <!-- Social Links -->
+                        <div class="flex space-x-4">
+                            <a href="https://facebook.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-facebook-f text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-twitter text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-linkedin-in text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-instagram text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Liens rapides</h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="index.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Accueil
+                                </a>
+                            </li>
+                            <li>
+                                <a href="activities.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Nos activités
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adhesion.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Adhésion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="animate-slide-up" style="animation-delay: 0.4s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Contact</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-envelope text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Email</p>
+                                    <a href="mailto:alternatives.asi@gmail.com" 
+                                       class="text-white hover:text-primary-400 transition-colors duration-300">
+                                        alternatives.asi@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-phone text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Téléphone</p>
+                                    <p class="text-white">+33 6 50 58 60 44</p>
+                                    <p class="text-white">+224 623 99 30 30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-gray-400 text-sm text-center md:text-left">
+                        &copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane - Tous droits réservés.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Politique de confidentialité
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Mentions légales
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
+    <!-- ========================================
+         SCROLL TO TOP BUTTON
+    ======================================== -->
+    <button id="scroll-to-top" 
+            class="fixed bottom-6 right-6 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible hover:scale-110 z-50 group">
+        <i class="fas fa-chevron-up group-hover:scale-110 transition-transform duration-300"></i>
+    </button>
+
+    <!-- ========================================
+         JAVASCRIPT SECTION
+    ======================================== -->
     <script>
-        // Toggle Menu Animation
- const menuToggle = document.getElementById('menu-toggle');
- const navbar = document.querySelector('.navbar');
- 
- menuToggle.addEventListener('click', () => {
-     navbar.classList.toggle('active');
-     menuToggle.classList.toggle('active');
- });
- 
-     </script>
+        // ========================================
+        // MOBILE MENU TOGGLE - Animation futuriste
+        // ========================================
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLines = document.querySelectorAll('.menu-line');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('menu-open');
+            
+            if (isOpen) {
+                // Fermer le menu
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                // Animation des lignes du burger
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            } else {
+                // Ouvrir le menu
+                mobileMenu.classList.add('menu-open');
+                mobileMenu.style.transform = 'translateY(0)';
+                mobileMenu.style.opacity = '1';
+                mobileMenu.style.visibility = 'visible';
+                
+                // Animation des lignes du burger vers X
+                menuLines[0].style.transform = 'rotate(45deg) translateY(6px)';
+                menuLines[1].style.opacity = '0';
+                menuLines[2].style.transform = 'rotate(-45deg) translateY(-6px)';
+            }
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            });
+        });
+
+        // ========================================
+        // SCROLL TO TOP BUTTON
+        // ========================================
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+                scrollToTopBtn.style.visibility = 'visible';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+                scrollToTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ========================================
+        // HEADER SCROLL EFFECT
+        // ========================================
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.classList.add('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.classList.remove('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // ========================================
+        // INTERSECTION OBSERVER - Animations au scroll
+        // ========================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les éléments avec des classes d'animation
+        const animatedElements = document.querySelectorAll('.animate-slide-up, .animate-fade-in, .animate-scale-in');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // ========================================
+        // TEAM MEMBER CONTACT HANDLERS
+        // ========================================
+        const contactButtons = document.querySelectorAll('button:contains("Contacter")');
+        contactButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const memberCard = e.target.closest('.group');
+                const memberName = memberCard.querySelector('h3').textContent;
+                
+                // Ici vous pouvez ajouter la logique pour ouvrir un modal de contact
+                // ou rediriger vers une page de contact spécifique
+                console.log(`Contacter ${memberName}`);
+                
+                // Exemple : ouvrir un modal ou rediriger
+                // window.location.href = `contact.html?member=${encodeURIComponent(memberName)}`;
+            });
+        });
+
+        // ========================================
+        // SMOOTH SCROLLING POUR LES LIENS D'ANCRAGE
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+                // ========================================
+        // LOADING ANIMATION
+        // ========================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Ajouter une classe pour déclencher les animations initiales
+            setTimeout(() => {
+                const initialElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+                initialElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 100);
+        });
+
+        // ========================================
+        // PARALLAX EFFECT POUR LES ÉLÉMENTS DE FOND
+        // ========================================
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.animate-float');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // ========================================
+        // RESPONSIVE VIDEO HANDLING
+        // ========================================
+        function handleVideoResize() {
+            const videoContainer = document.querySelector('.aspect-video iframe');
+            if (videoContainer) {
+                const container = videoContainer.parentElement;
+                const containerWidth = container.offsetWidth;
+                const aspectRatio = 16 / 9;
+                const height = containerWidth / aspectRatio;
+                
+                videoContainer.style.height = `${height}px`;
+            }
+        }
+
+        window.addEventListener('resize', handleVideoResize);
+        handleVideoResize(); // Initial call
+
+        // ========================================
+        // PERFORMANCE OPTIMIZATION
+        // ========================================
+        
+        // Lazy loading pour les images
+        const images = document.querySelectorAll('img[src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('fade-in');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Debounce function pour optimiser les événements de scroll
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Appliquer le debounce aux événements de scroll
+        const debouncedScrollHandler = debounce(() => {
+            // Handlers de scroll optimisés ici
+        }, 10);
+
+        window.addEventListener('scroll', debouncedScrollHandler);
+
+        // ========================================
+        // ACCESSIBILITY IMPROVEMENTS
+        // ========================================
+        
+        // Gestion du focus pour la navigation au clavier
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Amélioration de l'accessibilité pour le menu mobile
+        mobileMenuToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenuToggle.click();
+            }
+        });
+
+        // ========================================
+        // TEAM MEMBER INTERACTIONS
+        // ========================================
+        
+        // Animation des cartes d'équipe au survol
+        const teamCards = document.querySelectorAll('.group');
+        teamCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Gestion des liens sociaux
+        const socialLinks = document.querySelectorAll('a[href*="linkedin"], a[href*="whatsapp"], a[href*="mailto"], a[href*="tel"]');
+        socialLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Ajouter une animation de clic
+                const icon = link.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        icon.style.transform = 'scale(1)';
+                    }, 150);
+                }
+            });
+        });
+
+        // ========================================
+        // VALUES SECTION INTERACTIONS
+        // ========================================
+        
+        // Animation des valeurs au scroll
+        const valueCards = document.querySelectorAll('.group.text-center');
+        const valueObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate-in');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        valueCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px) scale(0.95)';
+            valueObserver.observe(card);
+        });
+
+        // ========================================
+        // DYNAMIC CONTENT LOADING
+        // ========================================
+        
+        // Fonction pour charger du contenu dynamique (si nécessaire)
+        function loadDynamicContent() {
+            // Ici vous pouvez ajouter la logique pour charger du contenu depuis une API
+            // Par exemple, les dernières actualités de l'équipe, les statistiques en temps réel, etc.
+        }
+
+        // ========================================
+        // ERROR HANDLING
+        // ========================================
+        
+        // Gestion des erreurs globales
+        window.addEventListener('error', (e) => {
+            console.error('Erreur détectée:', e.error);
+            // Ici vous pouvez ajouter la logique pour reporter les erreurs
+        });
+
+        // Gestion des erreurs de chargement d'images
+        images.forEach(img => {
+            img.addEventListener('error', () => {
+                // Remplacer par une image par défaut si le chargement échoue
+                img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vbiBkaXNwb25pYmxlPC90ZXh0Pjwvc3ZnPg==';
+                img.alt = 'Image non disponible';
+            });
+        });
+
+        // ========================================
+        // CONSOLE WELCOME MESSAGE
+        // ========================================
+        console.log(`
+        🌍 ASI - À Propos
+        ═══════════════════════════════════════════
+        
+        Découvrez notre équipe et nos valeurs !
+        
+        Cette page présente :
+        - Notre mission et vision
+        - Nos objectifs stratégiques
+        - Notre équipe passionnée
+        - Nos valeurs fondamentales
+        
+        Développé avec ❤️ par l'équipe ASI
+        Pour plus d'informations : alternatives.asi@gmail.com
+        `);
+
+    </script>
+
+    <!-- ========================================
+         ADDITIONAL CSS STYLES
+    ======================================== -->
+    <style>
+        /* Styles CSS personnalisés pour compléter Tailwind */
+        
+        /* Smooth scrolling global */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations personnalisées */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleInBounce {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* États d'animation */
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-scale-bounce {
+            animation: scaleInBounce 0.8s ease-out forwards;
+        }
+
+        /* Styles pour la navigation au clavier */
+        .keyboard-navigation *:focus {
+            outline: 2px solid #3B82F6 !important;
+            outline-offset: 2px;
+        }
+
+        /* Amélioration des transitions pour les cartes d'équipe */
+        .group {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .group:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Styles pour les icônes de contact */
+        .group/icon:hover i {
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translate3d(0,0,0);
+            }
+            40%, 43% {
+                transform: translate3d(0, -8px, 0);
+            }
+            70% {
+                transform: translate3d(0, -4px, 0);
+            }
+            90% {
+                transform: translate3d(0, -2px, 0);
+            }
+        }
+
+        /* Amélioration des ombres pour les valeurs */
+        .group.text-center:hover .w-20 {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Styles pour les éléments de fond animés */
+        .bg-animated {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Optimisation des performances */
+        .gpu-accelerated {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        /* Styles pour les boutons de contact */
+        button:contains("Contacter") {
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:contains("Contacter")::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        button:contains("Contacter"):hover::before {
+            left: 100%;
+        }
+
+        /* Media queries pour les animations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Styles pour l'impression */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            .group {
+                break-inside: avoid;
+            }
+        }
+
+        /* Styles responsifs pour les cartes d'équipe */
+        @media (max-width: 768px) {
+            .group {
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Amélioration de l'accessibilité */
+        @media (prefers-contrast: high) {
+            .text-gray-600 {
+                color: #374151 !important;
+            }
+            
+            .border-gray-100 {
+                border-color: #6B7280 !important;
+            }
+        }
+    </style>
+
 </body>
 </html>

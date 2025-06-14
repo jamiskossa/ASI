@@ -1,235 +1,1277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
-    <title>ASI</title>   
- </head>
-<body>
-    <header>
-        <div class="container">
-            <!-- Logo -->
-            <div class="logo">
-                <img src="flyers.jpg" alt="Logo ASI" />
-            </div>
+    <title>ASI - Alternative Solidarité Immigration</title>
     
-            <!-- Bouton Toggle pour Mobile -->
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-            <!-- Navigation -->
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À propos</a></li>
-                    <li><a href="activities.html">Activités</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="adhesion.html">Adhésion</a></li>
-                    <li><a href="dons.html">Dons</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Couleurs basées sur le logo ASI (à adapter selon votre logo)
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                        },
+                        accent: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-down': 'slideDown 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans bg-gradient-to-br from-gray-50 to-white text-gray-800 overflow-x-hidden">
+    
+    <!-- ========================================
+         HEADER SECTION - Navigation moderne
+    ======================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-primary-100 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-3 animate-fade-in">
+                    <div class="relative group">
+                        <img src="flyers.jpg" alt="Logo ASI" 
+                             class="h-10 w-10 lg:h-12 lg:w-12 rounded-full object-cover ring-2 ring-primary-200 group-hover:ring-primary-400 transition-all duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-full bg-primary-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg lg:text-xl font-bold text-primary-800">ASI</h1>
+                        <p class="text-xs text-gray-600 -mt-1">Solidarité Immigration</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Accueil</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="about.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>À propos</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="activities.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Activités</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="blog.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Blog</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="adhesion.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Adhésion</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="dons.html" class="nav-link px-3 py-2 bg-secondary-400 hover:bg-secondary-500 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Dons
+                    </a>
+                    <a href="contact.html" class="nav-link px-3 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Contact
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Toggle - Futuristic Design -->
+                <button id="mobile-menu-toggle" class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-primary-50 hover:bg-primary-100 transition-all duration-300 group">
+                    <div class="relative w-6 h-6">
+                        <span class="menu-line absolute top-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                        <span class="menu-line absolute top-1/2 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700 transform -translate-y-1/2"></span>
+                        <span class="menu-line absolute bottom-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-2xl border-t border-primary-100 transform -translate-y-full opacity-0 invisible transition-all duration-500 ease-out">
+                <nav class="px-4 py-6 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-home mr-3 text-primary-500"></i>Accueil
+                    </a>
+                    <a href="about.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-info-circle mr-3 text-primary-500"></i>À propos
+                    </a>
+                    <a href="activities.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-calendar-alt mr-3 text-primary-500"></i>Activités
+                    </a>
+                    <a href="blog.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-blog mr-3 text-primary-500"></i>Blog
+                    </a>
+                    <a href="adhesion.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-user-plus mr-3 text-primary-500"></i>Adhésion
+                    </a>
+                    <a href="dons.html" class="block px-4 py-3 rounded-lg bg-secondary-400 hover:bg-secondary-500 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-heart mr-3"></i>Dons
+                    </a>
+                    <a href="contact.html" class="block px-4 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                </nav>
+            </div>
         </div>
     </header>
-    <div class="hero">
-      <div class="video-container">
-          <iframe width="540" height="315" src="https://www.youtube.com/embed/ymbqD8dVAgc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-    <main>
-    
-        <section class="grid-section">
-          <!-- Ligne 1 -->
-          <div class="services">
-              <h2>Découvrez nos services complets pour les migrants</h2>
-              <p>
-                  L'ASI propose une gamme de services conçus pour soutenir les migrants et renforcer la résilience des communautés.
-                  Notre équipe dédiée fournit une assistance personnalisée, des programmes communautaires et un plaidoyer politique
-                  pour assurer une intégration et un développement durables.
-              </p>
-              <p>
-                  Découvrez comment nous pouvons vous aider, vous ou votre communauté, à prospérer.
-              </p>
-          </div>
-      
-          <!-- Ligne 2 : Services en grille -->
-          <div class="conteneur">
-              <div class="grid-item">
-                  <img src="flyers.jpg" alt="Image 1">
-                  <h3>Accompagnement personnalisé des migrants</h3>
-                  <p>
-                      Nos services de soutien personnalisés aident les migrants de retour à s'orienter vers la réintégration, en proposant des conseils, des programmes de placement professionnel et d'intégration communautaire.
-                  </p>
-              </div>
-              <div class="grid-item">
-                  <img src="flyers.jpg" alt="Image 2">
-                  <h3>Renforcer la résilience communautaire</h3>
-                  <p>
-                      Nos programmes renforcent la capacité des communautés d’accueil à soutenir les migrants par le biais d’ateliers, de formations et de ressources collaboratives.
-                  </p>
-              </div>
-              <div class="grid-item">
-                  <img src="flyers.jpg" alt="Image 3">
-                  <h3>Plaidoyer pour des politiques durables</h3>
-                  <p>
-                      Nous nous engageons dans un plaidoyer politique pour influencer les politiques migratoires, dans le but de développer des établissements durables bénéficiant à toutes les parties.
-                  </p>
-              </div>
-              
-          </div>
-      </section>
-      
-        <section class="engagement-section">
-            <!-- Image -->
-            <div class="image-container">
-              <img src="flyers.jpg" alt="Engagement envers les migrants">
-            </div>
-          
-            <!-- Texte -->
-            <div class="text-container">
-              <h2>Notre engagement envers les migrants</h2>
-              <p>
-                Chez <strong>ASI</strong>, nous nous engageons à promouvoir la solidarité nationale et internationale envers les migrants.
-                Notre mission est de veiller à ce que chaque migrant reçoive le soutien dont il a besoin pour se réintégrer avec succès dans 
-                sa communauté, en favorisant une culture d'empathie et de collaboration.
-              </p>
-          
-              <!-- Statistiques -->
-              <div class="stats-grid">
-                <div class="stat">
-                  <h3>50</h3>
-                  <p>Migrants soutenus</p>
-                  <p>
-                    Grâce à nos différents programmes, nous avons aidé avec succès plus de 500 migrants dans leur parcours vers la réintégration.
-                  </p>
-                </div>
-                <div class="stat">
-                  <h3>20</h3>
-                  <p>Programmes communautaires</p>
-                  <p>
-                    Nous avons mis en œuvre 20 programmes de résilience communautaire visant à renforcer la capacité des communautés d’accueil.
-                  </p>
-                </div>
-                <div class="stat">
-                  <h3>10</h3>
-                  <p>Politiques préconisées</p>
-                  <p>
-                    Nos efforts de plaidoyer ont conduit à l’élaboration de 10 politiques d’installation durables.
-                  </p>
-                </div>
-                
-              </div>
-            </div>
-          </section>
-          
-          
-          <section class="integration-section">
-            <!-- Texte -->
-            <div class="text-container">
-              <h2>Une vision d’intégration complète pour les migrants</h2>
-              <p>
-                ASI envisage un avenir dans lequel les migrants seront pleinement intégrés dans leurs communautés, contribuant et bénéficiant d'une société harmonieuse. 
-                Nous nous efforçons de créer des environnements où les migrants se sentent accueillis et valorisés, favorisant le respect et la compréhension mutuels.
-              </p>
-              <div class="stats-grid">
-                <div class="stat">
-                  <h3>100 <span>%</span></h3>
-                  <p>Migrants intégrés dans les communautés.</p>
-                </div>
-                <div class="stat">
-                  <h3>50 <span>%</span></h3>
-                  <p>Des communautés renforcées grâce à la résilience.</p>
-                </div>
-              </div>
-            </div>
-          
-            <!-- Image -->
-            <div class="image-container">
-              <img src="ambassade.png" alt="Vision d'intégration des migrants">
-            </div>
-          </section>
-          
-          <section class="migration-section">
-            <!-- Image -->
-            <div class="image-container">
-              <img src="flyers.jpg" alt="Migration en Guinée">
-            </div>
-          
-            <!-- Texte -->
-            <div class="text-container">
-              <h2>Comprendre la migration en Guinée</h2>
-              <p>
-                La Guinée est confrontée à d’importants défis migratoires, notamment les retours volontaires et involontaires. L’intégration économique des migrants et la résilience des communautés d’accueil sont essentielles pour le développement durable. ASI s’engage à relever ces défis par le biais d’initiatives stratégiques et de programmes de soutien aux communautés.
-              </p>
-              <div class="stat">
-                <h3>10</h3>
-                <p>Migrants soutenus</p>
-              </div>
-            </div>
-          </section>                 
 
-          <section class="partners-carousel">
-            <h2>Nos Partenaires</h2>
-            <div class="carousel">
-                <div class="partner-card">
-                    <a href="https://fr.ambaguinee.org">
-                        <img src="ambassade.png" alt="Ambassade Guinée">
-                    </a>
-                </div>
-                <div class="partner-card">
-                    <a href="partenaire1-page.html">
-                        <img src="kbs.jpg" alt="KBS Conseils">
-                    </a>
-                </div>
-                <div class="partner-card">
-                    <a href="partenaire1-page.html">
-                        <img src="flyers.jpg" alt="Flyers">
-                    </a>
-                </div>
-                <div class="partner-card">
-                    <a href="partenaire1-page.html">
-                        <img src="flyers.jpg" alt="Flyers">
-                    </a>
+    <!-- ========================================
+         HERO SECTION - Vidéo intégrée
+    ======================================== -->
+    <section class="relative pt-16 lg:pt-20 min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 overflow-hidden">
+        <!-- Background Animation Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 4s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 animate-slide-up">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Alternative <span class="text-primary-600">Solidarité</span>
+                    <br class="hidden sm:block">
+                    <span class="text-secondary-600">Immigration</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+                    Nous accompagnons les migrants dans leur parcours d'intégration et renforçons la résilience des communautés d'accueil.
+                </p>
+            </div>
+
+                        <!-- Video Container -->
+            <div class="max-w-4xl mx-auto animate-scale-in">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-white p-2">
+                    <div class="aspect-video rounded-xl overflow-hidden">
+                        <iframe 
+                            class="w-full h-full" 
+                            src="https://www.youtube.com/embed/ymbqD8dVAgc" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
             </div>
-          </section>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MAIN CONTENT
+    ======================================== -->
+    <main class="relative">
+
+        <!-- ========================================
+             SERVICES SECTION - Grille moderne
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-50/50 to-transparent"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Découvrez nos <span class="text-primary-600">services complets</span>
+                        <br class="hidden sm:block">
+                        pour les migrants
+                    </h2>
+                    <div class="max-w-4xl mx-auto space-y-4 text-lg text-gray-600 leading-relaxed">
+                        <p>
+                            L'ASI propose une gamme de services conçus pour soutenir les migrants et renforcer la résilience des communautés.
+                            Notre équipe dédiée fournit une assistance personnalisée, des programmes communautaires et un plaidoyer politique
+                            pour assurer une intégration et un développement durables.
+                        </p>
+                        <p class="font-medium text-primary-700">
+                            Découvrez comment nous pouvons vous aider, vous ou votre communauté, à prospérer.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                    
+                    <!-- Service Card 1 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary-200 animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="relative overflow-hidden">
+                            <img src="flyers.jpg" alt="Accompagnement personnalisé" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                                <i class="fas fa-user-friends text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                                Accompagnement personnalisé des migrants
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Nos services de soutien personnalisés aident les migrants de retour à s'orienter vers la réintégration, 
+                                en proposant des conseils, des programmes de placement professionnel et d'intégration communautaire.
+                            </p>
+                            <div class="mt-6">
+                                <div class="inline-flex items-center text-primary-600 font-medium group-hover:text-primary-700 transition-colors duration-300">
+                                    <span>En savoir plus</span>
+                                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-secondary-200 animate-slide-up" style="animation-delay: 0.4s;">
+                        <div class="relative overflow-hidden">
+                            <img src="flyers.jpg" alt="Résilience communautaire" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                                <i class="fas fa-hands-helping text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-secondary-600 transition-colors duration-300">
+                                Renforcer la résilience communautaire
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Nos programmes renforcent la capacité des communautés d'accueil à soutenir les migrants 
+                                par le biais d'ateliers, de formations et de ressources collaboratives.
+                            </p>
+                            <div class="mt-6">
+                                <div class="inline-flex items-center text-secondary-600 font-medium group-hover:text-secondary-700 transition-colors duration-300">
+                                    <span>En savoir plus</span>
+                                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-accent-200 animate-slide-up md:col-span-2 lg:col-span-1" style="animation-delay: 0.6s;">
+                        <div class="relative overflow-hidden">
+                            <img src="flyers.jpg" alt="Plaidoyer politique" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-accent-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                                <i class="fas fa-balance-scale text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-accent-600 transition-colors duration-300">
+                                Plaidoyer pour des politiques durables
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Nous nous engageons dans un plaidoyer politique pour influencer les politiques migratoires, 
+                                dans le but de développer des établissements durables bénéficiant à toutes les parties.
+                            </p>
+                            <div class="mt-6">
+                                <div class="inline-flex items-center text-accent-600 font-medium group-hover:text-accent-700 transition-colors duration-300">
+                                    <span>En savoir plus</span>
+                                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             ENGAGEMENT SECTION - Layout moderne
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-50 to-white relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 right-0 w-72 h-72 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Image Container -->
+                    <div class="order-2 lg:order-1 animate-slide-up">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-2xl transform rotate-3 scale-105 opacity-20"></div>
+                            <img src="flyers.jpg" alt="Engagement envers les migrants" 
+                                 class="relative w-full rounded-2xl shadow-2xl object-cover h-64 sm:h-80 lg:h-96">
+                            <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-white rounded-2xl shadow-lg flex items-center justify-center">
+                                <i class="fas fa-heart text-3xl text-primary-500 animate-pulse"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Container -->
+                    <div class="order-1 lg:order-2 animate-slide-up" style="animation-delay: 0.3s;">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                            Notre <span class="text-primary-600">engagement</span>
+                            <br>envers les migrants
+                        </h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                            Chez <strong class="text-primary-700">ASI</strong>, nous nous engageons à promouvoir la solidarité nationale et internationale envers les migrants.
+                            Notre mission est de veiller à ce que chaque migrant reçoive le soutien dont il a besoin pour se réintégrer avec succès dans
+                            sa communauté, en favorisant une culture d'empathie et de collaboration.
+                        </p>
+
+                        <!-- Statistics Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+                            
+                            <!-- Stat 1 -->
+                            <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-100 hover:border-primary-200 group">
+                                <div class="text-3xl lg:text-4xl font-bold text-primary-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+                                    500+
+                                </div>
+                                <div class="text-sm font-semibold text-gray-800 mb-2">Migrants soutenus</div>
+                                <p class="text-xs text-gray-600 leading-relaxed">
+                                    Grâce à nos différents programmes, nous avons aidé avec succès plus de 500 migrants dans leur parcours vers la réintégration.
+                                </p>
+                            </div>
+
+                            <!-- Stat 2 -->
+                            <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-secondary-100 hover:border-secondary-200 group">
+                                <div class="text-3xl lg:text-4xl font-bold text-secondary-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+                                    20+
+                                </div>
+                                <div class="text-sm font-semibold text-gray-800 mb-2">Programmes communautaires</div>
+                                <p class="text-xs text-gray-600 leading-relaxed">
+                                    Nous avons mis en œuvre 20 programmes de résilience communautaire visant à renforcer la capacité des communautés d'accueil.
+                                </p>
+                            </div>
+
+                            <!-- Stat 3 -->
+                            <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-accent-100 hover:border-accent-200 group sm:col-span-3 lg:col-span-1">
+                                <div class="text-3xl lg:text-4xl font-bold text-accent-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+                                    10+
+                                </div>
+                                <div class="text-sm font-semibold text-gray-800 mb-2">Politiques préconisées</div>
+                                <p class="text-xs text-gray-600 leading-relaxed">
+                                    Nos efforts de plaidoyer ont conduit à l'élaboration de 10 politiques d'installation durables.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+               <!-- ========================================
+             INTEGRATION SECTION - Vision d'avenir
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0">
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-secondary-50/30 to-transparent"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style="animation-delay: 1s;"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Content Container -->
+                    <div class="animate-slide-up">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                            Une vision d'<span class="text-secondary-600">intégration complète</span>
+                            <br>pour les migrants
+                        </h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                            ASI envisage un avenir dans lequel les migrants seront pleinement intégrés dans leurs communautés, 
+                            contribuant et bénéficiant d'une société harmonieuse. Nous nous efforçons de créer des environnements 
+                            où les migrants se sentent accueillis et valorisés, favorisant le respect et la compréhension mutuels.
+                        </p>
+
+                        <!-- Integration Stats -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            
+                            <!-- Integration Stat 1 -->
+                            <div class="bg-gradient-to-br from-secondary-50 to-secondary-100 p-6 rounded-xl border border-secondary-200 hover:shadow-lg transition-all duration-300 group">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-4xl font-bold text-secondary-600 group-hover:scale-110 transition-transform duration-300">
+                                        100<span class="text-2xl">%</span>
+                                    </div>
+                                    <div class="ml-3 w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-users text-white text-lg"></i>
+                                    </div>
+                                </div>
+                                <p class="text-secondary-800 font-medium">
+                                    Migrants intégrés dans les communautés.
+                                </p>
+                            </div>
+
+                            <!-- Integration Stat 2 -->
+                            <div class="bg-gradient-to-br from-accent-50 to-accent-100 p-6 rounded-xl border border-accent-200 hover:shadow-lg transition-all duration-300 group">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-4xl font-bold text-accent-600 group-hover:scale-110 transition-transform duration-300">
+                                        85<span class="text-2xl">%</span>
+                                    </div>
+                                    <div class="ml-3 w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-shield-alt text-white text-lg"></i>
+                                    </div>
+                                </div>
+                                <p class="text-accent-800 font-medium">
+                                    Des communautés renforcées grâce à la résilience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Container -->
+                    <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-secondary-400 to-accent-400 rounded-2xl transform -rotate-3 scale-105 opacity-20"></div>
+                            <img src="ambassade.png" alt="Vision d'intégration des migrants" 
+                                 class="relative w-full rounded-2xl shadow-2xl object-cover h-64 sm:h-80 lg:h-96">
+                            <div class="absolute -top-6 -left-6 w-24 h-24 bg-white rounded-2xl shadow-lg flex items-center justify-center">
+                                <i class="fas fa-globe-americas text-3xl text-secondary-500 animate-pulse-slow"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             MIGRATION SECTION - Comprendre la migration
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-accent-50 to-white relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 left-0 w-80 h-80 bg-accent-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-float" style="animation-delay: 2s;"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Image Container -->
+                    <div class="animate-slide-up">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent-400 to-primary-400 rounded-2xl transform rotate-2 scale-105 opacity-20"></div>
+                            <img src="flyers.jpg" alt="Migration en Guinée" 
+                                 class="relative w-full rounded-2xl shadow-2xl object-cover h-64 sm:h-80 lg:h-96">
+                            <div class="absolute -bottom-6 -left-6 w-32 h-20 bg-white rounded-xl shadow-lg flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-accent-600">1000+</div>
+                                    <div class="text-xs text-gray-600">Migrants aidés</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Container -->
+                    <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                            Comprendre la <span class="text-accent-600">migration</span>
+                            <br>en Guinée
+                        </h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                            La Guinée est confrontée à d'importants défis migratoires, notamment les retours volontaires et involontaires. 
+                            L'intégration économique des migrants et la résilience des communautés d'accueil sont essentielles pour le développement durable. 
+                            ASI s'engage à relever ces défis par le biais d'initiatives stratégiques et de programmes de soutien aux communautés.
+                        </p>
+
+                        <!-- Migration Impact Card -->
+                        <div class="bg-white p-8 rounded-2xl shadow-lg border border-accent-100 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-2xl font-bold text-accent-600">Impact Direct</h3>
+                                <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-white text-lg"></i>
+                                </div>
+                            </div>
+                            <div class="text-4xl font-bold text-gray-900 mb-2">1,000+</div>
+                            <p class="text-accent-700 font-medium mb-3">Migrants soutenus directement</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Grâce à nos programmes d'accompagnement personnalisé et de réintégration communautaire.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             PARTNERS SECTION - Carrousel moderne
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-50/30 to-secondary-50/30"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Nos <span class="text-primary-600">Partenaires</span> de confiance
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Ensemble, nous construisons un avenir meilleur pour les migrants et leurs communautés d'accueil.
+                    </p>
+                </div>
+
+                <!-- Partners Carousel -->
+                <div class="relative">
+                    <div id="partners-carousel" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        
+                        <!-- Partner Card 1 -->
+                        <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 border border-gray-100 hover:border-primary-200 animate-scale-in" style="animation-delay: 0.1s;">
+                            <a href="https://fr.ambaguinee.org" target="_blank" class="block">
+                                <div class="relative overflow-hidden rounded-xl mb-4">
+                                    <img src="ambassade.png" alt="Ambassade Guinée" 
+                                         class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-primary-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors duration-300 text-center">
+                                    Ambassade de Guinée
+                                </h3>
+                                <p class="text-sm text-gray-600 text-center mt-2">
+                                    Partenaire institutionnel
+                                </p>
+                            </a>
+                        </div>
+
+                        <!-- Partner Card 2 -->
+                        <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 border border-gray-100 hover:border-secondary-200 animate-scale-in" style="animation-delay: 0.2s;">
+                            <a href="https://ccop2025.netlify.app/" class="block">
+                                <div class="relative overflow-hidden rounded-xl mb-4">
+                                    <img src="kbs.png" alt="KBS Conseils" 
+                                         class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-secondary-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-secondary-600 transition-colors duration-300 text-center">
+                                    KBS Conseils
+                                </h3>
+                                <p class="text-sm text-gray-600 text-center mt-2">
+                                    Conseil et accompagnement
+                                </p>
+                            </a>
+                        </div>
+
+                        <!-- Partner Card 3 -->
+                        <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 border border-gray-100 hover:border-accent-200 animate-scale-in" style="animation-delay: 0.3s;">
+                            <a href="www.kankou.netlify.app" class="block">
+                                <div class="relative overflow-hidden rounded-xl mb-4">
+                                    <img src="kanou.png alt="Partenaire 3" 
+                                         class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-accent-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-accent-600 transition-colors duration-300 text-center">
+                                    KANKOU SERVICES
+                                </h3>
+                                <p class="text-sm text-gray-600 text-center mt-2">
+                                    MARKETING DIGITAL ET COMMUNICATIONS
+                                </p>
+                            </a>
+                        </div>
+
+                        <!-- Partner Card 4 -->
+                        <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 border border-gray-100 hover:border-primary-200 animate-scale-in" style="animation-delay: 0.4s;">
+                            <a href="partenaire1-page.html" class="block">
+                                <div class="relative overflow-hidden rounded-xl mb-4">
+                                    <img src="https://gafagroforesterie.netlify.app/" alt="Partenaire 4" 
+                                         class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-primary-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors duration-300 text-center">
+                                    GAF & GAF-TECH
+                                </h3>
+                                <p class="text-sm text-gray-600 text-center mt-2">
+                                    Guinéenne D'Agroforesterie
+                                </p>
+                            </a>
+                                            </div>
+
+                    <!-- Carousel Navigation Dots -->
+                    <div class="flex justify-center mt-12 space-x-2">
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-primary-300 hover:bg-primary-500 transition-colors duration-300 active"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors duration-300"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors duration-300"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             CTA SECTION - Call to Action
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 relative overflow-hidden">
+            <!-- Background Animation Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full animate-float"></div>
+                <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full animate-pulse-slow"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                        Rejoignez notre <span class="text-secondary-200">mission</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-primary-100 max-w-3xl mx-auto mb-12 leading-relaxed">
+                        Ensemble, nous pouvons faire la différence dans la vie des migrants et renforcer nos communautés. 
+                        Découvrez comment vous pouvez contribuer à notre cause.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="adhesion.html" 
+                           class="inline-flex items-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-user-plus mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Devenir membre</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        
+                        <a href="dons.html" 
+                           class="inline-flex items-center px-8 py-4 bg-secondary-500 hover:bg-secondary-400 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-heart mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Faire un don</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        
+                        <a href="contact.html" 
+                           class="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-primary-700 transition-all duration-300 hover:scale-105 group">
+                            <i class="fas fa-envelope mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Nous contacter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Pied de page -->
-<footer class="footer-section">
-    <div class="footer-content">
-        <p>&copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane Tous droits réservés.</p>
-        <p>
-            Contactez-nous : 
-            <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | 
-            Tél : +33650586044 <br> +224623993030
-        </p>
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <!-- ========================================
+         FOOTER SECTION - Pied de page moderne
+    ======================================== -->
+    <footer class="bg-gray-900 text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Main Footer Content -->
+            <div class="py-12 lg:py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    
+                    <!-- Company Info -->
+                    <div class="lg:col-span-2 animate-slide-up">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <img src="flyers.jpg" alt="Logo ASI" 
+                                 class="h-12 w-12 rounded-full object-cover ring-2 ring-primary-400">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">ASI</h3>
+                                <p class="text-sm text-gray-300">Alternative Solidarité Immigration</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                            Nous accompagnons les migrants dans leur parcours d'intégration et renforçons 
+                            la résilience des communautés d'accueil pour un avenir solidaire et durable.
+                        </p>
+                        
+                        <!-- Social Links -->
+                        <div class="flex space-x-4">
+                            <a href="https://facebook.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-facebook-f text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-twitter text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-linkedin-in text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-instagram text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Liens rapides</h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="about.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    À propos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="activities.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Nos activités
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adhesion.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Adhésion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="animate-slide-up" style="animation-delay: 0.4s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Contact</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-envelope text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Email</p>
+                                    <a href="mailto:alternatives.asi@gmail.com" 
+                                       class="text-white hover:text-primary-400 transition-colors duration-300">
+                                        alternatives.asi@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-phone text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Téléphone</p>
+                                    <p class="text-white">+33 6 50 58 60 44</p>
+                                    <p class="text-white">+224 623 99 30 30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-gray-400 text-sm text-center md:text-left">
+                        &copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane - Tous droits réservés.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Politique de confidentialité
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Mentions légales
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<script src="script.js"></script>
-<script>
-    // Toggle Menu Animation
-const menuToggle = document.getElementById('menu-toggle');
-const navbar = document.querySelector('.navbar');
+    <!-- ========================================
+         SCROLL TO TOP BUTTON
+    ======================================== -->
+    <button id="scroll-to-top" 
+            class="fixed bottom-6 right-6 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible hover:scale-110 z-50 group">
+        <i class="fas fa-chevron-up group-hover:scale-110 transition-transform duration-300"></i>
+    </button>
 
-menuToggle.addEventListener('click', () => {
- navbar.classList.toggle('active');
- menuToggle.classList.toggle('active');
-});
+    <!-- ========================================
+         JAVASCRIPT SECTION
+    ======================================== -->
+    <script>
+        // ========================================
+        // MOBILE MENU TOGGLE - Animation futuriste
+        // ========================================
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLines = document.querySelectorAll('.menu-line');
 
- </script>
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('menu-open');
+            
+            if (isOpen) {
+                // Fermer le menu
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                // Animation des lignes du burger
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            } else {
+                // Ouvrir le menu
+                mobileMenu.classList.add('menu-open');
+                mobileMenu.style.transform = 'translateY(0)';
+                mobileMenu.style.opacity = '1';
+                mobileMenu.style.visibility = 'visible';
+                
+                // Animation des lignes du burger vers X
+                menuLines[0].style.transform = 'rotate(45deg) translateY(6px)';
+                menuLines[1].style.opacity = '0';
+                menuLines[2].style.transform = 'rotate(-45deg) translateY(-6px)';
+            }
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                    menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            });
+        });
+
+        // ========================================
+        // SCROLL TO TOP BUTTON
+        // ========================================
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+                scrollToTopBtn.style.visibility = 'visible';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+                scrollToTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ========================================
+        // HEADER SCROLL EFFECT
+        // ========================================
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.classList.add('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.classList.remove('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // ========================================
+        // INTERSECTION OBSERVER - Animations au scroll
+        // ========================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les éléments avec des classes d'animation
+        const animatedElements = document.querySelectorAll('.animate-slide-up, .animate-fade-in, .animate-scale-in');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // ========================================
+        // PARTNERS CAROUSEL - Carrousel automatique
+        // ========================================
+        const partnersCarousel = document.getElementById('partners-carousel');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        const totalSlides = carouselDots.length;
+
+        function updateCarousel() {
+            // Mise à jour des dots
+            carouselDots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                    dot.style.backgroundColor = 'rgb(37 99 235)'; // primary-600
+                } else {
+                    dot.classList.remove('active');
+                    dot.style.backgroundColor = 'rgb(209 213 219)'; // gray-300
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        // Auto-play carousel
+        setInterval(nextSlide, 4000);
+
+        // Dots click handlers
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+
+        // ========================================
+        // STATISTICS COUNTER ANIMATION
+        // ========================================
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // Observer pour les statistiques
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statElement = entry.target.querySelector('.text-3xl, .text-4xl');
+                    if (statElement && !statElement.classList.contains('animated')) {
+                        statElement.classList.add('animated');
+                        const targetValue = parseInt(statElement.textContent);
+                        if (!isNaN(targetValue)) {
+                            animateCounter(statElement, targetValue);
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observer toutes les cartes de statistiques
+        const statCards = document.querySelectorAll('.stat');
+        statCards.forEach(card => statsObserver.observe(card));
+
+        // ========================================
+        // SMOOTH SCROLLING POUR LES LIENS D'ANCRAGE
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ========================================
+        // LOADING ANIMATION
+        // ========================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Ajouter une classe pour déclencher les animations initiales
+            setTimeout(() => {
+                const initialElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+                initialElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 100);
+        });
+
+        // ========================================
+        // PARALLAX EFFECT POUR LES ÉLÉMENTS DE FOND
+        // ========================================
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.animate-float');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // ========================================
+        // RESPONSIVE VIDEO HANDLING
+        // ========================================
+        function handleVideoResize() {
+            const videoContainer = document.querySelector('.aspect-video iframe');
+            if (videoContainer) {
+                const container = videoContainer.parentElement;
+                const containerWidth = container.offsetWidth;
+                const aspectRatio = 16 / 9;
+                const height = containerWidth / aspectRatio;
+                
+                videoContainer.style.height = `${height}px`;
+            }
+        }
+
+        window.addEventListener('resize', handleVideoResize);
+        handleVideoResize(); // Initial call
+
+        // ========================================
+        // PERFORMANCE OPTIMIZATION
+        // ========================================
+        
+        // Lazy loading pour les images
+        const images = document.querySelectorAll('img[src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('fade-in');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Debounce function pour optimiser les événements de scroll
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Appliquer le debounce aux événements de scroll
+        const debouncedScrollHandler = debounce(() => {
+            // Handlers de scroll optimisés ici
+        }, 10);
+
+        window.addEventListener('scroll', debouncedScrollHandler);
+
+        // ========================================
+        // ACCESSIBILITY IMPROVEMENTS
+        // ========================================
+        
+        // Gestion du focus pour la navigation au clavier
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Amélioration de l'accessibilité pour le menu mobile
+        mobileMenuToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenuToggle.click();
+            }
+        });
+
+        // ========================================
+        // CONSOLE WELCOME MESSAGE
+        // ========================================
+        console.log(`
+        🌍 ASI - Alternative Solidarité Immigration
+        ═══════════════════════════════════════════
+        
+        Merci de visiter notre site web !
+        
+        Développé avec ❤️ par l'équipe ASI
+        Utilisant Tailwind CSS et JavaScript moderne
+        
+        Pour plus d'informations : alternatives.asi@gmail.com
+        `);
+
+    </script>
+
+    <!-- ========================================
+         ADDITIONAL CSS STYLES
+    ======================================== -->
+    <style>
+        /* Styles CSS personnalisés pour compléter Tailwind */
+        
+        /* Smooth scrolling global */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations personnalisées */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* États d'animation */
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Styles pour la navigation au clavier */
+        .keyboard-navigation *:focus {
+            outline: 2px solid #3B82F6 !important;
+            outline-offset: 2px;
+        }
+
+        /* Amélioration des transitions */
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Styles pour les éléments de chargement */
+        .loaded .animate-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Amélioration des ombres */
+        .shadow-custom {
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Styles pour les éléments interactifs */
+        .interactive-element {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Optimisation des performances */
+        .gpu-accelerated {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        /* Styles pour les éléments de fond animés */
+        .bg-animated {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Media queries pour les animations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Styles pour l'impression */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+
 </body>
 </html>
+
+

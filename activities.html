@@ -1,455 +1,1243 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>ASI - Nos Activités</title>
-    <link rel="stylesheet" href="styless.css">
-
-    <style>
-/* Section principale */
-#activities {
-    display: grid;
-    grid-template-rows: auto auto;
-    gap: 20px;
-    padding: 40px 20px;
-    background-color: #f4f4f4;
-    text-align: center;
-}
-
-/* Conteneur de contenu */
-#activities .content-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Titre */
-#activities h1 {
-    font-size: 2em;
-    color: #2a7ae4;
-    margin-bottom: 15px;
-}
-
-/* Description */
-#activities .event-description {
-    font-size: 1.2em;
-    color: #555;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Réactivité */
-@media (max-width: 768px) {
-    #activities {
-        padding: 30px 15px;
-    }
-
-    #activities h1 {
-        font-size: 1.8em;
-    }
-
-    #activities .event-description {
-        font-size: 1em;
-    }
-}
-
-  /* Section principale */
-#nos-evenements {
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #ff8c00, #1e90ff, #ffffff);
-    text-align: center;
-}
-
-#nos-evenements .container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Titre de la section */
-#nos-evenements h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #eceef0;
-}
-
-/* Présentation de l'événement */
-.event-presentation h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.event-description p {
-    font-size: 1.2em;
-    color: #161313;
-    line-height: 1.6;
-    margin-top: 20px;
-}
-
-/* Slideshow */
-.slideshow-container {
-    position: relative;
-    max-width: 100%;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.slide {
-    display: none;
-}
-
-.slide img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Animation de transition */
-.fade {
-    animation-name: fadeEffect;
-    animation-duration: 1.5s;
-}
-
-@keyframes fadeEffect {
-    from {
-        opacity: 0.4;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Réactivité */
-@media (max-width: 768px) {
-    #nos-evenements h2 {
-        font-size: 2em;
-    }
-
-    .event-presentation h3 {
-        font-size: 1.5em;
-    }
-
-    .event-description p {
-        font-size: 1em;
-    }
-}
-
-
-/* Style pour la section Events Grid */
-#events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 3rem 2rem;
-    background-color: #f8f8f8;
-}
-
-.event-card {
-    background: linear-gradient(135deg, rgba(0, 255, 204, 0.8), rgba(0, 36, 61, 0.8));
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Image de l'événement */
-.event-card figure {
-    margin: 0;
-}
-
-.event-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-bottom: 2px solid #003d6b;
-}
-
-/* Légende sous l'image */
-.event-card figcaption {
-    background-color: #003d6b;
-    color: white;
-    font-weight: bold;
-    padding: 0.5rem;
-    font-size: 1.1rem;
-}
-
-/* Détails de l'événement */
-.event-details {
-    padding: 1.5rem;
-    color: #333;
-}
-
-.event-details p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
-    color: #000;
-}
-
-.event-details p strong {
-    color: #003d6b;
-}
-
-.event-details .btn {
-    background-color: #003d6b;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-}
-
-.event-details .btn:hover {
-    background-color: #f39c12;
-}
-
-/* Réactivité */
-@media (max-width: 768px) {
-    #events-grid {
-        padding: 2rem 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    #events-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .event-details .btn {
-        width: 100%;
-        padding: 1rem;
-    }
-}
-
-
-    </style>
-</head>
-
-<body>
-    <header>
-        <div class="container">
-            <!-- Logo -->
-            <div class="logo">
-                <img src="flyers.jpg" alt="Logo ASI" />
-            </div>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-            <!-- Bouton Toggle pour Mobile -->
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-            <!-- Navigation -->
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À propos</a></li>
-                    <li><a href="activities.html">Activités</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="adhesion.html">Adhésion</a></li>
-                    <li><a href="dons.html">Dons</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <section id="activities">
-            <div class="content-wrapper">
-                <h1>Découvrez les projets et événements pour promouvoir la réintégration des migrants</h1>
-                <p class="event-description">
-                    Ces projets et événements seront une excellente occasion de découvrir de nouvelles initiatives pour l'intégration des migrants. 
-                    Ils comprendront des ateliers, des conférences, et des activités communautaires pour favoriser la cohésion sociale.
-                </p>
-            </div>
-        </section>
-        
-        <!-- Section: Nos Événements -->
-        <section id="nos-evenements">
-            <h2>Nos Événements</h2>
-
-            <!-- Présentation de l'événement à venir avec Slideshow automatique -->
-            <div class="event-presentation">
-                <h3>Événement Passé : L’atelier « Petit déjeuner partenaire »</h3>
-                <div class="slideshow-container">
-                    <div class="slide fade">
-                        <img src="19.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="2.png" alt="Événement 1">
-                    </div>  
-                    <div class="slide fade">
-                        <img src="15.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="20.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="11.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="20.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="16.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="8.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="9.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="5.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="6.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="7.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="20.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="16.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="25.png" alt="Événement 1">
-                    </div>
-                    <div class="slide fade">
-                        <img src="24.png" alt="Événement 1">
-                    </div>
-                </div>
-                <div  class="event-description">
-                    <p>
-                        La première activité organisée par Alternative Solidarité Immigration (ASI) a été une journée mémorable, riche en rencontres et en échanges. 
-                        Les représentants, partenaires et collaborateurs de ASI se sont rassemblés dans une ambiance chaleureuse et conviviale, renforçant les liens qui unissent cette communauté engagée. 
-                        Le programme bien structuré offre des moments de discussions enrichissantes, d'échanges d'idées et de partages d'expériences, reflétant les valeurs d'entraide et de solidarité portées par l'association. 
-                        La journée s'est conclue par un délicieux repas au restaurant, permettant à tous de célébrer ensemble cette belle initiative et de repartir inspirés pour les projets à venir.
-                    </p>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="events-grid">
-        
-            <!-- Événement 1 -->
-            <div class="event-card">
-                <figure>
-                    <img src="flyers.jpg" alt="Événement 5" class="event-img">
-                    <figcaption>Événement à venir - Conférence sur l'intégration</figcaption>
-                </figure>
-                <div class="event-details">
-                    <p><strong>Date :</strong> Coming Soon</p>
-                    <p><strong>Lieu :</strong> Salle de conférence [Lieu]</p>
-                    <p><strong>Description :</strong> Conférence sur les politiques d'intégration pour les migrants et les bonnes pratiques à suivre.</p>
-                    <a href="contact.html" class="btn">Contacter ASI</a>
-                </div>
-            </div>
-        
-            <!-- Événement 2 -->
-            <div class="event-card">
-                <figure>
-                    <img src="flyers.jpg" alt="Événement 6" class="event-img">
-                    <figcaption>Atelier - Petit déjeuner des partenaires</figcaption>
-                </figure>
-                <div class="event-details">
-                    <p><strong>Date :</strong> 28/11/2024</p>
-                    <p><strong>Lieu :</strong> Salle de conférence [FIAP Paris 75014]</p>
-                    <p><strong>Description :</strong> Atelier pour créer des opportunités à travers des discussions entre partenaires.</p>
-                    <a href="contact.html" class="btn">Contacter ASI</a>
-                </div>
-            </div>
-        
-            <!-- Événement 3 -->
-            <div class="event-card">
-                <figure>
-                    <img src="flyers.jpg" alt="Événement 7" class="event-img">
-                    <figcaption>Forum sur les opportunités économiques</figcaption>
-                </figure>
-                <div class="event-details">
-                    <p><strong>Date :</strong> Coming Soon</p>
-                    <p><strong>Lieu :</strong> Centre des affaires [Lieu]</p>
-                    <p><strong>Description :</strong> Forum sur les nouvelles opportunités économiques pour les migrants.</p>
-                    <a href="contact.html" class="btn">Contacter ASI</a>
-                </div>
-            </div>
-        
-            <!-- Événement 4 -->
-            <div class="event-card">
-                <figure>
-                    <img src="flyers.jpg" alt="Événement 8" class="event-img">
-                    <figcaption>Formation - Emplois durables</figcaption>
-                </figure>
-                <div class="event-details">
-                    <p><strong>Date :</strong> Coming Soon</p>
-                    <p><strong>Lieu :</strong> Centre de formation [Lieu]</p>
-                    <p><strong>Description :</strong> Formation sur les emplois durables et les perspectives à long terme.</p>
-                    <a href="contact.html" class="btn">Contacter ASI</a>
-                </div>
-            </div>
-        </section>
-        
-    </main>
-
-    <!-- Pied de page -->
-<footer class="footer-section">
-    <div class="footer-content">
-        <p>&copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane Tous droits réservés.</p>
-        <p>
-            Contactez-nous : 
-            <a href="mailto:alternatives.asi@gmail.com">alternatives.asi@gmail.com</a> | 
-            Tél : +33650586044 <br> +224623993030
-        </p>
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-    </div>
-</footer>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
     <script>
-        // Toggle Menu Animation
- const menuToggle = document.getElementById('menu-toggle');
- const navbar = document.querySelector('.navbar');
- 
- menuToggle.addEventListener('click', () => {
-     navbar.classList.toggle('active');
-     menuToggle.classList.toggle('active');
- });
- 
-     </script>
-
-    <script>
-        // Fonction pour animer le slideshow
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let slides = document.getElementsByClassName("slide");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  // Cacher toutes les slides
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                        },
+                        accent: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-down': 'slideDown 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
             }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "block";  // Afficher la slide actuelle
-            setTimeout(showSlides, 5000); // Change la slide toutes les 5 secondes
         }
     </script>
-</body>
+</head>
 
+<body class="font-sans bg-gradient-to-br from-gray-50 to-white text-gray-800 overflow-x-hidden">
+    
+    <!-- ========================================
+         HEADER SECTION - Navigation moderne
+    ======================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-primary-100 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-3 animate-fade-in">
+                    <div class="relative group">
+                        <img src="flyers.jpg" alt="Logo ASI" 
+                             class="h-10 w-10 lg:h-12 lg:w-12 rounded-full object-cover ring-2 ring-primary-200 group-hover:ring-primary-400 transition-all duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-full bg-primary-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg lg:text-xl font-bold text-primary-800">ASI</h1>
+                        <p class="text-xs text-gray-600 -mt-1">Solidarité Immigration</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Accueil</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="about.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>À propos</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="activities.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-primary-600 bg-primary-50 transition-all duration-300 relative group">
+                        <span>Activités</span>
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-500"></div>
+                    </a>
+                    <a href="blog.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Blog</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="adhesion.html" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 relative group">
+                        <span>Adhésion</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="dons.html" class="nav-link px-3 py-2 bg-secondary-400 hover:bg-secondary-500 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Dons
+                    </a>
+                    <a href="contact.html" class="nav-link px-3 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Contact
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-primary-50 hover:bg-primary-100 transition-all duration-300 group">
+                    <div class="relative w-6 h-6">
+                        <span class="menu-line absolute top-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                        <span class="menu-line absolute top-1/2 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700 transform -translate-y-1/2"></span>
+                        <span class="menu-line absolute bottom-1 left-0 w-6 h-0.5 bg-primary-600 rounded-full transition-all duration-300 group-hover:bg-primary-700"></span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-2xl border-t border-primary-100 transform -translate-y-full opacity-0 invisible transition-all duration-500 ease-out">
+                <nav class="px-4 py-6 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-home mr-3 text-primary-500"></i>Accueil
+                    </a>
+                    <a href="about.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-info-circle mr-3 text-primary-500"></i>À propos
+                    </a>
+                    <a href="activities.html" class="block px-4 py-3 rounded-lg text-primary-600 bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-calendar-alt mr-3 text-primary-500"></i>Activités
+                    </a>
+                    <a href="blog.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-blog mr-3 text-primary-500"></i>Blog
+                    </a>
+                    <a href="adhesion.html" class="block px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 font-medium">
+                        <i class="fas fa-user-plus mr-3 text-primary-500"></i>Adhésion
+                    </a>
+                    <a href="dons.html" class="block px-4 py-3 rounded-lg bg-secondary-400 hover:bg-secondary-500 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-heart mr-3"></i>Dons
+                    </a>
+                    <a href="contact.html" class="block px-4 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition-all duration-300 font-medium">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         HERO SECTION - Nos Activités
+    ======================================== -->
+    <section class="relative pt-16 lg:pt-20 min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 overflow-hidden">
+        <!-- Background Animation Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 4s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center animate-slide-up">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Nos <span class="text-primary-600">Activités</span>
+                    <br class="hidden sm:block">
+                    <span class="text-secondary-600">& Événements</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+                    Découvrez nos projets et événements pour promouvoir la réintégration des migrants 
+                    et renforcer la cohésion sociale dans nos communautés.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MAIN CONTENT
+    ======================================== -->
+    <main class="relative">
+
+                <!-- ========================================
+             FEATURED EVENT SECTION - Événement principal
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-50/50 to-transparent"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Événement <span class="text-primary-600">Passé</span>
+                    </h2>
+                    <h3 class="text-2xl sm:text-3xl font-semibold text-secondary-600 mb-4">
+                        L'atelier « Petit déjeuner partenaire »
+                    </h3>
+                    <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                        La première activité organisée par Alternative Solidarité Immigration (ASI) a été une journée mémorable, 
+                        riche en rencontres et en échanges.
+                    </p>
+                </div>
+
+                <!-- Event Gallery Slideshow -->
+                <div class="max-w-6xl mx-auto mb-12 animate-scale-in">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-white p-2">
+                        <div class="slideshow-container relative">
+                            <!-- Slides -->
+                            <div class="slide fade">
+                                <img src="19.png" alt="Événement 1" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="2.png" alt="Événement 2" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="15.png" alt="Événement 3" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="20.png" alt="Événement 4" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="11.png" alt="Événement 5" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="16.png" alt="Événement 6" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="8.png" alt="Événement 7" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="9.png" alt="Événement 8" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="5.png" alt="Événement 9" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="6.png" alt="Événement 10" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="7.png" alt="Événement 11" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="25.png" alt="Événement 12" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+                            <div class="slide fade">
+                                <img src="24.png" alt="Événement 13" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-xl">
+                            </div>
+
+                            <!-- Navigation Arrows -->
+                            <button class="prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+
+                            <!-- Dots Indicator -->
+                            <div class="dots-container absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                                <span class="dot w-3 h-3 bg-white/60 rounded-full cursor-pointer transition-all duration-300 hover:bg-white"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Description -->
+                <div class="max-w-4xl mx-auto text-center animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12 border border-gray-100">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Les représentants, partenaires et collaborateurs de ASI se sont rassemblés dans une ambiance chaleureuse et conviviale, 
+                            renforçant les liens qui unissent cette communauté engagée. Le programme bien structuré offre des moments de discussions 
+                            enrichissantes, d'échanges d'idées et de partages d'expériences, reflétant les valeurs d'entraide et de solidarité 
+                            portées par l'association.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            La journée s'est conclue par un délicieux repas au restaurant, permettant à tous de célébrer ensemble cette belle 
+                            initiative et de repartir inspirés pour les projets à venir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             UPCOMING EVENTS SECTION - Événements à venir
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 right-0 w-72 h-72 bg-secondary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Événements <span class="text-secondary-600">à venir</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Découvrez nos prochains événements et activités pour soutenir l'intégration des migrants 
+                        et renforcer la cohésion communautaire.
+                    </p>
+                </div>
+
+                <!-- Events Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
+                    
+                    <!-- Event Card 1 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary-200 animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="relative overflow-hidden">
+                            <img src="flyers.jpg" alt="Conférence sur l'intégration" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-accent-500 text-white text-sm font-medium rounded-full">
+                                À venir
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                                Conférence sur l'intégration
+                            </h3>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-calendar-alt mr-3 text-primary-500"></i>
+                                    <span><strong>Date :</strong> Coming Soon</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-map-marker-alt mr-3 text-primary-500"></i>
+                                    <span><strong>Lieu :</strong> Salle de conférence [Lieu]</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Conférence sur les politiques d'intégration pour les migrants et les bonnes pratiques à suivre.
+                            </p>
+                            <a href="contact.html" 
+                               class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn">
+                                <span>Contacter ASI</span>
+                                <i class="fas fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Event Card 2 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-secondary-200 animate-slide-up" style="animation-delay: 0.4s;">
+                        <div class="relative overflow-hidden">
+                            <img src="flyers.jpg" alt="Forum sur les opportunités économiques" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-accent-500 text-white text-sm font-medium rounded-full">
+                                À venir
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-secondary-600 transition-colors duration-300">
+                                Forum sur les opportunités économiques
+                            </h3>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-calendar-alt mr-3 text-secondary-500"></i>
+                                    <span><strong>Date :</strong> Coming Soon</span>
+                                </div>
+                                                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-map-marker-alt mr-3 text-secondary-500"></i>
+                                    <span><strong>Lieu :</strong> Centre des affaires [Lieu]</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Forum sur les nouvelles opportunités économiques pour les migrants et l'entrepreneuriat social.
+                            </p>
+                            <a href="contact.html" 
+                               class="inline-flex items-center px-6 py-3 bg-secondary-600 hover:bg-secondary-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn">
+                                <span>Contacter ASI</span>
+                                <i class="fas fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Event Card 3 -->
+                    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-accent-200 animate-slide-up" style="animation-delay: 0.6s;">
+                        <div class="relative overflow-hidden">
+                            <img src="flyers.jpg" alt="Formation - Emplois durables" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-accent-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-accent-500 text-white text-sm font-medium rounded-full">
+                                À venir
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-accent-600 transition-colors duration-300">
+                                Formation - Emplois durables
+                            </h3>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-calendar-alt mr-3 text-accent-500"></i>
+                                    <span><strong>Date :</strong> Coming Soon</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-map-marker-alt mr-3 text-accent-500"></i>
+                                    <span><strong>Lieu :</strong> Centre de formation [Lieu]</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Formation sur les emplois durables et les perspectives à long terme pour l'insertion professionnelle.
+                            </p>
+                            <a href="contact.html" 
+                               class="inline-flex items-center px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn">
+                                <span>Contacter ASI</span>
+                                <i class="fas fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Event Card 4 - Special Event -->
+                    <div class="group bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border-2 border-primary-200 hover:border-primary-300 animate-slide-up" style="animation-delay: 0.8s;">
+                        <div class="relative overflow-hidden">
+                            <img src="flyers.jpg" alt="Atelier - Petit déjeuner des partenaires" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-primary-500 text-white text-sm font-medium rounded-full">
+                                Réalisé
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8">
+                            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                                Atelier - Petit déjeuner des partenaires
+                            </h3>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-calendar-alt mr-3 text-primary-500"></i>
+                                    <span><strong>Date :</strong> 28/11/2024</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-map-marker-alt mr-3 text-primary-500"></i>
+                                    <span><strong>Lieu :</strong> FIAP Paris 75014</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Atelier pour créer des opportunités à travers des discussions entre partenaires et renforcer notre réseau.
+                            </p>
+                            <a href="contact.html" 
+                               class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn">
+                                <span>En savoir plus</span>
+                                <i class="fas fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             ACTIVITIES OVERVIEW SECTION - Vue d'ensemble
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0">
+                <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style="animation-delay: 1s;"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Content Container -->
+                    <div class="animate-slide-up">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                            Nos <span class="text-primary-600">types d'activités</span>
+                        </h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                            ASI organise une variété d'activités pour soutenir l'intégration des migrants et renforcer 
+                            la résilience des communautés d'accueil.
+                        </p>
+
+                        <!-- Activity Types -->
+                        <div class="space-y-6">
+                            
+                            <!-- Activity Type 1 -->
+                            <div class="flex items-start space-x-4 p-4 bg-primary-50 rounded-xl hover:bg-primary-100 transition-colors duration-300 group">
+                                <div class="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-users text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Ateliers & Formations</h3>
+                                    <p class="text-gray-600">Sessions de formation professionnelle et ateliers d'intégration sociale.</p>
+                                </div>
+                            </div>
+
+                            <!-- Activity Type 2 -->
+                            <div class="flex items-start space-x-4 p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors duration-300 group">
+                                <div class="w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-handshake text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Rencontres Partenaires</h3>
+                                    <p class="text-gray-600">Événements de networking et de collaboration avec nos partenaires.</p>
+                                </div>
+                            </div>
+
+                            <!-- Activity Type 3 -->
+                            <div class="flex items-start space-x-4 p-4 bg-accent-50 rounded-xl hover:bg-accent-100 transition-colors duration-300 group">
+                                <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-microphone text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Conférences & Forums</h3>
+                                    <p class="text-gray-600">Conférences thématiques et forums de discussion sur les enjeux migratoires.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Container -->
+                    <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-2xl transform rotate-3 scale-105 opacity-20"></div>
+                            <img src="flyers.jpg" alt="Activités ASI" 
+                                 class="relative w-full rounded-2xl shadow-2xl object-cover h-64 sm:h-80 lg:h-96">
+                            <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-white rounded-2xl shadow-lg flex items-center justify-center">
+                                <i class="fas fa-calendar-check text-3xl text-primary-500 animate-pulse"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             CTA SECTION - Call to Action
+        ======================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 relative overflow-hidden">
+            <!-- Background Animation Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full animate-float"></div>
+                <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full animate-pulse-slow"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center animate-slide-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                        Participez à nos <span class="text-secondary-200">événements</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-primary-100 max-w-3xl mx-auto mb-12 leading-relaxed">
+                        Rejoignez-nous dans nos activités et contribuez à créer un impact positif 
+                        dans la vie des migrants et de nos communautés.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="contact.html" 
+                           class="inline-flex items-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-calendar-plus mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Participer aux événements</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        
+                        <a href="adhesion.html" 
+                           class="inline-flex items-center px-8 py-4 bg-secondary-500 hover:bg-secondary-400 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                            <i class="fas fa-user-plus mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>Devenir membre</span>
+                            <i class="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+       <!-- ========================================
+         FOOTER SECTION - Pied de page moderne
+    ======================================== -->
+    <footer class="bg-gray-900 text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Main Footer Content -->
+            <div class="py-12 lg:py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    
+                    <!-- Company Info -->
+                    <div class="lg:col-span-2 animate-slide-up">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <img src="flyers.jpg" alt="Logo ASI" 
+                                 class="h-12 w-12 rounded-full object-cover ring-2 ring-primary-400">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">ASI</h3>
+                                <p class="text-sm text-gray-300">Alternative Solidarité Immigration</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                            Nous accompagnons les migrants dans leur parcours d'intégration et renforçons 
+                            la résilience des communautés d'accueil pour un avenir solidaire et durable.
+                        </p>
+                        
+                        <!-- Social Links -->
+                        <div class="flex space-x-4">
+                            <a href="https://facebook.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-facebook-f text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-twitter text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-linkedin-in text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" 
+                               class="w-10 h-10 bg-primary-600 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+                                <i class="fab fa-instagram text-white group-hover:scale-110 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Liens rapides</h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="about.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    À propos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="activities.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Nos activités
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adhesion.html" class="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center group">
+                                    <i class="fas fa-chevron-right mr-2 text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    Adhésion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="animate-slide-up" style="animation-delay: 0.4s;">
+                        <h4 class="text-lg font-semibold text-white mb-6">Contact</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-envelope text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Email</p>
+                                    <a href="mailto:alternatives.asi@gmail.com" 
+                                       class="text-white hover:text-primary-400 transition-colors duration-300">
+                                        alternatives.asi@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-phone text-primary-400 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-300 text-sm">Téléphone</p>
+                                    <p class="text-white">+33 6 50 58 60 44</p>
+                                    <p class="text-white">+224 623 99 30 30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-gray-400 text-sm text-center md:text-left">
+                        &copy; 2024 Alternative Solidarité Immigration (ASI). YATTARA Ousmane - Tous droits réservés.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Politique de confidentialité
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                            Mentions légales
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         SCROLL TO TOP BUTTON
+    ======================================== -->
+    <button id="scroll-to-top" 
+            class="fixed bottom-6 right-6 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible hover:scale-110 z-50 group">
+        <i class="fas fa-chevron-up group-hover:scale-110 transition-transform duration-300"></i>
+    </button>
+
+    <!-- ========================================
+         JAVASCRIPT SECTION
+    ======================================== -->
+    <script>
+        // ========================================
+        // MOBILE MENU TOGGLE
+        // ========================================
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLines = document.querySelectorAll('.menu-line');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('menu-open');
+            
+            if (isOpen) {
+                // Fermer le menu
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                // Animation des lignes du burger
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            } else {
+                // Ouvrir le menu
+                mobileMenu.classList.add('menu-open');
+                mobileMenu.style.transform = 'translateY(0)';
+                mobileMenu.style.opacity = '1';
+                mobileMenu.style.visibility = 'visible';
+                
+                // Animation des lignes du burger vers X
+                menuLines[0].style.transform = 'rotate(45deg) translateY(6px)';
+                menuLines[1].style.opacity = '0';
+                menuLines[2].style.transform = 'rotate(-45deg) translateY(-6px)';
+            }
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.visibility = 'hidden';
+                
+                menuLines[0].style.transform = 'rotate(0deg) translateY(0)';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = 'rotate(0deg) translateY(0)';
+            });
+        });
+
+        // ========================================
+        // SLIDESHOW FUNCTIONALITY
+        // ========================================
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // Cacher toutes les slides
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+
+            // Réinitialiser tous les dots
+            dots.forEach(dot => {
+                dot.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
+            });
+
+            // Afficher la slide actuelle
+            if (slides[index]) {
+                slides[index].style.display = 'block';
+                slides[index].classList.add('fade');
+            }
+
+            // Activer le dot correspondant
+            if (dots[index % dots.length]) {
+                dots[index % dots.length].style.backgroundColor = 'white';
+            }
+        }
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % totalSlides;
+            showSlide(slideIndex);
+        }
+
+        function prevSlide() {
+            slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+            showSlide(slideIndex);
+        }
+
+        // Auto-play slideshow
+        function startSlideshow() {
+            showSlide(slideIndex);
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        // Navigation arrows
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        if (prevButton) {
+            prevButton.addEventListener('click', prevSlide);
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', nextSlide);
+        }
+
+        // Dots navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                slideIndex = index * Math.floor(totalSlides / dots.length);
+                showSlide(slideIndex);
+            });
+        });
+
+        // Initialize slideshow
+        if (slides.length > 0) {
+            startSlideshow();
+        }
+
+        // ========================================
+        // SCROLL TO TOP BUTTON
+        // ========================================
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+                scrollToTopBtn.style.visibility = 'visible';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+                scrollToTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ========================================
+        // HEADER SCROLL EFFECT
+        // ========================================
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.classList.add('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.classList.remove('scrolled');
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // ========================================
+        // INTERSECTION OBSERVER - Animations au scroll
+        // ========================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+                // Observer tous les éléments avec des classes d'animation
+        const animatedElements = document.querySelectorAll('.animate-slide-up, .animate-fade-in, .animate-scale-in');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // ========================================
+        // SMOOTH SCROLLING POUR LES LIENS D'ANCRAGE
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ========================================
+        // LOADING ANIMATION
+        // ========================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Ajouter une classe pour déclencher les animations initiales
+            setTimeout(() => {
+                const initialElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+                initialElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 100);
+        });
+
+        // ========================================
+        // PARALLAX EFFECT POUR LES ÉLÉMENTS DE FOND
+        // ========================================
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.animate-float');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // ========================================
+        // PERFORMANCE OPTIMIZATION
+        // ========================================
+        
+        // Lazy loading pour les images
+        const images = document.querySelectorAll('img[src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('fade-in');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Debounce function pour optimiser les événements de scroll
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Appliquer le debounce aux événements de scroll
+        const debouncedScrollHandler = debounce(() => {
+            // Handlers de scroll optimisés ici
+        }, 10);
+
+        window.addEventListener('scroll', debouncedScrollHandler);
+
+        // ========================================
+        // ACCESSIBILITY IMPROVEMENTS
+        // ========================================
+        
+        // Gestion du focus pour la navigation au clavier
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Amélioration de l'accessibilité pour le menu mobile
+        mobileMenuToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenuToggle.click();
+            }
+        });
+
+        // ========================================
+        // SLIDESHOW KEYBOARD NAVIGATION
+        // ========================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+
+        // ========================================
+        // TOUCH/SWIPE SUPPORT FOR SLIDESHOW
+        // ========================================
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const slideshowContainer = document.querySelector('.slideshow-container');
+
+        if (slideshowContainer) {
+            slideshowContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            slideshowContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe left - next slide
+                        nextSlide();
+                    } else {
+                        // Swipe right - previous slide
+                        prevSlide();
+                    }
+                }
+            }
+        }
+
+        // ========================================
+        // CONSOLE WELCOME MESSAGE
+        // ========================================
+        console.log(`
+        🎯 ASI - Page Activités
+        ═══════════════════════
+        
+        Découvrez nos événements et activités !
+        
+        Développé avec ❤️ par l'équipe ASI
+        Contact : alternatives.asi@gmail.com
+        `);
+
+    </script>
+
+    <!-- ========================================
+         ADDITIONAL CSS STYLES
+    ======================================== -->
+    <style>
+        /* Styles CSS personnalisés pour le slideshow */
+        
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.fade {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Styles pour les dots actifs */
+        .dot.active {
+            background-color: white !important;
+            transform: scale(1.2);
+        }
+
+        /* Amélioration des transitions pour les cartes d'événements */
+        .group:hover .group-hover\:scale-110 {
+            transform: scale(1.1);
+        }
+
+        /* Styles pour la navigation au clavier */
+        .keyboard-navigation *:focus {
+            outline: 2px solid #3B82F6 !important;
+            outline-offset: 2px;
+        }
+
+        /* Amélioration des ombres pour les cartes */
+        .shadow-custom {
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Styles pour les éléments interactifs */
+        .interactive-element {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Optimisation des performances */
+        .gpu-accelerated {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        /* Media queries pour les animations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .slide {
+                animation: none;
+            }
+        }
+
+        /* Responsive adjustments pour le slideshow */
+        @media (max-width: 768px) {
+            .slideshow-container .prev,
+            .slideshow-container .next {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+            
+            .dots-container {
+                bottom: 8px;
+            }
+            
+            .dot {
+                width: 8px !important;
+                height: 8px !important;
+            }
+        }
+
+        /* Styles pour l'impression */
+        @media print {
+            .no-print,
+            .slideshow-container .prev,
+            .slideshow-container .next,
+            .dots-container {
+                display: none !important;
+            }
+        }
+
+        /* Amélioration de l'accessibilité pour les boutons de navigation */
+        .prev:focus,
+        .next:focus {
+            outline: 2px solid #3B82F6;
+            outline-offset: 2px;
+        }
+
+        /* Animation pour les cartes d'activités */
+        .activity-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Styles pour les badges d'événements */
+        .event-badge {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Amélioration des gradients */
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+        }
+    </style>
+
+</body>
 </html>
